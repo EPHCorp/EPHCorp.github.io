@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Priority Health | Global Medical Tourism Bridge</title>
+<!-- 👇 ADD THIS LINE TO REPLACE THE GLOBE ICON 👇 -->
+    <link rel="icon" type="logo" href="images/logo.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            darkblue: '#0F2942',
+                            blue: '#1E5D8C',
+                            teal: '#4FA8B0',
+                            cream: '#F7F5EE',
+                            gold: '#E5B842'
+                        }
+                    },
+                    fontFamily: {
+                        /* 
+                           A robust system font stack optimized for both Western & Chinese devices.
+                           - Apple: -apple-system, BlinkMacSystemFont, "PingFang SC" (Elegant Chinese)
+                           - Windows: "Segoe UI", "Microsoft YaHei" (Clean Chinese)
+                        */
+                        sans: [
+                            'system-ui', 
+                            '-apple-system', 
+                            'BlinkMacSystemFont', 
+                            '"Segoe UI"', 
+                            'Roboto', 
+                            '"Helvetica Neue"', 
+                            'Arial', 
+                            '"PingFang SC"', 
+                            '"Hiragino Sans GB"', 
+                            '"Microsoft YaHei"', 
+                            '"WenQuanYi Micro Hei"', 
+                            'sans-serif'
+                        ],
+                        /* Clean editorial serif fallback omitting Google Playfair */
+                        serif: [
+                            'Georgia', 
+                            'Cambria', 
+                            '"Times New Roman"', 
+                            'Times', 
+                            'serif'
+                        ],
+                    }
+                }
+            }
+        }
+    </script>
+
+<!-- Custom Styles for the Founder's Story "Read More" Effect -->
+    <style>
+        /* Define the collapsed state height (matches the left-side portrait) */
+        #story-content {
+            max-height: 25rem; 
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+            position: relative;
+        }
+
+        /* State when the "Read Full Story" button is clicked */
+        #story-content.expanded {
+            max-height: 2000px; 
+        }
+
+        /* Gradient fade overlay that blends into the bg-slate-50 background color */
+        #story-fade {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(248, 250, 252, 0) 0%, rgba(248, 250, 252, 1) 100%);
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Hide the fade effect completely when the text is expanded */
+        #story-content.expanded #story-fade {
+            opacity: 0;
+        }
+
+        /* Collapsed state for the extra images container */
+        #story-images {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease-in-out, opacity 0.6s ease-in-out, margin-top 0.4s ease-in-out;
+        }
+
+        /* Expanded state for the extra images container (increased height for vertical stack) */
+        #story-images.expanded {
+            max-height: 1500px; /* Large enough to hold the taller vertical images stack */
+            opacity: 1;
+            margin-top: 1.5rem; /* Space out the stack from the main portrait when visible */
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-brand-darkblue/95 backdrop-blur-md text-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <!-- Actual Logo Image -->
+                <img src="images/logo.png" alt="Elite Priority Health Logo" class="w-20 h-20 object-contain">
+                
+                <div>
+                    <span class="block text-lg font-bold tracking-wider text-brand-cream">ELITE PRIORITY HEALTH</span>
+                <span class="block text-xs tracking-widest text-brand-gold -mt-1">GLOBAL MEDICAL LOGISTICS BRIDGE</span>
+                </div>
+        
+            </div>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex space-x-8 text-medium font-medium tracking-wide">
+                <a href="#about" class="hover:text-brand-gold transition duration-150">About Us</a>
+                <a href="#why-we-exist" class="hover:text-brand-gold transition duration-150">Why We Exist</a>
+                <a href="#services" class="hover:text-brand-gold transition duration-150">What We Offer</a>
+                <a href="#our-path" class="hover:text-brand-gold transition duration-150">How We Do It</a>
+            </nav>
+
+            <div class="hidden md:block">
+                <a href="#contact" class="bg-brand-gold text-brand-darkblue px-6 py-2.5 rounded-full font-bold text-medium tracking-wide hover:bg-white hover:text-brand-darkblue transition duration-300 shadow-lg">
+                    Begin Your Journey
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-darkblue px-4 pt-2 pb-6 space-y-3 border-t border-slate-700">
+            <a href="#about" class="block text-white hover:text-brand-gold py-2">About Us</a>
+            <a href="#why-we-exist" class="block text-white hover:text-brand-gold py-2">Why We Exist</a>
+            <a href="#services" class="block text-white hover:text-brand-gold py-2">What We Offer</a>
+            <a href="#our-path" class="block text-white hover:text-brand-gold py-2">The Process</a>
+            <a href="#contact" class="block text-center bg-brand-gold text-brand-darkblue py-2.5 rounded-full font-bold">Begin Your Journey</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative bg-gradient-to-r from-brand-darkblue to-slate-900 text-white py-24 md:py-32 overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-brand-teal filter blur-3xl"></div>
+            <div class="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-brand-gold filter blur-3xl"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                 <h1 class="font-normal md:text-4xl lg:text-4xl tracking-tight text-brand-gold mt-4 leading-tight">
+                   Connect to Premium Healthcare <b>Without the Wait</b>
+                </h1>
+                <p class="mt-6 text-lg text-slate-300 leading-relaxed">
+                   We are here to bridge the gap of medical services that are not readily accessible or available in Canada by connecting our clients with our partnered world-class medical services abroad.
+                </p>
+                <div class="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#our-path" class="bg-brand-gold text-brand-darkblue hover:bg-white px-8 py-3.5 rounded-full font-bold text-center transition duration-300 shadow-xl">
+                        Explore Our Process
+                    </a>
+                    <a href="#contact" class="border border-slate-400 text-white hover:bg-white/10 px-8 py-3.5 rounded-full font-bold text-center transition duration-300">
+                        Book Initial Consultation
+                    </a>
+                </div>
+            </div>
+            <!-- Dynamic Quote Panel -->
+            <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700/60 shadow-2xl backdrop-blur-sm">
+                <div class="w-12 h-12 bg-brand-teal/20 rounded-full flex items-center justify-center text-brand-teal mb-6">
+                    <i class="fa-solid fa-quote-left text-xl"></i>
+                </div>
+                <p class="text-xl italic text-slate-200 font-medium leading-relaxed">
+                    "When the Canadian medical system failed to provide any long-term solutions for my severe chronic back pain issues, I had lost all hope... Then when a person I trust invited me to try stem-cell therapy abroad, I decided to take a leap of faith... After being treated, I can confidently say that I am free from the chronic pain that has haunted me for over a decade."
+                </p>
+                <div class="mt-6 flex items-center space-x-4">
+                    <div class="w-10 h-10 bg-brand-gold/20 rounded-full flex items-center justify-center text-brand-gold font-bold">
+                        K
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-sm">Kris Song</h4>
+                        <p class="text-xs text-brand-teal">Founder & CAF Veteran</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- CORE MISSION & VALUES -->
+<section id="about" class="py-12 bg-white border-b border-slate-100 scroll-mt-28">
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Centered "ABOUT US" Header Block (Reduced margin-bottom to mb-6) -->
+        <div class="text-center max-w-3xl mx-auto mb-6">
+            <span class="text-brand-gold font-extrabold uppercase tracking-widest text-4xl">ABOUT US</span>
+        </div>	
+		<div class="bg-brand-cream rounded-2xl p-8 md:p-12 shadow-inner border border-brand-gold/60 grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left Column: Mission (Top-Aligned) -->
+            <div class="lg:col-span-1 border-b lg:border-b-0 lg:border-r border-brand-gold/60 pb-6 lg:pb-0 lg:pr-8 flex flex-col justify-start">
+                
+		<h2 class="text-3xl md:text-3xl font-serif font-extrabold text-brand-darkblue mt-2">
+                    Our Mission
+                </h2>
+                <p class="text-slate-600 mt-4 leading-relaxed text-base md:text-xl">
+                    To provide a safe and proven bridge for the people in need of higher quality, readily available, and effective medical service around the world.
+                </p>
+            </div>
+
+            <!-- Right Column: Values Header + 3 Cards (Top-Aligned) -->
+            <div class="lg:col-span-2 flex flex-col justify-start pl-0 lg:pl-4">
+                <!-- Section Header for Values -->
+                <div class="mb-6">
+                   <h2 class="text-3xl md:text-3xl font-serif font-extrabold text-brand-darkblue mt-2">
+                        Our Core Values
+                    </h2>
+                </div>
+
+                <!-- Values Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    
+                    <!-- Value 1 -->
+                    <div class="group h-44 [perspective:1000px]">
+                        <div class="relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                            <!-- Front Side -->
+                            <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white p-6 rounded-xl shadow-sm border border-slate-200/40 flex flex-col justify-center items-center text-center">
+                                <h3 class="font-bold text-slate-600 text-lg leading-snug">Priority Customer Service</h3>
+                            </div>
+                            <!-- Back Side -->
+                            <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-white p-6 rounded-xl shadow-sm border border-slate-200/40 flex flex-col justify-center items-center text-center">
+                                <p class="text-base text-slate-500">Customer-centric support that treats your health with the urgency it demands.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Value 2 -->
+                    <div class="group h-44 [perspective:1000px]">
+                        <div class="relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                            <!-- Front Side -->
+                            <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white p-6 rounded-xl shadow-sm border border-slate-200/40 flex flex-col justify-center items-center text-center">
+                                <h3 class="font-bold text-slate-600 text-lg leading-snug">Tailor-Made Approach</h3>
+                            </div>
+                            <!-- Back Side -->
+                            <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-white p-6 rounded-xl shadow-sm border border-slate-200/40 flex flex-col justify-center items-center text-center">
+                                <p class="text-base text-slate-500">A deeply customized approach tailored around your unique needs and logistical comfort.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Value 3 -->
+                    <div class="group h-44 [perspective:1000px]">
+                        <div class="relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                            <!-- Front Side -->
+                            <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white p-6 rounded-xl shadow-sm border border-slate-200/40 flex flex-col justify-center items-center text-center">
+                                <h3 class="font-bold text-slate-600 text-lg leading-snug">Informed Client-Decision Making</h3>
+                            </div>
+                            <!-- Back Side -->
+                            <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-white p-6 rounded-xl shadow-sm border border-slate-200/40 flex flex-col justify-center items-center text-center">
+                                <p class="text-base text-slate-500">Complete transparency and dynamic analysis so you can make the most informed decisions.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- FOUNDER'S STORY -->
+<section class="py-20 bg-slate-50 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            
+	<!-- Left Column: Portrait & Vertically Stacked Extra Images -->
+            <div class="lg:col-span-5 lg:sticky lg:top-10 relative z-10">
+                <!-- Portrait (Always visible) -->
+            		<div class="aspect-square bg-brand-darkblue rounded-3xl overflow-hidden shadow-2xl relative border-4 border-white">
+                    <!-- The Actual Portrait Image -->
+                    <img src="images/kris.jpg" alt="Kris" class="absolute inset-0 w-full h-full object-cover">
+                    
+                    <!-- Dark gradient overlay to make the name badge pop -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent z-10"></div>
+                    
+                    <!-- Name Badge -->
+                    <div class="absolute bottom-6 left-6 z-20">
+                        <span class="bg-brand-gold text-brand-darkblue font-bold text-2xl px-4 py-1.5 rounded-lg font-serif">Kris Song, CD, MGM</span>
+                    </div>
+                </div>
+
+              <!-- Extra Images Stack -->
+		<div id="story-images" class="flex flex-col gap-6">
+    		<!-- Image 1 -->
+    			<div class="aspect-[16/9] bg-slate-200 rounded-3xl overflow-hidden shadow-xl border-4 border-white">
+        		<img src="images/kris3.jpg" alt="army" class="w-full h-full object-cover">
+    			</div>
+    		<!-- Image 2 -->
+    			<div class="aspect-[16/9] bg-slate-200 rounded-3xl overflow-hidden shadow-xl border-4 border-white">
+        		<img src="images/hospital.jpg" alt="city" class="w-full h-full object-cover">
+			</div>
+		<!-- Image 3 -->
+    			<div class="aspect-[16/9] bg-slate-200 rounded-3xl overflow-hidden shadow-xl border-4 border-white">
+        		<img src="images/hospital3.jpeg" alt="hospital" class="w-full h-full object-cover">
+    			</div>
+    		<!-- Image 4 -->
+    			<div class="aspect-[10/10] bg-slate-200 rounded-3xl overflow-hidden shadow-xl border-4 border-white">
+        		<img src="images/city.jpeg" alt="city" class="w-full h-full object-cover">
+			</div>
+		<!-- Image 5 -->
+    			<div class="aspect-[9/10] bg-slate-200 rounded-3xl overflow-hidden shadow-xl border-4 border-white">
+        		<img src="images/medical.jpeg" alt="medical" class="w-full h-full object-cover">
+    			</div>
+		</div>
+       	 </div>
+
+            <!-- Right Column: Text Content -->
+            <div class="lg:col-span-7 relative z-0">
+                <span class="text-brand-blue font-extrabold uppercase tracking-widest text-base">The Story Behind Our Purpose</span>
+                <h2 class="text-3xl md:text-3xl font-serif font-bold text-brand-darkblue mt-2 mb-6">
+                    The Founder's Personal Journey
+                </h2>
+                
+                <!-- This wrapper holds the cut-off logic -->
+               <div id="story-content" class="space-y-6 text-slate-600 text-lg leading-relaxed pr-2 max-h-[450px] overflow-hidden transition-all duration-700 ease-in-out relative">
+                    <p>
+                        Our founder, Kris, dedicated over 20 years of his life serving Canada as a commissioned army officer in the Canadian Armed Forces, specializing in identifying problems, creating solutions, strategizing concept of operations, and executing operations. Throughout his military career, he was deployed to places like Afghanistan and Iraq, and had the privilege of leading many soldiers. Unfortunately, throughout his service, he suffered many critical injuries such as severe chronic back pain, hearing loss, torn ligament in his knee, and eventually, a diagnosis of MDS that ultimately forced him to medically retire from active service in 2024. 
+                    </p>
+                    <p>
+                        Rather than staying idle and clinically depressed, Kris decided to obtain his master’s degree in Global Management, focusing on global enterprise operations, business strategies, intercultural studies, change management, and finance management. From there, he achieved the university's Founders' Award for leadership, commitment to sustainability, positive and proactive work in equity, diversity and inclusion, and personal growth; and the Chancellor's Award for achieving highest GPA in the program within the academic year.
+                    </p>
+                    <p class="border-l-4 border-brand-teal pl-4 italic bg-white p-4 rounded-r-xl shadow-sm">
+                        However, his suffering from the injuries gradually increased over time. He tried steroid injections, radio-frequency ablations, physiotherapy, kinesiology, chiro-therapy, acupuncture, osteopath, basically anything that the Canadian medical system suggested. When every treatment failed to provide any long-term solutions to his injuries, he started to lose all hope.
+                    </p>
+                    <p>
+                        Over the years, Kris' in-laws have consistently suggested for him to try stem-cell therapy abroad. His in-laws were optimistic about these therapies because they have had numerous positive experiences from overseas stem-cell and NK-cell therapies to treat their immunity issues, tumors, and cancer cells. At first, Kris rejected the idea many times due to his skeptics on the quality of healthcare outside of Canada and the negative perceptions about stem-cell research by his Canadian physicians and healthcare providers. However, when he felt like he was out of options, in 2026, he decided to take a leap of faith and listen to his in-laws.
+                    </p>
+                    <p> 
+                        Upon arriving to the hospital in Guiyang, Guizhou Province of China, he was surprised by the sheer size and the quality of their "small" hospital. The hospital so big and modern that it dwarfed any hospital in Canada. On the first day he was given a VIP tour of the hospital where he was shown each of their department followed by a presentation of the hospital's history, awards, and official certifications to conduct specialized therapies. Soon after, Kris was approached by an admin nurse who asked about his medical concerns and went over all types of scans, exams, and tests that could be administered during his stay. The next morning, he went through 2x MRI scans, 1x CT scan, full body ultrasound, bone density scan, bacterial breath tests, urine test, various blood tests, and a 4-point blood pressure test, all within 3 hours of the visit. While the results of the test were being reviewed, Kris went on an optional guided scenic tour of the Guizhou province where he discovered the beauty of China's natural landscape and ancient cities. 
+                    </p>
+                    <p class="border-l-4 border-brand-teal pl-4 italic bg-white p-4 rounded-r-xl shadow-sm">
+                        When he returned to the hospital, a physician went over all the test results in english and confirmed his existing known conditions and discovered new health concerns that could potentially become serious if left untreated. Of note, these findings would have never surfaced in Canadian medical screenings since he did not experience or display any symptoms. Luckily, these new concerns were in their early stages and he was told that they could be treated through existing medicine supplied by hospital. Given his health examination, the doctor suggested that he would be a good fit for stem-cell therapy. 
+                    </p>
+                    <p> 
+                        The following day he received two stem-cell injections, one through IV and one through a direct injection to his injured knee. He was told to take it easy for the next 6 months to allow the stem cells to repair his body. After few hours of showing no adverse effects of the treatments, he was discharged from the hospital. Other than the discomfort in his knee from the injection, he did not feel any different. He was still experiencing the same chronic back pain.
+                    </p>
+                    <p> 
+                        A week after returning to Canada, Kris woke up one morning and realized something was differnt. The chronic back pain disappeared - but rather than getting his hopes up, he kept going about his days. Then after a month, while still being pain-free, he noticed a significant increase in stability and strength in his injured knee. He described it like it was a miracle - it gave him a new hope for his life. This was when he made the decision to dedicate his next chapter of his life, helping others experience similar relief to their existing conditions. This was where Elite Priority Health began.   
+                    </p>
+
+                    <!-- THE FADE OVERLAY -->
+                    <div id="story-fade" class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent transition-opacity duration-300 pointer-events-none"></div>
+</div>
+
+<!-- READ MORE BUTTON -->
+<div class="mt-8 text-center lg:text-left">
+    <button id="read-more-btn" class="inline-flex items-center gap-2 bg-brand-darkblue text-white font-bold px-8 py-3 rounded-full shadow-lg hover:bg-brand-blue transition-colors duration-300 text-sm uppercase tracking-wider">
+        <span id="btn-text">Read Full Story</span>
+        <i class="fa-solid fa-chevron-down transition-transform duration-300" id="btn-icon"></i>
+    </button>
+</div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHY WE EXIST (CHALLENGE / DATA SECTION) -->
+<section id="why-we-exist" class="py-20 bg-brand-darkblue text-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-brand-gold font-extrabold uppercase tracking-widest text-4xl">WHY WE EXIST</span>
+            <h2 class="text-3xl md:text-xl font-serif font-bold mt-2">Wait is too long | Not enough resources | Always too late</h2>
+            <p class="mt-4 text-slate-300">
+                The systemic gridlock within Canadian domestic healthcare has reached unprecedented levels. Although the number of doctors and nurses is steadily growing, it is not close to meeting the actual demand. The data shows exactly why Canadians are suffering without family doctors, waiting up to 6 months for referrals, and desperately need an alternative path.
+            </p>
+        </div>
+
+        <!-- 8-Card Responsive Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 isolate">
+            
+            <!-- Card 1: Overcrowded Hospitals -->
+            <div class="group h-72 [perspective:1000px] relative z-10 cursor-pointer" 
+                 onclick="openChartModal('images/chart1.png', 'Hospital Bed Capacity Graph', 'OECD. (October 15, 2025). Density of hospital beds in Canada from 1976 to 2023 [Graph]. In Statista. Retrieved July 04, 2026, from https://www.statista.com/statistics/831668/density-of-hospital-beds-canada/')">
+                <div class="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                    <!-- Front Side -->
+                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center text-red-400 mb-4 text-xl">
+                                <i class="fa-solid fa-hospital"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-white">Overcrowded Hospitals</h3>
+                            <p class="text-s text-slate-300 mt-2 leading-relaxed">Since 1976, Canadian hospital bed density has declined dramatically, leaving hospitals near constant threshold capacities.</p>
+                        </div>
+                        <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold">Click to view chart →</span>
+                    </div>
+                    <!-- Back Side -->
+                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
+                        <img src="images/chart1.png" alt="Hospital Bed Capacity Graph" class="w-full h-full object-contain p-2 bg-slate-900">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Long Referral Waits -->
+            <div class="group h-72 [perspective:1000px] relative z-10 cursor-pointer" 
+                 onclick="openChartModal('images/chart2.png', 'Specialist Wait Times Graph', 'Fraser Institute. (December 11, 2024). Median number of weeks patients waited from referral by a general practitioner to medical treatment in Canada from 1993 to 2024, by province [Graph]. In Statista. Retrieved July 04, 2026, from https://www.statista.com/statistics/654494/weeks-waited-from-gp-referral-to-medical-treatment-in-canada-by-province/')">
+                <div class="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                    <!-- Front Side -->
+                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-400 mb-4 text-xl">
+                                <i class="fa-solid fa-hourglass-half"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-white">Long Referral Waits</h3>
+                            <p class="text-s text-slate-300 mt-2 leading-relaxed">The median waiting period from primary GP referral to specialty medical treatment continues to set historic records across provinces.</p>
+                        </div>
+                        <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold">Click to view chart →</span>
+                    </div>
+                    <!-- Back Side -->
+                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
+                        <img src="images/chart2.png" alt="Specialist Wait Times Graph" class="w-full h-full object-contain p-2 bg-slate-900">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Medical Staff Shortages -->
+            <div class="group h-72 [perspective:1000px] relative z-10 cursor-pointer" 
+                 onclick="openChartModal('images/chart3.png', 'Doctor Shortage Graph', 'Government of Canada. (January 30, 2025). Number of projected job openings and new jobseekers among general practitioners and family physicians from 2024 to 2033 [Graph]. In Statista. Retrieved July 05, 2026, from https://www.statista.com/statistics/1572104/projected-physician-deficit-in-canada/')">
+                <div class="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                    <!-- Front Side -->
+                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center text-yellow-400 mb-4 text-xl">
+                                <i class="fa-solid fa-user-doctor"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-white">Medical Staff Shortages</h3>
+                            <p class="text-s text-slate-300 mt-2 leading-relaxed">Systemic shortages in front-line healthcare workers restrict overall capacity and lengthen clinical wait lists.</p>
+                        </div>
+                        <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold">Click to view chart →</span>
+                    </div>
+                    <!-- Back Side -->
+                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
+                        <img src="images/chart3.png" alt="Doctor Shortage Graph" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Overworked Medical Staff -->
+            <div class="group h-72 [perspective:1000px] relative z-10 cursor-pointer" 
+                 onclick="openChartModal('images/chart4.png', 'Staff Burnout Graph', 'CIHI. (October 19, 2023). Number of overtime hours in Canadian hospitals among non-physician inpatient unit staff from 2017/18 to 2021/22 (in millions) [Graph]. In Statista. Retrieved July 04, 2026, from https://www.statista.com/statistics/1381491/inpatient-staff-overtime-hours-in-hospitals-canada/')">
+                <div class="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                    <!-- Front Side -->
+                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center text-red-400 mb-4 text-xl">
+                                <i class="fa-solid fa-heart-pulse"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-white">Overworked Medical Staff</h3>
+                            <p class="text-s text-slate-300 mt-2 leading-relaxed">Burnout levels have reached historic highs as existing personnel must pull double-duty to fill structural gaps.</p>
+                        </div>
+                        <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold">Click to view chart →</span>
+                    </div>
+                    <!-- Back Side -->
+                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
+                        <img src="images/chart4.png" alt="Staff Burnout Graph" class="w-full h-full object-contain p-2 bg-slate-900">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5: Rising Safety Incidents -->
+            <div class="group h-72 [perspective:1000px] relative z-10 cursor-pointer" 
+                 onclick="openChartModal('images/chart5.png', 'ER Closures Graph', 'CIHI. (October 17, 2024). Number of harmful events in hospitals in Canada from 2014/15 to 2023/24, by category of harm [Graph]. In Statista. Retrieved July 04, 2026, from https://www.statista.com/statistics/1467752/patient-harm-events-in-hospitals-canada-by-category/')">
+                <div class="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                    <!-- Front Side -->
+                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 mb-4 text-xl">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-white">Rising Safety Incidents</h3>
+                            <p class="text-s text-slate-300 mt-2 leading-relaxed">Understaffed, crowded facilities report a corresponding spike in hospital-acquired infections and diagnostic mistakes.</p>
+                        </div>
+                        <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold">Click to view chart →</span>
+                    </div>
+                    <!-- Back Side -->
+                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
+                        <img src="images/chart5.png" alt="ER Closures Graph" class="w-full h-full object-contain p-2 bg-slate-900">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6: Lacking Diagnostic Equipment -->
+            <div class="group h-72 [perspective:1000px] relative z-10 cursor-pointer" 
+                 onclick="openChartModal('images/chart6.png', 'Imaging Waiting Times Graph', 'CADTH. (January 11, 2021). Number of medical imaging units per million population in Canada in 2019/2020, by device* [Graph]. In Statista. Retrieved July 05, 2026, from https://www.statista.com/statistics/821789/number-of-medical-imaging-units-per-million-population-in-canada-by-device/')">
+                <div class="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                    <!-- Front Side -->
+                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-brand-teal/10 flex items-center justify-center text-brand-teal mb-4 text-xl">
+                                <i class="fa-solid fa-microscope"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-white">Lacking Diagnostic Equipment</h3>
+                            <p class="text-s text-slate-300 mt-2 leading-relaxed">Insufficient domestic imaging systems (CT, MRI, PET scans) delays crucial detection for leading medical causes of death.</p>
+                        </div>
+                        <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold">Click to view chart →</span>
+                    </div>
+                    <!-- Back Side -->
+                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
+                        <img src="images/chart6.png" alt="Imaging Waiting Times Graph" class="w-full h-full object-contain p-2 bg-slate-900">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 7: Missed Early Detection -->
+            <div class="group h-72 [perspective:1000px] relative z-10 cursor-pointer" 
+                 onclick="openChartModal('images/chart7.png', 'Cancer Treatment Delays Graph', 'StatCan. (January 13, 2026). Distribution of the leading causes of death in Canada in 2024 [Graph]. In Statista. Retrieved July 05, 2026, from https://www.statista.com/statistics/437880/proportion-of-deaths-in-canada-by-disease/')">
+                <div class="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                    <!-- Front Side -->
+                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-4 text-xl">
+                                <i class="fa-solid fa-dna"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-white">Missed Early Detection</h3>
+                            <p class="text-s text-slate-300 mt-2 leading-relaxed">Crucial diagnostic delay directly compromises survival rates for severe conditions requiring prompt intervention.</p>
+                        </div>
+                        <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold">Click to view chart →</span>
+                    </div>
+                    <!-- Back Side -->
+                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
+                        <img src="images/chart7.png" alt="Cancer Treatment Delays Graph" class="w-full h-full object-contain p-2 bg-slate-900">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 8: Fewer Family Doctors -->
+            <div class="group h-72 [perspective:1000px] relative z-10 cursor-pointer" 
+                 onclick="openChartModal('images/chart8.png', 'Doctor Shortage Graph', 'CIHI. (October 29, 2025). Family medicine physician density in Canada from 1978 to 2024 (per 100,000 population) [Graph]. In Statista. Retrieved July 05, 2026, from https://www.statista.com/statistics/496680/density-of-family-medicine-physician-in-canada-by-type/')">
+                <div class="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                    <!-- Front Side -->
+                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-4 text-xl">
+                                <i class="fa-solid fa-user-doctor"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-white">Fewer Family Doctors</h3>
+                            <p class="text-s text-slate-300 mt-2 leading-relaxed">Family medicine practitioner densities continue to slide downward, creating massive backlogs in basic diagnostics.</p>
+                        </div>
+                        <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold">Click to view chart →</span>
+                    </div>
+                    <!-- Back Side -->
+                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
+                        <img src="images/chart8.png" alt="Doctor Shortage Graph" class="w-full h-full object-contain p-2 bg-slate-900">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Centered Full-Screen Chart Overlay with Citation -->
+    <div id="chart-modal" class="fixed inset-0 z-[9999] hidden items-center justify-center bg-brand-darkblue/95 backdrop-blur-md transition-all duration-300 opacity-0" onclick="closeChartModal()">
+        <!-- Close Button -->
+        <button class="absolute top-6 right-6 text-white hover:text-brand-gold text-3xl focus:outline-none transition-colors duration-200" onclick="closeChartModal()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <!-- Modal Card Content -->
+        <div class="max-w-[90vw] max-h-[90vh] flex flex-col items-center justify-center gap-4 relative" onclick="event.stopPropagation()">
+            <!-- Image Frame -->
+            <div class="p-2 bg-slate-900 rounded-2xl border border-slate-700/60 shadow-2xl flex items-center justify-center">
+                <img id="modal-image" src="" alt="" class="max-w-full max-h-[70vh] object-contain rounded-lg">
+            </div>
+            <!-- Dynamic Citation Box -->
+            <div class="text-center px-4 max-w-2xl">
+                <p id="modal-citation" class="text-xs md:text-sm text-slate-400 font-sans tracking-wide leading-relaxed italic"></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Updated Interactive Zoom & Citation Script -->
+<script>
+    function openChartModal(imgSrc, altText, citationText) {
+        const modal = document.getElementById('chart-modal');
+        const modalImg = document.getElementById('modal-image');
+        const modalCite = document.getElementById('modal-citation');
+        
+        modalImg.src = imgSrc;
+        modalImg.alt = altText;
+        modalCite.innerText = citationText || "Source: Healthcare Registry Database";
+        
+        // Open modal with smooth fade-in
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+            modal.classList.add('opacity-100');
+        }, 10);
+    }
+
+    function closeChartModal() {
+        const modal = document.getElementById('chart-modal');
+        
+        modal.classList.remove('opacity-100');
+        modal.classList.add('opacity-0');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }, 300); // matches Tailwind's duration-300
+    }
+</script>
+
+<!-- Updated Interactive Zoom & Citation Script -->
+<script>
+    function openChartModal(imgSrc, altText, citationText) {
+        const modal = document.getElementById('chart-modal');
+        const modalImg = document.getElementById('modal-image');
+        const modalCite = document.getElementById('modal-citation');
+        
+        modalImg.src = imgSrc;
+        modalImg.alt = altText;
+        modalCite.innerText = citationText || "Source: Healthcare Registry Database";
+        
+        // Open modal with smooth fade-in
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+            modal.classList.add('opacity-100');
+        }, 10);
+    }
+
+    function closeChartModal() {
+        const modal = document.getElementById('chart-modal');
+        
+        modal.classList.remove('opacity-100');
+        modal.classList.add('opacity-0');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }, 300); // matches Tailwind's duration-300
+    }
+</script>
+
+    <!-- WHAT WE OFFER -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+		<span class="text-brand-gold font-extrabold uppercase tracking-widest text-4xl">WHAT WE OFFER</span>
+                <h2 class="text-3xl md:text-xl font-serif font-bold text-brand-darkblue mt-2">A Dual Network of Medical Logistics</h2>
+                <p class="mt-4 text-slate-500">
+                    By partnering with globally recognized, state-of-the-art hospitals, we blend world-class medical operations with stress-free travel management.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Elite Hospital Partners (What they provide) -->
+                <div class="bg-brand-cream rounded-2xl p-8 border border-slate-200/80 shadow-md">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue text-lg">
+                            <i class="fa-solid fa-hospital-user"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-brand-darkblue">What Our Partners Provide</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <span class="text-brand-teal mt-1"><i class="fa-solid fa-check-double"></i></span>
+                            <span class="text-slate-700 font-medium"><strong>Premium Medical Services:</strong> Available all year long.</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="text-brand-teal mt-1"><i class="fa-solid fa-check-double"></i></span>
+                            <span class="text-slate-700 font-medium"><strong>One-Stop Shop:</strong> All medical services completed in one location.</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="text-brand-teal mt-1"><i class="fa-solid fa-check-double"></i></span>
+                            <span class="text-slate-700 font-medium"><strong>Complete Imaging Suite:</strong> High-resolution MRI, CT, PET, SPECT and laboratory assessments.</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="text-brand-teal mt-1"><i class="fa-solid fa-check-double"></i></span>
+                            <span class="text-slate-700 font-medium"><strong>Specialty Care Focus:</strong> Standard surgical intervention, Traditional Chinese Medicine, and Stem Cell/NK Cell Therapies.</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="text-brand-teal mt-1"><i class="fa-solid fa-check-double"></i></span>
+                            <span class="text-slate-700 font-medium"><strong>World Class Patient Comforts:</strong> Private VIP suites, Translated Documents, Meals.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Elite Priority Health (What we provide) -->
+                <div class="bg-brand-darkblue rounded-2xl p-8 text-white shadow-lg relative overflow-hidden">
+                    <!-- Faint design element -->
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-gold/10 rounded-full -mr-16 -mt-16"></div>
+                    
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold text-lg">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-white">What We Provide</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <span class="text-brand-gold mt-1"><i class="fa-solid fa-compass"></i></span>
+                            <span class="text-slate-300"><strong>Initial Consult & Planning:</strong> Transparent option mapping matching your budget parameters.</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="text-brand-gold mt-1"><i class="fa-solid fa-compass"></i></span>
+                            <span class="text-slate-300"><strong>A-to-Z Travel Logistics:</strong> Complete management of travel visas, flights, lodging, and nutritional dining.</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="text-brand-gold mt-1"><i class="fa-solid fa-compass"></i></span>
+                            <span class="text-slate-300"><strong>Around the Clock Support:</strong> Continuous support before, during, and after your trip
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="text-brand-gold mt-1"><i class="fa-solid fa-compass"></i></span>
+                            <span class="text-slate-300"><strong>Currency Exchange Service:</strong> Secure foreign currency exchange service.</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="text-brand-gold mt-1"><i class="fa-solid fa-compass"></i></span>
+                            <span class="text-slate-300"><strong>Culture & Leisure:</strong> Inter-cultural training pre-departure and optional guided scenic excursions.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- THE PATH (6-STAGE WORKFLOW) -->
+<section id="our-path" class="py-20 bg-brand-cream border-b border-slate-100 scroll-mt-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Centered Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-brand-gold font-extrabold uppercase tracking-widest text-4xl">HOW WE DO IT</span>
+            <h2 class="text-3xl md:text-xl font-serif font-bold mt-2">6 simple steps designed for you to move at your own pace</h2>
+        </div>
+
+        <!-- 6-Stage Row Layout (Added justify-items-center) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 justify-items-center">
+            
+            <!-- Stage 1 -->
+            <div class="flex flex-col items-center text-center max-w-[200px]">
+                <!-- Icon: Deep Pink / Magenta Check -->
+                <div class="text-pink-600 text-5xl mb-6">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif">Stage 1</h3>
+                <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
+                    <li>Consultation</li>
+                    <li>Options Analysis</li>
+                    <li>Budget Analysis</li>
+                </ul>
+            </div>
+
+            <!-- Stage 2 -->
+            <div class="flex flex-col items-center text-center max-w-[200px]">
+                <!-- Icon: Orange Plane -->
+                <div class="text-orange-500 text-5xl mb-6">
+                    <i class="fa-solid fa-plane"></i>
+                </div>
+                <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif">Stage 2</h3>
+                <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
+                    <li>Travel Coordination</li>
+                    <li>Travel Preparation</li>
+                    <li>Travel Confirmation</li>
+                </ul>
+            </div>
+
+            <!-- Stage 3 -->
+            <div class="flex flex-col items-center text-center max-w-[200px]">
+                <!-- Icon: Indigo/Purple Map Pin -->
+                <div class="text-indigo-600 text-5xl mb-6">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif">Stage 3</h3>
+                <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
+                    <li>Travel to Location</li>
+                    <li>Link-up with Local Host</li>
+                    <li>Hospital Tour</li>
+                </ul>
+            </div>
+
+            <!-- Stage 4 -->
+            <div class="flex flex-col items-center text-center max-w-[200px]">
+                <!-- Icon: Emerald Green Stethoscope -->
+                <div class="text-emerald-500 text-5xl mb-6">
+                    <i class="fa-solid fa-stethoscope"></i>
+                </div>
+                <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif">Stage 4</h3>
+                <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
+                    <li>Triage</li>
+                    <li>Opted Tests & Scans</li>
+                    <li>Optional Guided Scenic Tour</li>
+                </ul>
+            </div>
+
+            <!-- Stage 5 -->
+            <div class="flex flex-col items-center text-center max-w-[200px]">
+                <!-- Icon: Violet Medical/Drip/Syringe -->
+                <div class="text-violet-600 text-5xl mb-6">
+                    <i class="fa-solid fa-syringe"></i>
+                </div>
+                <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif">Stage 5</h3>
+                <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
+                    <li>Results Debrief with Physician</li>
+                    <li>Opted Treatments</li>
+                </ul>
+            </div>
+
+            <!-- Stage 6 -->
+            <div class="flex flex-col items-center text-center max-w-[200px]">
+                <!-- Icon: Deep Pink / Magenta House -->
+                <div class="text-pink-600 text-5xl mb-6">
+                    <i class="fa-solid fa-house"></i>
+                </div>
+                <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif">Stage 6</h3>
+                <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
+                    <li>Return Home</li>
+                    <li>Trip Debrief</li>
+                    <li>Finalize Payment</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- STRATEGIC GOALS / FUTURE VISION -->
+<section class="py-20 bg-brand-white border-b border-slate-100 scroll-mt-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Centered Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-brand-gold font-extrabold uppercase tracking-widest text-4xl">OUR COMPANY ROADMAP</span>
+            <h2 class="text-3xl md:text-2xl font-serif font-bold mt-2">Four Phased Milestones</h2>
+            <p class="mt-4 text-slate-500">
+                Elite Priority Health's underlying goal will always be to provide a positive experience for clients to improve their quality of life. The company's long-term trajectory is to be able to provide this service for free to those in need.
+            </p>
+        </div>
+
+        <!-- 4-Phase Row Layout (Centered & Balanced) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
+            
+            <!-- Phase 1 -->
+            <div class="flex flex-col items-center text-center max-w-[240px]">
+                <!-- Icon: Deep Pink / Magenta Gears -->
+                <div class="text-pink-600 text-5xl mb-6">
+                    <i class="fa-solid fa-gears"></i>
+                </div>
+                <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif">Phase 1</h3>
+                <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
+                    <li>Build Partnerships</li>
+                    <li>Secure Logistic Bridge</li>
+                    <li>Build Digital Infrastructure</li>
+                </ul>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="flex flex-col items-center text-center max-w-[240px]">
+                <!-- Icon: Orange Rocket -->
+                <div class="text-orange-500 text-5xl mb-6">
+                    <i class="fa-solid fa-rocket"></i>
+                </div>
+                <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif">Phase 2</h3>
+                <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
+                    <li>Soft Online Launch</li>
+                    <li>Adjust & Improve</li>
+                    <li>First Office Launch</li>
+                </ul>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="flex flex-col items-center text-center max-w-[240px]">
+                <!-- Icon: Dark Blue/Indigo People Trend (Users + Line Chart) -->
+                <div class="text-indigo-700 text-5xl mb-6">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif">Phase 3</h3>
+                <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
+                    <li>Expand Partnerships</li>
+                    <li>Expand Client Reach</li>
+                    <li>Expand Offices</li>
+                </ul>
+            </div>
+
+            <!-- Phase 4 -->
+            <div class="flex flex-col items-center text-center max-w-[240px]">
+                <!-- Icon: Emerald Green Seedling/Hand (Holding Leaf/Plant) -->
+                <div class="text-emerald-500 text-5xl mb-6">
+                    <i class="fa-solid fa-seedling"></i>
+                </div>
+                <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif">Phase 4</h3>
+                <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
+                    <li>Set-up sponsored trips for children in need</li>
+                    <li>Set-up sponsored trips for seniors in need</li>
+                    <li>Set-up sponsored trips for veterans in need</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+   <!-- CONTACT FORM & FINAL CTA -->
+<section id="contact" class="py-20 bg-slate-900 text-white relative scroll-mt-28 isolate">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Column:CTA Text -->
+            <div class="lg:col-span-5">
+                <span class="text-brand-gold font-extrabold uppercase tracking-widest text-3xl">WHEN SHALL WE BEGIN?</span>
+                <h2 class="text-xl md:text-2xl font-serif font-bold mt-2 mb-6">Whenever you want to start priortizing your well-being</h2>
+                <p class="text-slate-300 leading-relaxed mb-6">
+                    It is time to start investing into your health. Connect with our support team to coordinate your free consultation today.
+                </p>
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <span class="text-brand-teal"><i class="fa-solid fa-envelope"></i></span>
+                        <span class="text-slate-300">support@elitepriorityhealth.ca</span>
+                    </div>
+                    
+                    <!-- NEW Streamlined Confidentiality Badge (Replaced HIPAA Badge) -->
+                    <div class="flex items-center space-x-3">
+                        <span class="text-brand-teal"><i class="fa-solid fa-shield-halved text-sm"></i></span>
+                        <span class="text-slate-400 text-xs">We value your privacy and keep your inquiry completely confidential.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Form (Now Functional via Formspree) -->
+            <div class="lg:col-span-7 bg-white text-slate-800 p-8 rounded-2xl shadow-2xl">
+                <h3 class="font-bold text-xl text-brand-darkblue mb-6">Confidential Booking Inquiry</h3>
+                
+                <!-- 👇 UPDATED FORM TAG & INPUTS 👇 -->
+                <form action="https://formspree.io/f/mdaqegyr" method="POST" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs uppercase font-bold text-slate-500 tracking-wider mb-1">Full Name</label>
+                            <!-- Added name="name" -->
+                            <input type="text" name="name" placeholder="John Doe" required class="w-full bg-slate-100 border border-slate-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-brand-teal">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase font-bold text-slate-500 tracking-wider mb-1">Email Address</label>
+                            <!-- Added name="email" -->
+                            <input type="email" name="email" placeholder="john@example.com" required class="w-full bg-slate-100 border border-slate-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-brand-teal">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase font-bold text-slate-500 tracking-wider mb-1">Area of Interests</label>
+                        <!-- Added name="interests" -->
+                        <input type="text" name="interests" placeholder="e.g., Stem-cell Therapy, NK-cell Therapy, Medical Exams, Hospitality, etc" class="w-full bg-slate-100 border border-slate-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-brand-teal">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase font-bold text-slate-500 tracking-wider mb-1">Brief Description of Your Needs</label>
+                        <!-- Added name="message" -->
+                        <textarea name="message" rows="3" placeholder="Let us know how we can best help you connect..." class="w-full bg-slate-100 border border-slate-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-brand-teal"></textarea>
+                    </div>
+                    
+                    <!-- Submit button is standard type="submit" and triggers the form action -->
+                    <button type="submit" class="w-full bg-brand-darkblue text-white hover:bg-brand-blue py-3 rounded-xl font-bold transition duration-300">
+                        Submit Secure Consultation Request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-darkblue text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center">
+            <div class="mb-6 sm:mb-0">
+                <span class="block text-lg font-bold tracking-wider text-brand-cream">ELITE PRIORITY HEALTH</span>
+                <span class="block text-xs tracking-widest text-brand-gold -mt-1">GLOBAL MEDICAL LOGISTICS BRIDGE</span>
+                <p class="text-xs text-slate-500 mt-2">© 2026 Elite Priority Health Inc. All rights reserved.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#about" class="text-sm hover:text-white transition">About Us</a>
+                <a href="#services" class="text-sm hover:text-white transition">Services</a>
+                <a href="#our-path" class="text-sm hover:text-white transition">The Path</a>
+            </div>
+        </div>
+    </footer>
+
+<!-- Responsive Navigation & Read More JS Script -->
+	<script>
+    // 1. Mobile Menu Logic (KEPT intact)
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
+
+    // 2. Dynamic Read More / Read Less Logic (UPDATED & IMPROVED)
+    document.addEventListener('DOMContentLoaded', function() {
+        const content = document.getElementById('story-content');
+        const images = document.getElementById('story-images'); 
+        const fade = document.getElementById('story-fade');
+        const button = document.getElementById('read-more-btn');
+        
+        if (button && content) {
+            const btnText = button.querySelector('span');
+            const btnIcon = document.getElementById('btn-icon');
+
+            button.addEventListener('click', function() {
+                // Check if the content is currently collapsed
+                const isCollapsed = content.style.maxHeight === '' || content.style.maxHeight === '450px';
+
+                if (isCollapsed) {
+                    // 1. Expand text container to its absolute dynamic height
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    
+                    // 2. Hide the gradient fade overlay
+                    if (fade) fade.classList.add('opacity-0');
+                    
+                    // 3. Show the extra images (by toggling your existing class)
+                    if (images) images.classList.add('expanded');
+                    
+                    // 4. Update UI labels and flip icon
+                    if (btnText) btnText.textContent = 'Read Less';
+                    if (btnIcon) btnIcon.style.transform = 'rotate(180deg)';
+                } else {
+                    // 1. Collapse text container back to start height
+                    content.style.maxHeight = '450px';
+                    
+                    // 2. Bring back the gradient fade overlay
+                    if (fade) fade.classList.remove('opacity-0');
+                    
+                    // 3. Hide the extra images
+                    if (images) images.classList.remove('expanded');
+                    
+                    // 4. Reset UI labels and icon
+                    if (btnText) btnText.textContent = 'Read Full Story';
+                    if (btnIcon) btnIcon.style.transform = 'rotate(0deg)';
+                    
+                    // 5. Smoothly scroll back to the top of the founder section
+                    const section = content.closest('section');
+                    if (section) {
+                        window.scrollTo({
+                            top: section.offsetTop - 80, // Subtracted 80px to account for your sticky header!
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        }
+    });
+	</script>
+</body>
+</html>
