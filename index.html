@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-en="Elite Priority Health | Global Medical Logistics Bridge" data-zh="Elite Priority Health | 全球医疗后勤桥梁">Elite Priority Health | Global Medical Logistics Bridge</title>
+    <title data-en="Elite Priority Health | Global Medical Logistics Bridge" data-zh="Elite Priority Health | 全球医疗后勤桥梁" data-ko="Elite Priority Health | 글로벌 의료 물류 브릿지">Elite Priority Health | Global Medical Logistics Bridge</title>
     
     <!-- Favicon -->
     <link rel="icon" type="logo" href="images/logo.png">
@@ -28,7 +28,7 @@
                         }
                     },
                     fontFamily: {
-                        /* Native System Font Stack for Western & Chinese devices (No Google Fonts dependency) */
+                        /* Native System Font Stack for Western, Chinese & Korean devices */
                         sans: [
                             'system-ui', 
                             '-apple-system', 
@@ -37,6 +37,9 @@
                             'Roboto', 
                             '"Helvetica Neue"', 
                             'Arial', 
+                            '"Apple SD Gothic Neo"',
+                            '"Malgun Gothic"',
+                            '"Noto Sans KR"',
                             '"PingFang SC"', 
                             '"Hiragino Sans GB"', 
                             '"Microsoft YaHei"', 
@@ -107,29 +110,31 @@
                 <img src="images/logo.png" alt="Elite Priority Health Logo" class="w-20 h-20 object-contain">
                 <div>
                     <span class="block text-lg font-bold tracking-wider text-brand-cream">ELITE PRIORITY HEALTH</span>
-                    <span class="block text-xs tracking-widest text-brand-gold -mt-1" data-en="GLOBAL MEDICAL LOGISTICS BRIDGE" data-zh="全球医疗后勤服务桥梁">GLOBAL MEDICAL LOGISTICS BRIDGE</span>
+                    <span class="block text-xs tracking-widest text-brand-gold -mt-1" data-en="GLOBAL MEDICAL LOGISTICS BRIDGE" data-zh="全球医疗后勤服务桥梁" data-ko="글로벌 의료 물류 서비스 브릿지">GLOBAL MEDICAL LOGISTICS BRIDGE</span>
                 </div>
             </div>
             
             <!-- Desktop Nav -->
             <nav class="hidden md:flex space-x-8 text-medium font-medium tracking-wide">
-                <a href="#about" data-en="About Us" data-zh="关于我们" class="hover:text-brand-gold transition duration-150">About Us</a>
-                <a href="#why-we-exist" data-en="Why We Exist" data-zh="为什么选择我们" class="hover:text-brand-gold transition duration-150">Why We Exist</a>
-                <a href="#services" data-en="What We Offer" data-zh="我们的服务" class="hover:text-brand-gold transition duration-150">What We Offer</a>
-                <a href="#our-path" data-en="How We Do It" data-zh="服务流程" class="hover:text-brand-gold transition duration-150">How We Do It</a>
+                <a href="#about" data-en="About Us" data-zh="关于我们" data-ko="회사 소개" class="hover:text-brand-gold transition duration-150">About Us</a>
+                <a href="#why-we-exist" data-en="Why We Exist" data-zh="为什么选择我们" data-ko="설립 배경" class="hover:text-brand-gold transition duration-150">Why We Exist</a>
+                <a href="#services" data-en="What We Offer" data-zh="我们的服务" data-ko="제공 서비스" class="hover:text-brand-gold transition duration-150">What We Offer</a>
+                <a href="#our-path" data-en="How We Do It" data-zh="服务流程" data-ko="진행 절차" class="hover:text-brand-gold transition duration-150">How We Do It</a>
             </nav>
 
             <!-- Desktop Nav Actions (Language Switcher + CTA) -->
             <div class="hidden md:flex items-center space-x-4">
-                <!-- Language Switcher -->
+                <!-- Language Switcher (EN | 中文 | 한국어) -->
                 <div class="flex items-center space-x-2 border border-slate-600/80 rounded-full px-3 py-1 bg-slate-800/50 text-xs font-semibold backdrop-blur-sm">
                     <button onclick="setLanguage('en')" id="lang-en" class="text-brand-gold font-bold transition">EN</button>
                     <span class="text-slate-500">|</span>
                     <button onclick="setLanguage('zh')" id="lang-zh" class="text-slate-300 hover:text-white transition">中文</button>
+                    <span class="text-slate-500">|</span>
+                    <button onclick="setLanguage('ko')" id="lang-ko" class="text-slate-300 hover:text-white transition">한국어</button>
                 </div>
 
                 <!-- CTA Button -->
-                <a href="#contact" data-en="Begin Your Journey" data-zh="开启健康之旅" class="bg-brand-gold text-brand-darkblue px-6 py-2.5 rounded-full font-bold text-medium tracking-wide hover:bg-white hover:text-brand-darkblue transition duration-300 shadow-lg">
+                <a href="#contact" data-en="Begin Your Journey" data-zh="开启健康之旅" data-ko="상담 신청하기" class="bg-brand-gold text-brand-darkblue px-6 py-2.5 rounded-full font-bold text-medium tracking-wide hover:bg-white hover:text-brand-darkblue transition duration-300 shadow-lg">
                     Begin Your Journey
                 </a>
             </div>
@@ -145,17 +150,19 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-brand-darkblue px-4 pt-2 pb-6 space-y-3 border-t border-slate-700">
             <!-- Mobile Language Toggle -->
-            <div class="flex items-center justify-center space-x-4 py-2 border-b border-slate-700/60 mb-2">
-                <button onclick="setLanguage('en')" id="mobile-lang-en" class="text-brand-gold font-bold text-sm">English</button>
+            <div class="flex items-center justify-center space-x-3 py-2 border-b border-slate-700/60 mb-2">
+                <button onclick="setLanguage('en')" id="mobile-lang-en" class="text-brand-gold font-bold text-xs">English</button>
                 <span class="text-slate-500">|</span>
-                <button onclick="setLanguage('zh')" id="mobile-lang-zh" class="text-slate-300 text-sm">中文 (Mandarin)</button>
+                <button onclick="setLanguage('zh')" id="mobile-lang-zh" class="text-slate-300 text-xs">中文</button>
+                <span class="text-slate-500">|</span>
+                <button onclick="setLanguage('ko')" id="mobile-lang-ko" class="text-slate-300 text-xs">한국어</button>
             </div>
 
-            <a href="#about" data-en="About Us" data-zh="关于我们" class="block text-white hover:text-brand-gold py-2">About Us</a>
-            <a href="#why-we-exist" data-en="Why We Exist" data-zh="为什么选择我们" class="block text-white hover:text-brand-gold py-2">Why We Exist</a>
-            <a href="#services" data-en="What We Offer" data-zh="我们的服务" class="block text-white hover:text-brand-gold py-2">What We Offer</a>
-            <a href="#our-path" data-en="The Process" data-zh="服务流程" class="block text-white hover:text-brand-gold py-2">The Process</a>
-            <a href="#contact" data-en="Begin Your Journey" data-zh="开启健康之旅" class="block text-center bg-brand-gold text-brand-darkblue py-2.5 rounded-full font-bold">Begin Your Journey</a>
+            <a href="#about" data-en="About Us" data-zh="关于我们" data-ko="회사 소개" class="block text-white hover:text-brand-gold py-2">About Us</a>
+            <a href="#why-we-exist" data-en="Why We Exist" data-zh="为什么选择我们" data-ko="설립 배경" class="block text-white hover:text-brand-gold py-2">Why We Exist</a>
+            <a href="#services" data-en="What We Offer" data-zh="我们的服务" data-ko="제공 서비스" class="block text-white hover:text-brand-gold py-2">What We Offer</a>
+            <a href="#our-path" data-en="The Process" data-zh="服务流程" data-ko="진행 절차" class="block text-white hover:text-brand-gold py-2">The Process</a>
+            <a href="#contact" data-en="Begin Your Journey" data-zh="开启健康之旅" data-ko="상담 신청하기" class="block text-center bg-brand-gold text-brand-darkblue py-2.5 rounded-full font-bold">Begin Your Journey</a>
         </div>
     </header>
 
@@ -168,19 +175,20 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
                  <h1 class="text-2xl sm:text-3xl md:text-4xl tracking-tight text-brand-gold mt-4 leading-tight font-normal">
-                    <span data-en="Connect to Premium Healthcare" data-zh="连接全球优质医疗资源">Connect to Premium Healthcare</span> 
-                    <b data-en="Without the Wait" data-zh="告别漫长等待">Without the Wait</b>
+                    <span data-en="Connect to Premium Healthcare" data-zh="连接全球优质医疗资源" data-ko="프리미엄 글로벌 의료 서비스 연결">Connect to Premium Healthcare</span> 
+                    <b data-en="Without the Wait" data-zh="告别漫长等待" data-ko="대기 시간 없이">Without the Wait</b>
                 </h1>
                 <p class="mt-6 text-lg text-slate-300 leading-relaxed"
                    data-en="We are here to bridge the gap of medical services that are not readily accessible or available in Canada by connecting our clients with our partnered world-class medical services abroad. Canada's #1 outbound medical tourism facilitator."
-                   data-zh="我们致力于通过连接海外合作的世界级优质医疗资源，填补加拿大本地难以获取或短缺的医疗服务缺口。加拿大首屈一指的出境跨境医疗服务协调机构。">
+                   data-zh="我们致力于通过连接海外合作的世界级优质医疗资源，填补加拿大本地难以获取或短缺的医疗服务缺口。加拿大首屈一指的出境跨境医疗服务协调机构。"
+                   data-ko="캐나다 국내에서 접근하기 어렵거나 대기 시간이 길어 받기 힘든 의료 서비스를 해외 최고 수준의 파트너 의료기관과 연결하여 완벽하게 보완해 드립니다. 캐나다 최고 수준의 해외 의료 관광 지원 전문 기업.">
                    We are here to bridge the gap of medical services that are not readily accessible or available in Canada by connecting our clients with our partnered world-class medical services abroad. Canada's #1 outbound medical tourism facilitator.
                 </p>
                 <div class="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#our-path" data-en="Explore Our Process" data-zh="了解服务流程" class="bg-brand-gold text-brand-darkblue hover:bg-white px-8 py-3.5 rounded-full font-bold text-center transition duration-300 shadow-xl">
+                    <a href="#our-path" data-en="Explore Our Process" data-zh="了解服务流程" data-ko="진행 절차 알아보기" class="bg-brand-gold text-brand-darkblue hover:bg-white px-8 py-3.5 rounded-full font-bold text-center transition duration-300 shadow-xl">
                         Explore Our Process
                     </a>
-                    <a href="#contact" data-en="Book Initial Consultation" data-zh="预约首次咨询" class="border border-slate-400 text-white hover:bg-white/10 px-8 py-3.5 rounded-full font-bold text-center transition duration-300">
+                    <a href="#contact" data-en="Book Initial Consultation" data-zh="预约首次咨询" data-ko="초기 상담 예약하기" class="border border-slate-400 text-white hover:bg-white/10 px-8 py-3.5 rounded-full font-bold text-center transition duration-300">
                         Book Initial Consultation
                     </a>
                 </div>
@@ -192,7 +200,8 @@
                 </div>
                 <p class="text-xl italic text-slate-200 font-medium leading-relaxed"
                    data-en="&quot;When the Canadian medical system failed to provide any long-term solutions for my severe chronic back pain issues, I had lost all hope... Then when a person I trust invited me to try stem-cell therapy abroad, I decided to take a leap of faith... After being treated, I can confidently say that I am free from the chronic pain that has haunted me for over a decade.&quot;"
-                   data-zh="“当加拿大的医疗体系无法为我的严重慢性背痛提供任何长期解决方案时，我几乎陷入绝望……后来，在一位信任的朋友建议下，我决定前往海外尝试干细胞治疗……接受治疗后，我可以充满自信地说，困扰我十多年的慢性疼痛终于消失了。”">
+                   data-zh="“当加拿大的医疗体系无法为我的严重慢性背痛提供任何长期解决方案时，我几乎陷入绝望……后来，在一位信任的朋友建议下，我决定前往海外尝试干细胞治疗……接受治疗后，我可以充满自信地说，困扰我十多年的慢性疼痛终于消失了。”"
+                   data-ko="“캐나다 의료 시스템이 저의 심각한 만성 허리 통증에 대해 아무런 장기적인 해결책을 제시하지 못했을 때 희망을 잃었었습니다... 하지만 신뢰하는 분의 권유로 해외 줄기세포 치료를 받아보기로 큰 결심을 했습니다... 치료를 마친 지금, 10년 넘게 저를 괴롭히던 만성 통증에서 마침내 벗어났다고 확신을 가지고 말할 수 있습니다.”">
                     "When the Canadian medical system failed to provide any long-term solutions for my severe chronic back pain issues, I had lost all hope... Then when a person I trust invited me to try stem-cell therapy abroad, I decided to take a leap of faith... After being treated, I can confidently say that I am free from the chronic pain that has haunted me for over a decade."
                 </p>
                 <div class="mt-6 flex items-center space-x-4">
@@ -201,7 +210,7 @@
                     </div>
                     <div>
                         <h4 class="font-bold text-white text-sm">Kris Song</h4>
-                        <p class="text-xs text-brand-teal" data-en="Founder & CAF Veteran" data-zh="创始人 & 加拿大退役军官">Founder & CAF Veteran</p>
+                        <p class="text-xs text-brand-teal" data-en="Founder & CAF Veteran" data-zh="创始人 & 加拿大退役军官" data-ko="설립자 & 캐나다 퇴역 장교">Founder & CAF Veteran</p>
                     </div>
                 </div>
             </div>
@@ -212,17 +221,18 @@
     <section id="about" class="py-12 bg-white border-b border-slate-100 scroll-mt-28">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-6">
-                <span class="text-brand-gold font-extrabold uppercase tracking-widest text-4xl" data-en="ABOUT US" data-zh="关于我们">ABOUT US</span>
+                <span class="text-brand-gold font-extrabold uppercase tracking-widest text-4xl" data-en="ABOUT US" data-zh="关于我们" data-ko="ABOUT US">ABOUT US</span>
             </div>	
             <div class="bg-brand-cream rounded-2xl p-8 md:p-12 shadow-inner border border-brand-gold/60 grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <!-- Left Column: Mission -->
                 <div class="lg:col-span-1 border-b lg:border-b-0 lg:border-r border-brand-gold/60 pb-6 lg:pb-0 lg:pr-8 flex flex-col justify-start">
-                    <h2 class="text-3xl md:text-3xl font-serif font-extrabold text-brand-darkblue mt-2" data-en="Our Mission" data-zh="我们的使命">
+                    <h2 class="text-3xl md:text-3xl font-serif font-extrabold text-brand-darkblue mt-2" data-en="Our Mission" data-zh="我们的使命" data-ko="우리의 사명">
                         Our Mission
                     </h2>
                     <p class="text-slate-600 mt-4 leading-relaxed text-base md:text-xl"
                        data-en="To provide a safe and proven bridge for the people in need of higher quality, readily available, and effective medical service around the world."
-                       data-zh="为有需要的人士搭建一座安全、成熟的桥梁，帮助他们获取全球范围内更高质量、快捷便捷且切实有效的医疗服务。">
+                       data-zh="为有需要的人士搭建一座安全、成熟的桥梁，帮助他们获取全球范围内更高质量、快捷便捷且切实有效的医疗服务。"
+                       data-ko="더 높은 수준의 신속하고 효과적인 의료 서비스를 필요로 하는 분들을 위해 세계적 수준의 의료기관을 연결하는 안전하고 검증된 교량 역할을 수행합니다.">
                         To provide a safe and proven bridge for the people in need of higher quality, readily available, and effective medical service around the world.
                     </p>
                 </div>
@@ -230,7 +240,7 @@
                 <!-- Right Column: Values Header + 3 Cards -->
                 <div class="lg:col-span-2 flex flex-col justify-start pl-0 lg:pl-4">
                     <div class="mb-6">
-                       <h2 class="text-3xl md:text-3xl font-serif font-extrabold text-brand-darkblue mt-2" data-en="Our Core Values" data-zh="核心价值观">
+                       <h2 class="text-3xl md:text-3xl font-serif font-extrabold text-brand-darkblue mt-2" data-en="Our Core Values" data-zh="核心价值观" data-ko="핵심 가치">
                             Our Core Values
                         </h2>
                     </div>
@@ -242,10 +252,10 @@
                         <div class="group h-44 [perspective:1000px]">
                             <div class="relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                                 <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white p-6 rounded-xl shadow-sm border border-slate-200/40 flex flex-col justify-center items-center text-center">
-                                    <h3 class="font-bold text-slate-600 text-lg leading-snug" data-en="Priority Customer Service" data-zh="尊享优先服务">Priority Customer Service</h3>
+                                    <h3 class="font-bold text-slate-600 text-lg leading-snug" data-en="Priority Customer Service" data-zh="尊享优先服务" data-ko="최우선 고객 지원">Priority Customer Service</h3>
                                 </div>
                                 <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-white p-6 rounded-xl shadow-sm border border-slate-200/40 flex flex-col justify-center items-center text-center">
-                                    <p class="text-base text-slate-500" data-en="Customer-centric support that treats your health with the urgency it demands." data-zh="以客户为中心的全程支持，以您健康所需的紧迫感高度重视每项需求。">Customer-centric support that treats your health with the urgency it demands.</p>
+                                    <p class="text-base text-slate-500" data-en="Customer-centric support that treats your health with the urgency it demands." data-zh="以客户为中心的全程支持，以您健康所需的紧迫感高度重视每项需求。" data-ko="고객의 건강 문제를 최우선 시급 사안으로 다루는 고객 중심 서포트.">Customer-centric support that treats your health with the urgency it demands.</p>
                                 </div>
                             </div>
                         </div>
@@ -254,10 +264,10 @@
                         <div class="group h-44 [perspective:1000px]">
                             <div class="relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                                 <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white p-6 rounded-xl shadow-sm border border-slate-200/40 flex flex-col justify-center items-center text-center">
-                                    <h3 class="font-bold text-slate-600 text-lg leading-snug" data-en="Tailor-Made Approach" data-zh="私人定制方案">Tailor-Made Approach</h3>
+                                    <h3 class="font-bold text-slate-600 text-lg leading-snug" data-en="Tailor-Made Approach" data-zh="私人定制方案" data-ko="맞춤형 전담 케어">Tailor-Made Approach</h3>
                                 </div>
                                 <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-white p-6 rounded-xl shadow-sm border border-slate-200/40 flex flex-col justify-center items-center text-center">
-                                    <p class="text-base text-slate-500" data-en="A deeply customized approach tailored around your unique needs and logistical comfort." data-zh="围绕您的独特需求与行程舒适度，量身打造深度定制化的后勤保障方案。">A deeply customized approach tailored around your unique needs and logistical comfort.</p>
+                                    <p class="text-base text-slate-500" data-en="A deeply customized approach tailored around your unique needs and logistical comfort." data-zh="围绕您的独特需求与行程舒适度，量身打造深度定制化的后勤保障方案。" data-ko="고객 개개인의 필요와 여정 편의에 맞춰 세심하게 설계되는 맞춤형 케어.">A deeply customized approach tailored around your unique needs and logistical comfort.</p>
                                 </div>
                             </div>
                         </div>
@@ -266,10 +276,10 @@
                         <div class="group h-44 [perspective:1000px]">
                             <div class="relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                                 <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white p-6 rounded-xl shadow-sm border border-slate-200/40 flex flex-col justify-center items-center text-center">
-                                    <h3 class="font-bold text-slate-600 text-lg leading-snug" data-en="Informed Client-Decision Making" data-zh="透明明智决策">Informed Client-Decision Making</h3>
+                                    <h3 class="font-bold text-slate-600 text-lg leading-snug" data-en="Informed Client-Decision Making" data-zh="透明明智决策" data-ko="투명한 정보와 의사결정">Informed Client-Decision Making</h3>
                                 </div>
                                 <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-white p-6 rounded-xl shadow-sm border border-slate-200/40 flex flex-col justify-center items-center text-center">
-                                    <p class="text-base text-slate-500" data-en="Complete transparency and dynamic analysis so you can make the most informed decisions." data-zh="保持全面透明与动态评估，帮助您在知情的前提下做出最明智的健康选择。">Complete transparency and dynamic analysis so you can make the most informed decisions.</p>
+                                    <p class="text-base text-slate-500" data-en="Complete transparency and dynamic analysis so you can make the most informed decisions." data-zh="保持全面透明与动态评估，帮助您在知情的前提下做出最明智的健康选择。" data-ko="투명한 정보 공개와 객관적 다각도 분석을 통해 최선의 결정을 내리실 수 있도록 돕습니다.">Complete transparency and dynamic analysis so you can make the most informed decisions.</p>
                                 </div>
                             </div>
                         </div>
@@ -318,44 +328,52 @@
 
                 <!-- Right Column: Text Content -->
                 <div class="lg:col-span-7 relative z-0">
-                    <span class="text-brand-blue font-extrabold uppercase tracking-widest text-base" data-en="The Story Behind Our Purpose" data-zh="创办初心与背景">The Story Behind Our Purpose</span>
-                    <h2 class="text-3xl md:text-3xl font-serif font-bold text-brand-darkblue mt-2 mb-6" data-en="The Founder's Personal Journey" data-zh="创始人的亲历故事">
+                    <span class="text-brand-blue font-extrabold uppercase tracking-widest text-base" data-en="The Story Behind Our Purpose" data-zh="创办初心与背景" data-ko="설립 스토리">The Story Behind Our Purpose</span>
+                    <h2 class="text-3xl md:text-3xl font-serif font-bold text-brand-darkblue mt-2 mb-6" data-en="The Founder's Personal Journey" data-zh="创始人的亲历故事" data-ko="설립자의 개인적인 경험담">
                         The Founder's Personal Journey
                     </h2>
                     
                     <div id="story-content" class="space-y-6 text-slate-600 text-lg leading-relaxed pr-2 max-h-[450px] overflow-hidden transition-all duration-700 ease-in-out relative">
                         <p data-en="Our founder, Kris, dedicated over 20 years of his life serving Canada as a commissioned army officer in the Canadian Armed Forces, specializing in identifying problems, creating solutions, strategizing concept of operations, and executing operations. Throughout his military career, he was deployed to places like Afghanistan and Iraq, and had the privilege of leading many soldiers. Unfortunately, throughout his service, he suffered many critical injuries such as severe chronic back pain, hearing loss, torn ligament in his knee, and eventually, a diagnosis of MDS that ultimately forced him to medically retire from active service in 2024."
-                           data-zh="我们的创始人Kris曾作为加拿大武装部队的军官服役逾20年，专长于发现问题、制定解决方案、规划行动概念及执行任务。在他长达数十年的军旅生涯中，他曾被派驻阿富汗和伊拉克等地，并领导了许多优秀的士兵。然而，长期的服役使他遭受了多项严重伤病，包括严重的慢性背痛、听力受损、膝盖韧带撕裂，并最终确诊骨髓增生异常综合征（MDS），被迫于2024年因伤退役。">
+                           data-zh="我们的创始人Kris曾作为加拿大武装部队的军官服役逾20年，专长于发现问题、制定解决方案、规划行动概念及执行任务。在他长达数十年的军旅生涯中，他曾被派驻阿富汗和伊拉克等地，并领导了许多优秀的士兵。然而，长期的服役使他遭受了多项严重伤病，包括严重的慢性背痛、听力受损、膝盖韧带撕裂，并最终确诊骨髓增生异常综合征（MDS），被迫于2024年因伤退役。"
+                           data-ko="설립자 Kris는 캐나다 육군 장교로서 20년 이상 복무하며 문제 해결, 전략 수립 및 작전 수행 전문가로 기여했습니다. 아프가니스탄과 이라크 등지에서 다수의 부대원을 지휘했으나, 장기간의 복무로 인한 만성 허리 통증, 청력 손실, 무릎 인대 파열, 그리고 골수이형성증후군(MDS) 진단으로 인해 2024년 의가사 퇴역을 하게 되었습니다.">
                             Our founder, Kris, dedicated over 20 years of his life serving Canada as a commissioned army officer in the Canadian Armed Forces, specializing in identifying problems, creating solutions, strategizing concept of operations, and executing operations. Throughout his military career, he was deployed to places like Afghanistan and Iraq, and had the privilege of leading many soldiers. Unfortunately, throughout his service, he suffered many critical injuries such as severe chronic back pain, hearing loss, torn ligament in his knee, and eventually, a diagnosis of MDS that ultimately forced him to medically retire from active service in 2024. 
                         </p>
                         <p data-en="Rather than staying idle and clinically depressed, Kris decided to obtain his master’s degree in Global Management, focusing on global enterprise operations, business strategies, intercultural studies, change management, and finance management. From there, he achieved the university's Founders' Award for leadership, commitment to sustainability, positive and proactive work in equity, diversity and inclusion, and personal growth; and the Chancellor's Award for achieving highest GPA in the program within the academic year."
-                           data-zh="退役后，Kris没有消极停滞，而是选择攻读全球管理硕士学位，深造全球企业运营、商业战略、跨文化研究、变革管理与财务管理。在此期间，他荣获大学颁发的“创始人奖”（旨在表彰领导力、可持续发展承诺及个人成长）以及“校监奖”（表彰学年内最高学术GPA）。">
+                           data-zh="退役后，Kris没有消极停滞，而是选择攻读全球管理硕士学位，深造全球企业运营、商业战略、跨文化研究、变革管理与财务管理。在此期间，他荣获大学颁发的“创始人奖”（旨在表彰领导力、可持续发展承诺及个人成长）以及“校监奖”（表彰学年内最高学术GPA）。"
+                           data-ko="퇴역 후 Kris는 좌절하지 않고 글로벌 경영학 석사(MGM) 학위를 취득하며 글로벌 기업 운영, 비즈니스 전략, 조직 변화 관리 및 재무 관리를 심도 있게 공부했습니다. 이 과정에서 우수한 리더십과 학업 성과를 인정받아 대학 설립자상(Founders' Award)과 최고 석사 평점 수석에게 수여되는 총장상(Chancellor's Award)을 동시에 수상했습니다.">
                             Rather than staying idle and clinically depressed, Kris decided to obtain his master’s degree in Global Management, focusing on global enterprise operations, business strategies, intercultural studies, change management, and finance management. From there, he achieved the university's Founders' Award for leadership, commitment to sustainability, positive and proactive work in equity, diversity and inclusion, and personal growth; and the Chancellor's Award for achieving highest GPA in the program within the academic year.
                         </p>
                         <p class="border-l-4 border-brand-teal pl-4 italic bg-white p-4 rounded-r-xl shadow-sm"
                            data-en="However, his suffering from the injuries gradually increased over time. He tried steroid injections, radio-frequency ablations, physiotherapy, kinesiology, chiro-therapy, acupuncture, osteopath, basically anything that the Canadian medical system suggested. When every treatment failed to provide any long-term solutions to his injuries, he started to lose all hope."
-                           data-zh="然而，旧伤带来的折磨随着时间推移日益加重。他尝试过封闭针注射、射频消融、物理治疗、运动康复、脊椎正骨、针灸和骨伤疗法——几乎尝试了加拿大医疗体系推荐的所有方法。但当每种治疗都无法改善慢性疼痛时，他一度感到了绝望。">
+                           data-zh="然而，旧伤带来的折磨随着时间推移日益加重。他尝试过封闭针注射、射频消融、物理治疗、运动康复、脊椎正骨、针灸和骨伤疗法——几乎尝试了加拿大医疗体系推荐的所有方法。但当每种治疗都无法改善慢性疼痛时，他一度感到了绝望。"
+                           data-ko="그러나 오랜 군대 부상으로 인한 통증은 날로 심해졌습니다. 스테로이드 주사, 고주파 절제술, 도수 치료, 침술, 정골 요법 등 캐나다 내에서 가능한 모든 치료를 시도해보았지만 통증 개선에 지속적인 효과를 보지 못하면서 희망을 잃어가기 시작했습니다.">
                             However, his suffering from the injuries gradually increased over time. He tried steroid injections, radio-frequency ablations, physiotherapy, kinesiology, chiro-therapy, acupuncture, osteopath, basically anything that the Canadian medical system suggested. When every treatment failed to provide any long-term solutions to his injuries, he started to lose all hope.
                         </p>
                         <p data-en="Over the years, Kris' in-laws have consistently suggested for him to try stem-cell therapy abroad. His in-laws were optimistic about these therapies because they have had numerous positive experiences from overseas stem-cell and NK-cell therapies to treat their immunity issues, tumors, and cancer cells. At first, Kris rejected the idea many times due to his skeptics on the quality of healthcare outside of Canada and the negative perceptions about stem-cell research by his Canadian physicians and healthcare providers. However, when he felt like he was out of options, in 2026, he decided to take a leap of faith and listen to his in-laws."
-                           data-zh="多年来，Kris的岳父母一直建议他尝试海外的干细胞疗法。他的家人对这些前沿治疗充满信心，因为他们曾多次亲身体验海外干细胞与NK细胞疗法在调理免疫系统、抑制肿瘤及癌细胞方面的显著疗效。起初，出于对加拿大境外医疗质量的顾虑以及本地医生对干细胞研究的保守态度，Kris多次拒绝了这个建议。然而，在感到别无选择后，他在2026年决定抱持试一试的心态，听取家人的建议。">
+                           data-zh="多年来，Kris的岳父母一直建议他尝试海外的干细胞疗法。他的家人对这些前沿治疗充满信心，因为他们曾多次亲身体验海外干细胞与NK细胞疗法在调理免疫系统、抑制肿瘤及癌细胞方面的显著疗效。起初，出于对加拿大境外医疗质量的顾虑以及本地医生对干细胞研究的保守态度，Kris多次拒绝了这个建议。然而，在感到别无选择后，他在2026年决定抱持试一试的心态，听取家人的建议。"
+                           data-ko="오랜 기간 Kris의 처가 식구들은 해외 줄기세포 치료를 받아볼 것을 권유했습니다. 그들은 면역계 질환 및 종양 관련 해외 줄기세포/NK세포 치료에서 뛰어난 효과를 직접 경험했기 때문이었습니다. 처음에 Kris는 국외 의료 수준에 대한 의구심으로 이를 사양했으나, 다른 선택지가 없다고 느낀 2026년, 마지막 기회라 생각하고 해외 의료진을 찾기로 결심했습니다.">
                             Over the years, Kris' in-laws have consistently suggested for him to try stem-cell therapy abroad. His in-laws were optimistic about these therapies because they have had numerous positive experiences from overseas stem-cell and NK-cell therapies to treat their immunity issues, tumors, and cancer cells. At first, Kris rejected the idea many times due to his skeptics on the quality of healthcare outside of Canada and the negative perceptions about stem-cell research by his Canadian physicians and healthcare providers. However, when he felt like he was out of options, in 2026, he decided to take a leap of faith and listen to his in-laws.
                         </p>
                         <p data-en="Upon arriving to the Daqin Cancer Hospital in Guiyang, Guizhou Province of China, he was surprised by the sheer size and the quality of their &quot;small&quot; hospital. The hospital was bigger and more modern than any exisiting hospitals in Canada. At the entrance, he was greeted by the hospital's host and was given a VIP tour of the hospital where toured each of their medical departments followed by a presentation of the hospital's history, awards, and official certifications to conduct specialized therapies. Then, a nurse, with a binder of hospital's available diagnostics, asked Kris about his medical concerns and together they decided on what type of diagnositcs he needed. The next morning, he went through 2x MRI scans, 1x CT scan, full body ultrasound, bone density scan, bacterial breath tests, urine test, various blood tests, and a 4-point blood pressure test, all within 3 hours of the visit. While the results of the test were being reviewed, Kris went on an optional guided scenic tour of the Guizhou province where he discovered the beauty of China's natural landscape and ancient cities."
-                           data-zh="当抵达位于中国贵州省贵阳市的大秦肿瘤医院时，他被这家当地“中等规模”医院的宏大规格与现代化设施所震撼——其建筑规模与设备先进程度超越了他此前在加拿大见过的绝大多数医院。进入医院后，专属接待员为他提供了贵宾导览，带他参观了各个科室，并详细介绍了医院的发展历史、荣誉资质及特色疗法认证。随后，护士根据诊断需求协助他定制了个性化体检项目。次日早晨，他在短短3小时内便完成了2项MRI核磁共振、1项CT扫描、全身超声、骨密度检测、呼气试验、尿检、多项血液检查及四肢血压监测。在等待诊断报告期间，他还体验了贵州当地的自然风光与古镇文化。">
+                           data-zh="当抵达位于中国贵州省贵阳市的大秦肿瘤医院时，他被这家当地“中等规模”医院的宏大规格与现代化设施所震撼——其建筑规模与设备先进程度超越了他此前在加拿大见过的绝大多数医院。进入医院后，专属接待员为他提供了贵宾导览，带他参观了各个科室，并详细介绍了医院的发展历史、荣誉资质及特色疗法认证。随后，护士根据诊断需求协助他定制了个性化体检项目。次日早晨，他在短短3小时内便完成了2项MRI核磁共振、1项CT扫描、全身超声、骨密度检测、呼气试验、尿检、多项血液检查及四肢血压监测。在等待诊断报告期间，他还体验了贵州当地的自然风光与古镇文化。"
+                           data-ko="중국 구이저우성 귀양의 다친 암 전문 병원에 도착했을 때, 그는 병원의 규모와 첨단 의료 시설에 크게 놀랐습니다. VIP 1:1 안내를 받아 전반적인 병원 둘러보기와 맞춤 검진 설계를 진행한 후, 단 3시간 만에 MRI 2회, CT 1회, 전신 초음파, 골밀도 검사, 복합 혈액 검사 등 정밀 종합검진을 원스톱으로 마쳤습니다. 검사 결과가 분석되는 동안 편안한 현지 관광 프로그램도 함께 진행되었습니다.">
                             Upon arriving to the Daqin Cancer Hospital in Guiyang, Guizhou Province of China, he was surprised by the sheer size and the quality of their "small" hospital. The hospital was bigger and more modern than any exisiting hospitals in Canada. At the entrance, he was greeted by the hospital's host and was given a VIP tour of the hospital where toured each of their medical departments followed by a presentation of the hospital's history, awards, and official certifications to conduct specialized therapies. Then, a nurse, with a binder of hospital's available diagnostics, asked Kris about his medical concerns and together they decided on what type of diagnositcs he needed. The next morning, he went through 2x MRI scans, 1x CT scan, full body ultrasound, bone density scan, bacterial breath tests, urine test, various blood tests, and a 4-point blood pressure test, all within 3 hours of the visit. While the results of the test were being reviewed, Kris went on an optional guided scenic tour of the Guizhou province where he discovered the beauty of China's natural landscape and ancient cities. 
                         </p>
                         <p class="border-l-4 border-brand-teal pl-4 italic bg-white p-4 rounded-r-xl shadow-sm"
                            data-en="When he returned to the hospital, a physician went over all the test results in english and confirmed his existing known conditions and discovered new health concerns that could potentially become serious if left untreated. Of note, these findings would have never surfaced in Canadian medical screenings since he did not experience or display any symptoms. Luckily, these new concerns were in their early stages and he was told that they could be treated through existing medicine supplied by hospital. Given his health examination, the doctor suggested that he would be a good fit for stem-cell therapy."
-                           data-zh="返回医院后，主治医师用流利的英语与他逐一分析了检查结果，不仅确认了他已知的旧疾，还发现了若干早期隐性健康风险——这些隐患在加拿大因无明显症状而从未被筛查出来。幸运的是，由于发现及时，这些早期隐患均可通过医院提供的标准药剂予以干预。结合综合体检数据，医生确认他的身体状况非常适合接受干细胞治疗。">
+                           data-zh="返回医院后，主治医师用流利的英语与他逐一分析了检查结果，不仅确认了他已知的旧疾，还发现了若干早期隐性健康风险——这些隐患在加拿大因无明显症状而从未被筛查出来。幸运的是，由于发现及时，这些早期隐患均可通过医院提供的标准药剂予以干预。结合综合体检数据，医生确认他的身体状况非常适合接受干细胞治疗。"
+                           data-ko="전문 의료진과의 영어 진료 상담에서 기존 부상 상황뿐만 아니라 캐나다에서는 미처 발견하지 못했던 초기 상태의 잠재적 건강 위험 요소까지 정확히 진단받을 수 있었습니다. 다행히 초기 단계에 발견되어 적절한 처방을 받았으며, 종합 검진 결과를 바탕으로 줄기세포 치료 적합 판정을 받았습니다.">
                             When he returned to the hospital, a physician went over all the test results in english and confirmed his existing known conditions and discovered new health concerns that could potentially become serious if left untreated. Of note, these findings would have never surfaced in Canadian medical screenings since he did not experience or display any symptoms. Luckily, these new concerns were in their early stages and he was told that they could be treated through existing medicine supplied by hospital. Given his health examination, the doctor suggested that he would be a good fit for stem-cell therapy. 
                         </p>
                         <p data-en="The following day he received two stem-cell injections, one through IV and one through a direct injection to his injured knee. He was told to take it easy for the next 6 months to allow the stem cells to repair his body. After few hours of showing no adverse effects of the treatments, he was discharged from the hospital. Other than the discomfort in his knee from the injection, he did not feel any different. He was still experiencing the same chronic back pain."
-                           data-zh="次日，他接受了两次干细胞注射：一次通过静脉输液，一次直接注射至受损的膝关节。医嘱建议他在接下来的6个月内保持适度休息，以便干细胞充分进行组织修复。在留观数小时且未出现任何不良反应后，他顺利出院。除了膝盖注射处的微酸感外，他起初并没有感觉到即刻的变化。">
+                           data-zh="次日，他接受了两次干细胞注射：一次通过静脉输液，一次直接注射至受损的膝关节。医嘱建议他在接下来的6个月内保持适度休息，以便干细胞充分进行组织修复。在留观数小时且未出现任何不良反应后，他顺利出院。除了膝盖注射处的微酸感外，他起初并没有感觉到即刻的变化。"
+                           data-ko="다음 날 정맥 주사와 부상당한 무릎 부위 투여를 진행한 후 부작용 없이 퇴원했습니다. 줄기세포 조직 재생을 위해 6개월간 무리하지 말라는 안내를 받았습니다.">
                             The following day he received two stem-cell injections, one through IV and one through a direct injection to his injured knee. He was told to take it easy for the next 6 months to allow the stem cells to repair his body. After few hours of showing no adverse effects of the treatments, he was discharged from the hospital. Other than the discomfort in his knee from the injection, he did not feel any different. He was still experiencing the same chronic back pain.
                         </p>
                         <p data-en="A week after returning to Canada, Kris woke up one morning and realized something was differnt. The chronic back pain disappeared - but rather than getting his hopes up, he kept going about his days. Then after a month, while still being pain-free, he noticed a significant increase in stability and strength in his injured knee. He described it like it was a miracle - it gave him a new hope for his life. This was when he made the decision to dedicate his next chapter of his life, helping others experience similar relief to their existing conditions. This was where Elite Priority Health began."
-                           data-zh="然而，在返回加拿大一周后的一个清晨，Kris醒来时突然意识到了一些不同：折磨他多年的慢性背痛消失了。一个月后，在背痛持续缓解的同时，他明显感到膝关节的稳定性与力量得到了大幅提升。对他而言，这犹如一场奇迹，重新燃起了对生活的希望。正因如此，他决心开启人生的新篇章，帮助更多深受健康困扰的人重获康复希望——Elite Priority Health 亦由此诞生。">
+                           data-zh="然而，在返回加拿大一周后的一个清晨，Kris醒来时突然意识到了不同：折磨他多年的慢性背痛消失了。一个月后，在背痛持续缓解的同时，他明显感到膝关节的稳定性与力量得到了大幅提升。对他而言，这犹如一场奇迹，重新燃起了对生活的希望。正因如此，他决心开启人生的新篇章，帮助更多深受健康困扰的人重获康复希望——Elite Priority Health 亦由此诞生。"
+                           data-ko="캐나다로 돌아온 지 일주일 후, 오랫동안 괴롭히던 만성 허리 통증이 신기하게 사라졌습니다. 한 달 후에는 손상되었던 무릎의 근력과 안정성이 현저히 향상되었습니다. 이 경험은 그에게 삶의 새로운 희망을 주었고, 자신과 같이 건강 문제로 고통받는 사람들을 돕고자 Elite Priority Health를 설립하게 되었습니다.">
                             A week after returning to Canada, Kris woke up one morning and realized something was differnt. The chronic back pain disappeared - but rather than getting his hopes up, he kept going about his days. Then after a month, while still being pain-free, he noticed a significant increase in stability and strength in his injured knee. He described it like it was a miracle - it gave him a new hope for his life. This was when he made the decision to dedicate his next chapter of his life, helping others experience similar relief to their existing conditions. This was where Elite Priority Health began.   
                         </p>
 
@@ -364,7 +382,7 @@
 
                     <div class="mt-8 text-center lg:text-left">
                         <button id="read-more-btn" class="inline-flex items-center gap-2 bg-brand-darkblue text-white font-bold px-8 py-3 rounded-full shadow-lg hover:bg-brand-blue transition-colors duration-300 text-sm uppercase tracking-wider">
-                            <span id="btn-text" data-en="Read Full Story" data-zh="阅读完整故事">Read Full Story</span>
+                            <span id="btn-text" data-en="Read Full Story" data-zh="阅读完整故事" data-ko="전체 이야기 읽기">Read Full Story</span>
                             <i class="fa-solid fa-chevron-down transition-transform duration-300" id="btn-icon"></i>
                         </button>
                     </div>
@@ -378,11 +396,12 @@
     <section id="why-we-exist" class="py-20 bg-brand-darkblue text-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-brand-gold font-extrabold uppercase tracking-widest text-4xl" data-en="WHY WE EXIST" data-zh="为什么选择我们">WHY WE EXIST</span>
-                <h2 class="text-3xl md:text-xl font-serif font-bold mt-2" data-en="Wait is too long | Not enough resources | Always too late" data-zh="等待时间过长 | 资源严重匮乏 | 往往错失良机">Wait is too long | Not enough resources | Always too late</h2>
+                <span class="text-brand-gold font-extrabold uppercase tracking-widest text-4xl" data-en="WHY WE EXIST" data-zh="为什么选择我们" data-ko="WHY WE EXIST">WHY WE EXIST</span>
+                <h2 class="text-3xl md:text-xl font-serif font-bold mt-2" data-en="Wait is too long | Not enough resources | Always too late" data-zh="等待时间过长 | 资源严重匮乏 | 往往错失良机" data-ko="긴 대기 시간 | 의료 자원 부족 | 늦어지는 치료 시기">Wait is too long | Not enough resources | Always too late</h2>
                 <p class="mt-4 text-slate-300"
                    data-en="The systemic gridlock within Canadian domestic healthcare has reached unprecedented levels. Although the number of doctors and nurses is steadily growing, it is not close to meeting the actual demand. The data shows exactly why Canadians are suffering without family doctors, waiting up to 6 months for referrals, and desperately need an alternative path."
-                   data-zh="加拿大本土医疗体系正面临前所未有的系统性瓶颈。尽管医护人员数量有所增加，但仍远无法满足实际需求。行业数据客观反映了患者面临的严峻现实：缺乏家庭医生、专科转诊等待长达数月，迫切需要更高效的医疗后勤通道。">
+                   data-zh="加拿大本土医疗体系正面临前所未有的系统性瓶颈。尽管医护人员数量有所增加，但仍远无法满足实际需求。行业数据客观反映了患者面临的严峻现实：缺乏家庭医生、专科转诊等待长达数月，迫切需要更高效的医疗后勤通道。"
+                   data-ko="캐나다 국내 의료 시스템의 정체는 매우 심각합니다. 전문의 진료까지 최대 6개월 이상 대기해야 하는 현실에서, 환자들에게는 더 빠르고 효과적인 대안적 해결책이 절실히 필요합니다.">
                     The systemic gridlock within Canadian domestic healthcare has reached unprecedented levels. Although the number of doctors and nurses is steadily growing, it is not close to meeting the actual demand. The data shows exactly why Canadians are suffering without family doctors, waiting up to 6 months for referrals, and desperately need an alternative path.
                 </p>
             </div>
@@ -399,10 +418,10 @@
                                 <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center text-red-400 mb-4 text-xl">
                                     <i class="fa-solid fa-hospital"></i>
                                 </div>
-                                <h3 class="font-bold text-lg text-white" data-en="Overcrowded Hospitals" data-zh="医疗床位紧缺">Overcrowded Hospitals</h3>
-                                <p class="text-s text-slate-300 mt-2 leading-relaxed" data-en="Since 1976, Canadian hospital bed density has declined dramatically, leaving hospitals near constant threshold capacities." data-zh="自1976年以来，加拿大人均医院床位密度大幅下降，导致医疗机构长期处于超负荷运行状态。">Since 1976, Canadian hospital bed density has declined dramatically, leaving hospitals near constant threshold capacities.</p>
+                                <h3 class="font-bold text-lg text-white" data-en="Overcrowded Hospitals" data-zh="医疗床位紧缺" data-ko="병상 부족 현상">Overcrowded Hospitals</h3>
+                                <p class="text-s text-slate-300 mt-2 leading-relaxed" data-en="Since 1976, Canadian hospital bed density has declined dramatically, leaving hospitals near constant threshold capacities." data-zh="自1976年以来，加拿大人均医院床位密度大幅下降，导致医疗机构长期处于超负荷运行状态。" data-ko="1976년 이후 캐나다 인구당 병상 수가 급감하면서 병원들이 포화 상태에 직면해 있습니다.">Since 1976, Canadian hospital bed density has declined dramatically, leaving hospitals near constant threshold capacities.</p>
                             </div>
-                            <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold" data-en="Click to view chart →" data-zh="点击查看数据图表 →">Click to view chart →</span>
+                            <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold" data-en="Click to view chart →" data-zh="点击查看数据图表 →" data-ko="차트 보기 →">Click to view chart →</span>
                         </div>
                         <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
                             <img src="images/chart1.png" alt="Hospital Bed Capacity Graph" class="w-full h-full object-contain p-2 bg-slate-900">
@@ -419,10 +438,10 @@
                                 <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-400 mb-4 text-xl">
                                     <i class="fa-solid fa-hourglass-half"></i>
                                 </div>
-                                <h3 class="font-bold text-lg text-white" data-en="Long Referral Waits" data-zh="专科转诊周期漫长">Long Referral Waits</h3>
-                                <p class="text-s text-slate-300 mt-2 leading-relaxed" data-en="The median waiting period from primary GP referral to specialty medical treatment continues to set historic records across provinces." data-zh="从全科医生转诊至专科医生接收治疗的中位等待时间屡创新高。">The median waiting period from primary GP referral to specialty medical treatment continues to set historic records across provinces.</p>
+                                <h3 class="font-bold text-lg text-white" data-en="Long Referral Waits" data-zh="专科转诊周期漫长" data-ko="장기 진료 대기">Long Referral Waits</h3>
+                                <p class="text-s text-slate-300 mt-2 leading-relaxed" data-en="The median waiting period from primary GP referral to specialty medical treatment continues to set historic records across provinces." data-zh="从全科医生转诊至专科医生接收治疗的中位等待时间屡创新高。" data-ko="일반의(GP) 리퍼럴 후 전문의 진료까지의 대기 시간이 지속적으로 길어지고 있습니다.">The median waiting period from primary GP referral to specialty medical treatment continues to set historic records across provinces.</p>
                             </div>
-                            <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold" data-en="Click to view chart →" data-zh="点击查看数据图表 →">Click to view chart →</span>
+                            <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold" data-en="Click to view chart →" data-zh="点击查看数据图表 →" data-ko="차特 보기 →">Click to view chart →</span>
                         </div>
                         <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
                             <img src="images/chart2.png" alt="Specialist Wait Times Graph" class="w-full h-full object-contain p-2 bg-slate-900">
@@ -439,10 +458,10 @@
                                 <div class="w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center text-yellow-400 mb-4 text-xl">
                                     <i class="fa-solid fa-user-doctor"></i>
                                 </div>
-                                <h3 class="font-bold text-lg text-white" data-en="Medical Staff Shortages" data-zh="专业医护人员匮乏">Medical Staff Shortages</h3>
-                                <p class="text-s text-slate-300 mt-2 leading-relaxed" data-en="Systemic shortages in front-line healthcare workers restrict overall capacity and lengthen clinical wait lists." data-zh="一线医护人员的结构性短缺严重制约了整体医疗承载能力，延长了排队周期。">Systemic shortages in front-line healthcare workers restrict overall capacity and lengthen clinical wait lists.</p>
+                                <h3 class="font-bold text-lg text-white" data-en="Medical Staff Shortages" data-zh="专业医护人员匮乏" data-ko="의료진 부족">Medical Staff Shortages</h3>
+                                <p class="text-s text-slate-300 mt-2 leading-relaxed" data-en="Systemic shortages in front-line healthcare workers restrict overall capacity and lengthen clinical wait lists." data-zh="一线医护人员的结构性短缺严重制约了整体医疗承载能力，延长了排队周期。" data-ko="의료 현장의 인력 부족으로 진료 수용 능력이 한계에 도달했습니다.">Systemic shortages in front-line healthcare workers restrict overall capacity and lengthen clinical wait lists.</p>
                             </div>
-                            <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold" data-en="Click to view chart →" data-zh="点击查看数据图表 →">Click to view chart →</span>
+                            <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold" data-en="Click to view chart →" data-zh="点击查看数据图表 →" data-ko="차트 보기 →">Click to view chart →</span>
                         </div>
                         <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
                             <img src="images/chart3.png" alt="Doctor Shortage Graph" class="w-full h-full object-cover">
@@ -459,10 +478,10 @@
                                 <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center text-red-400 mb-4 text-xl">
                                     <i class="fa-solid fa-heart-pulse"></i>
                                 </div>
-                                <h3 class="font-bold text-lg text-white" data-en="Overworked Medical Staff" data-zh="医护人员工作负荷过重">Overworked Medical Staff</h3>
-                                <p class="text-s text-slate-300 mt-2 leading-relaxed" data-en="Burnout levels have reached historic highs as existing personnel must pull double-duty to fill structural gaps." data-zh="现职人员需长时间加班填补人手空缺，职业倦怠程度创历史新高。">Burnout levels have reached historic highs as existing personnel must pull double-duty to fill structural gaps.</p>
+                                <h3 class="font-bold text-lg text-white" data-en="Overworked Medical Staff" data-zh="医护人员工作负荷过重" data-ko="의료진 과중 업무">Overworked Medical Staff</h3>
+                                <p class="text-s text-slate-300 mt-2 leading-relaxed" data-en="Burnout levels have reached historic highs as existing personnel must pull double-duty to fill structural gaps." data-zh="现职人员需长时间加班填补人手空缺，职业倦怠程度创历史新高。" data-ko="인력 공백을 메우기 위한 과도한 근무로 의료진의 번아웃 위험이 높아지고 있습니다.">Burnout levels have reached historic highs as existing personnel must pull double-duty to fill structural gaps.</p>
                             </div>
-                            <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold" data-en="Click to view chart →" data-zh="点击查看数据图表 →">Click to view chart →</span>
+                            <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold" data-en="Click to view chart →" data-zh="点击查看数据图表 →" data-ko="차트 보기 →">Click to view chart →</span>
                         </div>
                         <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
                             <img src="images/chart4.png" alt="Staff Burnout Graph" class="w-full h-full object-contain p-2 bg-slate-900">
@@ -479,10 +498,10 @@
                                 <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 mb-4 text-xl">
                                     <i class="fa-solid fa-triangle-exclamation"></i>
                                 </div>
-                                <h3 class="font-bold text-lg text-white" data-en="Rising Safety Incidents" data-zh="医疗安全隐患增加">Rising Safety Incidents</h3>
-                                <p class="text-s text-slate-300 mt-2 leading-relaxed" data-en="Understaffed, crowded facilities report a corresponding spike in hospital-acquired infections and diagnostic mistakes." data-zh="在人手不足与拥挤的环境下，院内感染与诊断滞后的风险相应上升。">Understaffed, crowded facilities report a corresponding spike in hospital-acquired infections and diagnostic mistakes.</p>
+                                <h3 class="font-bold text-lg text-white" data-en="Rising Safety Incidents" data-zh="医疗安全隐患增加" data-ko="안전 사고 우려">Rising Safety Incidents</h3>
+                                <p class="text-s text-slate-300 mt-2 leading-relaxed" data-en="Understaffed, crowded facilities report a corresponding spike in hospital-acquired infections and diagnostic mistakes." data-zh="在人手不足与拥挤的环境下，院内感染与诊断滞后的风险相应上升。" data-ko="과밀화된 환경으로 인해 의료 질 저하 및 위험도가 높아지고 있습니다.">Understaffed, crowded facilities report a corresponding spike in hospital-acquired infections and diagnostic mistakes.</p>
                             </div>
-                            <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold" data-en="Click to view chart →" data-zh="点击查看数据图表 →">Click to view chart →</span>
+                            <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold" data-en="Click to view chart →" data-zh="点击查看数据图表 →" data-ko="차트 보기 →">Click to view chart →</span>
                         </div>
                         <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
                             <img src="images/chart5.png" alt="ER Closures Graph" class="w-full h-full object-contain p-2 bg-slate-900">
@@ -499,10 +518,10 @@
                                 <div class="w-12 h-12 rounded-xl bg-brand-teal/10 flex items-center justify-center text-brand-teal mb-4 text-xl">
                                     <i class="fa-solid fa-microscope"></i>
                                 </div>
-                                <h3 class="font-bold text-lg text-white" data-en="Lacking Diagnostic Equipment" data-zh="大型影像设备配置不足">Lacking Diagnostic Equipment</h3>
-                                <p class="text-s text-slate-300 mt-2 leading-relaxed" data-en="Insufficient domestic imaging systems (CT, MRI, PET scans) delays crucial detection for leading medical causes of death." data-zh="高级影像设备（CT、MRI、PET）数量有限，导致早期诊断被延误。">Insufficient domestic imaging systems (CT, MRI, PET scans) delays crucial detection for leading medical causes of death.</p>
+                                <h3 class="font-bold text-lg text-white" data-en="Lacking Diagnostic Equipment" data-zh="大型影像设备配置不足" data-ko="진단 장비 부족">Lacking Diagnostic Equipment</h3>
+                                <p class="text-s text-slate-300 mt-2 leading-relaxed" data-en="Insufficient domestic imaging systems (CT, MRI, PET scans) delays crucial detection for leading medical causes of death." data-zh="高级影像设备（CT、MRI、PET）数量有限，导致早期诊断被延误。" data-ko="MRI, CT 등 정밀 진단 장비 부족으로 조기 진단이 지연되는 경우가 빈번합니다.">Insufficient domestic imaging systems (CT, MRI, PET scans) delays crucial detection for leading medical causes of death.</p>
                             </div>
-                            <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold" data-en="Click to view chart →" data-zh="点击查看数据图表 →">Click to view chart →</span>
+                            <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold" data-en="Click to view chart →" data-zh="点击查看数据图表 →" data-ko="차트 보기 →">Click to view chart →</span>
                         </div>
                         <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
                             <img src="images/chart6.png" alt="Imaging Waiting Times Graph" class="w-full h-full object-contain p-2 bg-slate-900">
@@ -519,10 +538,10 @@
                                 <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-4 text-xl">
                                     <i class="fa-solid fa-dna"></i>
                                 </div>
-                                <h3 class="font-bold text-lg text-white" data-en="Missed Early Detection" data-zh="错失早期干预窗口">Missed Early Detection</h3>
-                                <p class="text-s text-slate-300 mt-2 leading-relaxed" data-en="Crucial diagnostic delay directly compromises survival rates for severe conditions requiring prompt intervention." data-zh="诊断延迟直接影响重症患者的早期干预效果与预后康复。">Crucial diagnostic delay directly compromises survival rates for severe conditions requiring prompt intervention.</p>
+                                <h3 class="font-bold text-lg text-white" data-en="Missed Early Detection" data-zh="错失早期干预窗口" data-ko="조기 치료 시기 지연">Missed Early Detection</h3>
+                                <p class="text-s text-slate-300 mt-2 leading-relaxed" data-en="Crucial diagnostic delay directly compromises survival rates for severe conditions requiring prompt intervention." data-zh="诊断延迟直接影响重症患者的早期干预效果与预后康复。" data-ko="진단 및 치료 지연은 주요 중증 질환의 완치율에 직간접적 영향을 미칩니다.">Crucial diagnostic delay directly compromises survival rates for severe conditions requiring prompt intervention.</p>
                             </div>
-                            <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold" data-en="Click to view chart →" data-zh="点击查看数据图表 →">Click to view chart →</span>
+                            <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold" data-en="Click to view chart →" data-zh="点击查看数据图表 →" data-ko="차트 보기 →">Click to view chart →</span>
                         </div>
                         <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
                             <img src="images/chart7.png" alt="Cancer Treatment Delays Graph" class="w-full h-full object-contain p-2 bg-slate-900">
@@ -539,10 +558,10 @@
                                 <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-4 text-xl">
                                     <i class="fa-solid fa-user-doctor"></i>
                                 </div>
-                                <h3 class="font-bold text-lg text-white" data-en="Fewer Family Doctors" data-zh="家庭医生缺口扩大">Fewer Family Doctors</h3>
-                                <p class="text-s text-slate-300 mt-2 leading-relaxed" data-en="Family medicine practitioner densities continue to slide downward, creating massive backlogs in basic diagnostics." data-zh="全科家庭医生人均密度持续走低，导致基础医疗与初步诊断严重滞后。">Family medicine practitioner densities continue to slide downward, creating massive backlogs in basic diagnostics.</p>
+                                <h3 class="font-bold text-lg text-white" data-en="Fewer Family Doctors" data-zh="家庭医生缺口扩大" data-ko="패밀리 닥터 부족">Fewer Family Doctors</h3>
+                                <p class="text-s text-slate-300 mt-2 leading-relaxed" data-en="Family medicine practitioner densities continue to slide downward, creating massive backlogs in basic diagnostics." data-zh="全科家庭医生人均密度持续走低，导致基础医疗与初步诊断严重滞后。" data-ko="패밀리 닥터 부족으로 인해 기초 검진 및 일차 의료 접근이 크게 정체되고 있습니다.">Family medicine practitioner densities continue to slide downward, creating massive backlogs in basic diagnostics.</p>
                             </div>
-                            <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold" data-en="Click to view chart →" data-zh="点击查看数据图表 →">Click to view chart →</span>
+                            <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold" data-en="Click to view chart →" data-zh="点击查看数据图表 →" data-ko="차트 보기 →">Click to view chart →</span>
                         </div>
                         <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
                             <img src="images/chart8.png" alt="Doctor Shortage Graph" class="w-full h-full object-contain p-2 bg-slate-900">
@@ -573,9 +592,9 @@
     <section id="services" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-brand-gold font-extrabold uppercase tracking-widest text-4xl" data-en="WHAT WE OFFER" data-zh="我们的服务内容">WHAT WE OFFER</span>
-                <h2 class="text-3xl md:text-xl font-serif font-bold text-brand-darkblue mt-2" data-en="A Dual Network of Medical Logistics" data-zh="医疗与后勤双轨服务保障网络">A Dual Network of Medical Logistics</h2>
-                <p class="mt-4 text-slate-500" data-en="By partnering with globally recognized, state-of-the-art hospitals, we blend world-class medical operations with stress-free travel management." data-zh="通过与国际认可的高水平医院合作，我们将优质医疗资源与贴心的全程出行后勤无缝结合。">
+                <span class="text-brand-gold font-extrabold uppercase tracking-widest text-4xl" data-en="WHAT WE OFFER" data-zh="我们的服务内容" data-ko="WHAT WE OFFER">WHAT WE OFFER</span>
+                <h2 class="text-3xl md:text-xl font-serif font-bold text-brand-darkblue mt-2" data-en="A Dual Network of Medical Logistics" data-zh="医疗与后勤双轨服务保障网络" data-ko="의료 및 물류 원스톱 지원 네트워크">A Dual Network of Medical Logistics</h2>
+                <p class="mt-4 text-slate-500" data-en="By partnering with globally recognized, state-of-the-art hospitals, we blend world-class medical operations with stress-free travel management." data-zh="通过与国际认可的高水平医院合作，我们将优质医疗资源与贴心的全程出行后勤无缝结合。" data-ko="세계적으로 검증된 의료기관과의 협력을 통해 최고 수준의 의료 서비스와 편안한 여행 지원을 동시에 제공합니다.">
                     By partnering with globally recognized, state-of-the-art hospitals, we blend world-class medical operations with stress-free travel management.
                 </p>
             </div>
@@ -587,28 +606,28 @@
                         <div class="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue text-lg">
                             <i class="fa-solid fa-hospital-user"></i>
                         </div>
-                        <h3 class="text-2xl font-serif font-bold text-brand-darkblue" data-en="What Our Partners Provide" data-zh="合作医疗机构提供">What Our Partners Provide</h3>
+                        <h3 class="text-2xl font-serif font-bold text-brand-darkblue" data-en="What Our Partners Provide" data-zh="合作医疗机构提供" data-ko="파트너 의료기관 제공 항목">What Our Partners Provide</h3>
                     </div>
                     <ul class="space-y-4">
                         <li class="flex items-start space-x-3">
                             <span class="text-brand-teal mt-1"><i class="fa-solid fa-check-double"></i></span>
-                            <span class="text-slate-700 font-medium" data-en="&lt;strong&gt;Premium Medical Services:&lt;/strong&gt; Available all year long." data-zh="&lt;strong&gt;优质医疗服务：&lt;/strong&gt;全年快捷预约，即时响应。"><strong>Premium Medical Services:</strong> Available all year long.</span>
+                            <span class="text-slate-700 font-medium" data-en="&lt;strong&gt;Premium Medical Services:&lt;/strong&gt; Available all year long." data-zh="&lt;strong&gt;优质医疗服务：&lt;/strong&gt;全年快捷预约，即时响应。" data-ko="&lt;strong&gt;프리미엄 의료 서비스:&lt;/strong&gt; 연중무휴 신속 진료 연계."><strong>Premium Medical Services:</strong> Available all year long.</span>
                         </li>
                         <li class="flex items-start space-x-3">
                             <span class="text-brand-teal mt-1"><i class="fa-solid fa-check-double"></i></span>
-                            <span class="text-slate-700 font-medium" data-en="&lt;strong&gt;One-Stop Shop:&lt;/strong&gt; All medical services completed in one location." data-zh="&lt;strong&gt;一站式体验：&lt;/strong&gt;所有体检与诊断均在同一院区高效完成。"><strong>One-Stop Shop:</strong> All medical services completed in one location.</span>
+                            <span class="text-slate-700 font-medium" data-en="&lt;strong&gt;One-Stop Shop:&lt;/strong&gt; All medical services completed in one location." data-zh="&lt;strong&gt;一站式体验：&lt;/strong&gt;所有体检与诊断均在同一院区高效完成。" data-ko="&lt;strong&gt;원스톱 시스템:&lt;/strong&gt; 검진부터 치료까지 한곳에서 완료."><strong>One-Stop Shop:</strong> All medical services completed in one location.</span>
                         </li>
                         <li class="flex items-start space-x-3">
                             <span class="text-brand-teal mt-1"><i class="fa-solid fa-check-double"></i></span>
-                            <span class="text-slate-700 font-medium" data-en="&lt;strong&gt;Complete Imaging Suite:&lt;/strong&gt; High-resolution MRI, CT, PET, SPECT and laboratory assessments." data-zh="&lt;strong&gt;尖端影像设备：&lt;/strong&gt;高分辨率MRI、CT、PET-CT及全套实验室精准检测。"><strong>Complete Imaging Suite:</strong> High-resolution MRI, CT, PET, SPECT and laboratory assessments.</span>
+                            <span class="text-slate-700 font-medium" data-en="&lt;strong&gt;Complete Imaging Suite:&lt;/strong&gt; High-resolution MRI, CT, PET, SPECT and laboratory assessments." data-zh="&lt;strong&gt;尖端影像设备：&lt;/strong&gt;高分辨率MRI、CT、PET-CT及全套实验室精准检测。" data-ko="&lt;strong&gt;첨단 정밀 진단:&lt;/strong&gt; 고해상도 MRI, CT, PET 및 종합 정밀 검사."><strong>Complete Imaging Suite:</strong> High-resolution MRI, CT, PET, SPECT and laboratory assessments.</span>
                         </li>
                         <li class="flex items-start space-x-3">
                             <span class="text-brand-teal mt-1"><i class="fa-solid fa-check-double"></i></span>
-                            <span class="text-slate-700 font-medium" data-en="&lt;strong&gt;Specialty Care Focus:&lt;/strong&gt; Standard surgical intervention, Traditional Chinese Medicine, and Stem Cell/NK Cell Therapies." data-zh="&lt;strong&gt;特色诊疗项目：&lt;/strong&gt;包含标准外科、中医药调理、干细胞及NK细胞免疫疗法。"><strong>Specialty Care Focus:</strong> Standard surgical intervention, Traditional Chinese Medicine, and Stem Cell/NK Cell Therapies.</span>
+                            <span class="text-slate-700 font-medium" data-en="&lt;strong&gt;Specialty Care Focus:&lt;/strong&gt; Standard surgical intervention, Traditional Chinese Medicine, and Stem Cell/NK Cell Therapies." data-zh="&lt;strong&gt;特色诊疗项目：&lt;/strong&gt;包含标准外科、中医药调理、干细胞及NK细胞免疫疗法。" data-ko="&lt;strong&gt;특화 클리닉:&lt;/strong&gt; 전문 수술, 전통 의학, 줄기세포 및 NK세포 면역 치료."><strong>Specialty Care Focus:</strong> Standard surgical intervention, Traditional Chinese Medicine, and Stem Cell/NK Cell Therapies.</span>
                         </li>
                         <li class="flex items-start space-x-3">
                             <span class="text-brand-teal mt-1"><i class="fa-solid fa-check-double"></i></span>
-                            <span class="text-slate-700 font-medium" data-en="&lt;strong&gt;World Class Patient Comforts:&lt;/strong&gt; Private VIP suites, Translated Documents, Meals." data-zh="&lt;strong&gt;尊享就医环境：&lt;/strong&gt;VIP独立病房、专业医学翻译及个性化膳食配置。"><strong>World Class Patient Comforts:</strong> Private VIP suites, Translated Documents, Meals.</span>
+                            <span class="text-slate-700 font-medium" data-en="&lt;strong&gt;World Class Patient Comforts:&lt;/strong&gt; Private VIP suites, Translated Documents, Meals." data-zh="&lt;strong&gt;尊享就医环境：&lt;/strong&gt;VIP独立病房、专业医学翻译及个性化膳食配置。" data-ko="&lt;strong&gt;VIP 케어 서비스:&lt;/strong&gt; 독립 VIP 병실, 서류 번역, 맞춤 영양 식단."><strong>World Class Patient Comforts:</strong> Private VIP suites, Translated Documents, Meals.</span>
                         </li>
                     </ul>
                 </div>
@@ -621,28 +640,28 @@
                         <div class="w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold text-lg">
                             <i class="fa-solid fa-shield-halved"></i>
                         </div>
-                        <h3 class="text-2xl font-serif font-bold text-white" data-en="What We Provide" data-zh="Elite Priority Health 提供的后勤支持">What We Provide</h3>
+                        <h3 class="text-2xl font-serif font-bold text-white" data-en="What We Provide" data-zh="Elite Priority Health 提供的后勤支持" data-ko="Elite Priority Health 제공 물류 지원">What We Provide</h3>
                     </div>
                     <ul class="space-y-4">
                         <li class="flex items-start space-x-3">
                             <span class="text-brand-gold mt-1"><i class="fa-solid fa-compass"></i></span>
-                            <span class="text-slate-300" data-en="&lt;strong&gt;Initial Consult &amp; Planning:&lt;/strong&gt; Transparent option mapping matching your budget parameters." data-zh="&lt;strong&gt;前期咨询规划：&lt;/strong&gt;结合您的预算与需求，提供透明化的方案规划。"><strong>Initial Consult & Planning:</strong> Transparent option mapping matching your budget parameters.</span>
+                            <span class="text-slate-300" data-en="&lt;strong&gt;Initial Consult &amp; Planning:&lt;/strong&gt; Transparent option mapping matching your budget parameters." data-zh="&lt;strong&gt;前期咨询规划：&lt;/strong&gt;结合您的预算与需求，提供透明化的方案规划。" data-ko="&lt;strong&gt;사전 맞춤 상담:&lt;/strong&gt; 예산과 조건에 부합하는 투명한 대안 제시."><strong>Initial Consult & Planning:</strong> Transparent option mapping matching your budget parameters.</span>
                         </li>
                         <li class="flex items-start space-x-3">
                             <span class="text-brand-gold mt-1"><i class="fa-solid fa-compass"></i></span>
-                            <span class="text-slate-300" data-en="&lt;strong&gt;A-to-Z Travel Logistics:&lt;/strong&gt; Complete management of travel visas, flights, lodging, and nutritional dining." data-zh="&lt;strong&gt;全程出行后勤：&lt;/strong&gt;协助安排签证办理、机票预订、高品质住宿与餐饮。"><strong>A-to-Z Travel Logistics:</strong> Complete management of travel visas, flights, lodging, and nutritional dining.</span>
+                            <span class="text-slate-300" data-en="&lt;strong&gt;A-to-Z Travel Logistics:&lt;/strong&gt; Complete management of travel visas, flights, lodging, and nutritional dining." data-zh="&lt;strong&gt;全程出行后勤：&lt;/strong&gt;协助安排签证办理、机票预订、高品质住宿与餐饮。" data-ko="&lt;strong&gt;원스톱 여행 물류:&lt;/strong&gt; 비자, 항공권, 고급 숙소 및 맞춤 식단 총괄 관리."><strong>A-to-Z Travel Logistics:</strong> Complete management of travel visas, flights, lodging, and nutritional dining.</span>
                         </li>
                         <li class="flex items-start space-x-3">
                             <span class="text-brand-gold mt-1"><i class="fa-solid fa-compass"></i></span>
-                            <span class="text-slate-300" data-en="&lt;strong&gt;Around the Clock Support:&lt;/strong&gt; Continuous support before, during, and after your trip." data-zh="&lt;strong&gt;全天候陪伴支持：&lt;/strong&gt;行程前、行程中及归国后的全流程贴心后勤陪伴。"><strong>Around the Clock Support:</strong> Continuous support before, during, and after your trip.</span>
+                            <span class="text-slate-300" data-en="&lt;strong&gt;Around the Clock Support:&lt;/strong&gt; Continuous support before, during, and after your trip." data-zh="&lt;strong&gt;全天候陪伴支持：&lt;/strong&gt;行程前、行程中及归国后的全流程贴心后勤陪伴。" data-ko="&lt;strong&gt;24시간 1:1 케어:&lt;/strong&gt; 출국 전, 일정 진행 중, 귀국 후 전 과정 밀착 케어."><strong>Around the Clock Support:</strong> Continuous support before, during, and after your trip.</span>
                         </li>
                         <li class="flex items-start space-x-3">
                             <span class="text-brand-gold mt-1"><i class="fa-solid fa-compass"></i></span>
-                            <span class="text-slate-300" data-en="&lt;strong&gt;Currency Exchange Service:&lt;/strong&gt; Secure foreign currency exchange service." data-zh="&lt;strong&gt;外汇服务支持：&lt;/strong&gt;便捷安全的外汇兑换与支付后勤协助。"><strong>Currency Exchange Service:</strong> Secure foreign currency exchange service.</span>
+                            <span class="text-slate-300" data-en="&lt;strong&gt;Currency Exchange Service:&lt;/strong&gt; Secure foreign currency exchange service." data-zh="&lt;strong&gt;外汇服务支持：&lt;/strong&gt;便捷安全的外汇兑换与支付后勤协助。" data-ko="&lt;strong&gt;환전 및 결제 지원:&lt;/strong&gt; 안전하고 편리한 외화 환전 지원."><strong>Currency Exchange Service:</strong> Secure foreign currency exchange service.</span>
                         </li>
                         <li class="flex items-start space-x-3">
                             <span class="text-brand-gold mt-1"><i class="fa-solid fa-compass"></i></span>
-                            <span class="text-slate-300" data-en="&lt;strong&gt;Culture &amp; Leisure:&lt;/strong&gt; Inter-cultural training pre-departure and optional guided scenic excursions." data-zh="&lt;strong&gt;文化与休闲出行：&lt;/strong&gt;出发前文化适应指导，并可提供当地风景名胜导览体验。"><strong>Culture & Leisure:</strong> Inter-cultural training pre-departure and optional guided scenic excursions.</span>
+                            <span class="text-slate-300" data-en="&lt;strong&gt;Culture &amp; Leisure:&lt;/strong&gt; Inter-cultural training pre-departure and optional guided scenic excursions." data-zh="&lt;strong&gt;文化与休闲出行：&lt;/strong&gt;出发前文化适应指导，并可提供当地风景名胜导览体验。" data-ko="&lt;strong&gt;문화 체험 및 휴양:&lt;/strong&gt; 출국 전 문화 오리엔테이션 및 맞춤형 관광 투어."><strong>Culture & Leisure:</strong> Inter-cultural training pre-departure and optional guided scenic excursions.</span>
                         </li>
                     </ul>
                 </div>
@@ -654,8 +673,8 @@
     <section id="our-path" class="py-20 bg-brand-cream border-b border-slate-100 scroll-mt-28">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-brand-gold font-extrabold uppercase tracking-widest text-4xl" data-en="HOW WE DO IT" data-zh="服务流程">HOW WE DO IT</span>
-                <h2 class="text-3xl md:text-xl font-serif font-bold mt-2" data-en="6 simple steps designed for you to move at your own pace" data-zh="清晰透明的 6 步定制流程，让您安心掌控节奏">6 simple steps designed for you to move at your own pace</h2>
+                <span class="text-brand-gold font-extrabold uppercase tracking-widest text-4xl" data-en="HOW WE DO IT" data-zh="服务流程" data-ko="HOW WE DO IT">HOW WE DO IT</span>
+                <h2 class="text-3xl md:text-xl font-serif font-bold mt-2" data-en="6 simple steps designed for you to move at your own pace" data-zh="清晰透明的 6 步定制流程，让您安心掌控节奏" data-ko="고객 맞춤형 체계적인 6단계 케어 프로세스">6 simple steps designed for you to move at your own pace</h2>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 justify-items-center">
@@ -665,11 +684,11 @@
                     <div class="text-pink-600 text-5xl mb-6">
                         <i class="fa-solid fa-check"></i>
                     </div>
-                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Stage 1" data-zh="第一阶段">Stage 1</h3>
+                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Stage 1" data-zh="第一阶段" data-ko="1단계">Stage 1</h3>
                     <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
-                        <li data-en="Consultation" data-zh="初步咨询">Consultation</li>
-                        <li data-en="Options Analysis" data-zh="方案评估">Options Analysis</li>
-                        <li data-en="Budget Analysis" data-zh="预算规划">Budget Analysis</li>
+                        <li data-en="Consultation" data-zh="初步咨询" data-ko="초기 맞춤 상담">Consultation</li>
+                        <li data-en="Options Analysis" data-zh="方案评估" data-ko="대안 및 옵션 분석">Options Analysis</li>
+                        <li data-en="Budget Analysis" data-zh="预算规划" data-ko="예산 산정 및 확정">Budget Analysis</li>
                     </ul>
                 </div>
 
@@ -678,11 +697,11 @@
                     <div class="text-orange-500 text-5xl mb-6">
                         <i class="fa-solid fa-plane"></i>
                     </div>
-                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Stage 2" data-zh="第二阶段">Stage 2</h3>
+                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Stage 2" data-zh="第二阶段" data-ko="2단계">Stage 2</h3>
                     <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
-                        <li data-en="Travel Coordination" data-zh="行程协调">Travel Coordination</li>
-                        <li data-en="Travel Preparation" data-zh="出行准备">Travel Preparation</li>
-                        <li data-en="Travel Confirmation" data-zh="行程确认">Travel Confirmation</li>
+                        <li data-en="Travel Coordination" data-zh="行程协调" data-ko="여행 일정 조율">Travel Coordination</li>
+                        <li data-en="Travel Preparation" data-zh="出行准备" data-ko="비자 및 서류 준비">Travel Preparation</li>
+                        <li data-en="Travel Confirmation" data-zh="行程确认" data-ko="최종 출국 일정 확정">Travel Confirmation</li>
                     </ul>
                 </div>
 
@@ -691,11 +710,11 @@
                     <div class="text-indigo-600 text-5xl mb-6">
                         <i class="fa-solid fa-location-dot"></i>
                     </div>
-                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Stage 3" data-zh="第三阶段">Stage 3</h3>
+                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Stage 3" data-zh="第三阶段" data-ko="3단계">Stage 3</h3>
                     <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
-                        <li data-en="Travel to Location" data-zh="顺利抵达">Travel to Location</li>
-                        <li data-en="Link-up with Local Host" data-zh="接待对接">Link-up with Local Host</li>
-                        <li data-en="Hospital Tour" data-zh="医院参观">Hospital Tour</li>
+                        <li data-en="Travel to Location" data-zh="顺利抵达" data-ko="현지 안전 도착">Travel to Location</li>
+                        <li data-en="Link-up with Local Host" data-zh="接待对接" data-ko="현지 전담 가이드 미팅">Link-up with Local Host</li>
+                        <li data-en="Hospital Tour" data-zh="医院参观" data-ko="병원 오리엔테이션">Hospital Tour</li>
                     </ul>
                 </div>
 
@@ -704,11 +723,11 @@
                     <div class="text-emerald-500 text-5xl mb-6">
                         <i class="fa-solid fa-stethoscope"></i>
                     </div>
-                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Stage 4" data-zh="第四阶段">Stage 4</h3>
+                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Stage 4" data-zh="第四阶段" data-ko="4단계">Stage 4</h3>
                     <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
-                        <li data-en="Triage" data-zh="分诊问诊">Triage</li>
-                        <li data-en="Opted Tests &amp; Scans" data-zh="精准体检">Opted Tests & Scans</li>
-                        <li data-en="Optional Guided Scenic Tour" data-zh="观光体验 (可选)">Optional Guided Scenic Tour</li>
+                        <li data-en="Triage" data-zh="分诊问诊" data-ko="예비 진찰 및 예진">Triage</li>
+                        <li data-en="Opted Tests &amp; Scans" data-zh="精准体检" data-ko="정밀 검사 및 정밀 스캔">Opted Tests & Scans</li>
+                        <li data-en="Optional Guided Scenic Tour" data-zh="观光体验 (可选)" data-ko="선택형 현지 휴양 투어">Optional Guided Scenic Tour</li>
                     </ul>
                 </div>
 
@@ -717,10 +736,10 @@
                     <div class="text-violet-600 text-5xl mb-6">
                         <i class="fa-solid fa-syringe"></i>
                     </div>
-                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Stage 5" data-zh="第五阶段">Stage 5</h3>
+                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Stage 5" data-zh="第五阶段" data-ko="5단계">Stage 5</h3>
                     <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
-                        <li data-en="Results Debrief with Physician" data-zh="医生解读书">Results Debrief with Physician</li>
-                        <li data-en="Opted Treatments" data-zh="实施方案">Opted Treatments</li>
+                        <li data-en="Results Debrief with Physician" data-zh="医生解解读" data-ko="의료진 결과 상담">Results Debrief with Physician</li>
+                        <li data-en="Opted Treatments" data-zh="实施方案" data-ko="맞춤 치료 시술 진행">Opted Treatments</li>
                     </ul>
                 </div>
 
@@ -729,11 +748,11 @@
                     <div class="text-pink-600 text-5xl mb-6">
                         <i class="fa-solid fa-house"></i>
                     </div>
-                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Stage 6" data-zh="第六阶段">Stage 6</h3>
+                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Stage 6" data-zh="第六阶段" data-ko="6단계">Stage 6</h3>
                     <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
-                        <li data-en="Return Home" data-zh="启程归国">Return Home</li>
-                        <li data-en="Trip Debrief" data-zh="行程复盘">Trip Debrief</li>
-                        <li data-en="Finalize Payment" data-zh="费用结算">Finalize Payment</li>
+                        <li data-en="Return Home" data-zh="启程归国" data-ko="귀국 케어">Return Home</li>
+                        <li data-en="Trip Debrief" data-zh="行程复盘" data-ko="사후 모니터링">Trip Debrief</li>
+                        <li data-en="Finalize Payment" data-zh="费用结算" data-ko="최종 정산 마무리">Finalize Payment</li>
                     </ul>
                 </div>
 
@@ -745,9 +764,9 @@
     <section class="py-20 bg-brand-white border-b border-slate-100 scroll-mt-28">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-brand-gold font-extrabold uppercase tracking-widest text-4xl" data-en="OUR COMPANY ROADMAP" data-zh="企业发展路线图">OUR COMPANY ROADMAP</span>
-                <h2 class="text-3xl md:text-2xl font-serif font-bold mt-2" data-en="Four Phased Milestones" data-zh="四大发展阶段目标">Four Phased Milestones</h2>
-                <p class="mt-4 text-slate-500" data-en="Elite Priority Health's underlying goal will always be to provide a positive experience for clients to improve their quality of life. The company's long-term trajectory is to be able to provide this service for free to those in need." data-zh="Elite Priority Health 的根本目标始终是为客户营造优质的体验，提升生命质量。企业的远景是以公益形式帮助更多有需要的困难群体。">
+                <span class="text-brand-gold font-extrabold uppercase tracking-widest text-4xl" data-en="OUR COMPANY ROADMAP" data-zh="企业发展路线图" data-ko="ROADMAP">OUR COMPANY ROADMAP</span>
+                <h2 class="text-3xl md:text-2xl font-serif font-bold mt-2" data-en="Four Phased Milestones" data-zh="四大发展阶段目标" data-ko="4단계 로드맵">Four Phased Milestones</h2>
+                <p class="mt-4 text-slate-500" data-en="Elite Priority Health's underlying goal will always be to provide a positive experience for clients to improve their quality of life. The company's long-term trajectory is to be able to provide this service for free to those in need." data-zh="Elite Priority Health 的根本目标始终是为客户营造优质的体验，提升生命质量。企业的远景是以公益形式帮助更多有需要的困难群体。" data-ko="Elite Priority Health의 궁극적인 목표는 고객의 삶의 질 향상입니다. 장기적으로 도움이 필요한 소외 계층에게 무상 서비스를 지원하는 사회적 기업으로 성장하고자 합니다.">
                     Elite Priority Health's underlying goal will always be to provide a positive experience for clients to improve their quality of life. The company's long-term trajectory is to be able to provide this service for free to those in need.
                 </p>
             </div>
@@ -759,11 +778,11 @@
                     <div class="text-pink-600 text-5xl mb-6">
                         <i class="fa-solid fa-gears"></i>
                     </div>
-                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Phase 1" data-zh="第一阶段">Phase 1</h3>
+                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Phase 1" data-zh="第一阶段" data-ko="1단계">Phase 1</h3>
                     <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
-                        <li data-en="Build Partnerships" data-zh="建立医疗合作">Build Partnerships</li>
-                        <li data-en="Secure Logistic Bridge" data-zh="搭建后勤桥梁">Secure Logistic Bridge</li>
-                        <li data-en="Build Digital Infrastructure" data-zh="建设数字化平台">Build Digital Infrastructure</li>
+                        <li data-en="Build Partnerships" data-zh="建立医疗合作" data-ko="의료 파트너십 구축">Build Partnerships</li>
+                        <li data-en="Secure Logistic Bridge" data-zh="搭建后勤桥梁" data-ko="원스톱 물류 망 구축">Secure Logistic Bridge</li>
+                        <li data-en="Build Digital Infrastructure" data-zh="建设数字化平台" data-ko="디지털 인프라 구축">Build Digital Infrastructure</li>
                     </ul>
                 </div>
 
@@ -772,11 +791,11 @@
                     <div class="text-orange-500 text-5xl mb-6">
                         <i class="fa-solid fa-rocket"></i>
                     </div>
-                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Phase 2" data-zh="第二阶段">Phase 2</h3>
+                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Phase 2" data-zh="第二阶段" data-ko="2단계">Phase 2</h3>
                     <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
-                        <li data-en="Soft Online Launch" data-zh="试运行上线">Soft Online Launch</li>
-                        <li data-en="Adjust &amp; Improve" data-zh="优化服务细节">Adjust & Improve</li>
-                        <li data-en="First Office Launch" data-zh="设立首个线下办公室">First Office Launch</li>
+                        <li data-en="Soft Online Launch" data-zh="试运行上线" data-ko="온라인 서비스 런칭">Soft Online Launch</li>
+                        <li data-en="Adjust &amp; Improve" data-zh="优化服务细节" data-ko="서비스 보완 및 고도화">Adjust & Improve</li>
+                        <li data-en="First Office Launch" data-zh="设立首个线下办公室" data-ko="첫 번째 오프라인 센터 개설">First Office Launch</li>
                     </ul>
                 </div>
 
@@ -785,11 +804,11 @@
                     <div class="text-indigo-700 text-5xl mb-6">
                         <i class="fa-solid fa-chart-line"></i>
                     </div>
-                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Phase 3" data-zh="第三阶段">Phase 3</h3>
+                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Phase 3" data-zh="第三阶段" data-ko="3단계">Phase 3</h3>
                     <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
-                        <li data-en="Expand Partnerships" data-zh="拓展网络机构">Expand Partnerships</li>
-                        <li data-en="Expand Client Reach" data-zh="提升服务覆盖">Expand Client Reach</li>
-                        <li data-en="Expand Offices" data-zh="设立更多分支机构">Expand Offices</li>
+                        <li data-en="Expand Partnerships" data-zh="拓展网络机构" data-ko="파트너십 네트워크 확대">Expand Partnerships</li>
+                        <li data-en="Expand Client Reach" data-zh="提升服务覆盖" data-ko="고객 커버리지 확장">Expand Client Reach</li>
+                        <li data-en="Expand Offices" data-zh="设立更多分支机构" data-ko="글로벌 지사 확원">Expand Offices</li>
                     </ul>
                 </div>
 
@@ -798,11 +817,11 @@
                     <div class="text-emerald-500 text-5xl mb-6">
                         <i class="fa-solid fa-seedling"></i>
                     </div>
-                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Phase 4" data-zh="第四阶段">Phase 4</h3>
+                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Phase 4" data-zh="第四阶段" data-ko="4단계">Phase 4</h3>
                     <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
-                        <li data-en="Set-up sponsored trips for children in need" data-zh="资助困难儿童就医行程">Set-up sponsored trips for children in need</li>
-                        <li data-en="Set-up sponsored trips for seniors in need" data-zh="资助困难老人就医行程">Set-up sponsored trips for seniors in need</li>
-                        <li data-en="Set-up sponsored trips for veterans in need" data-zh="资助困难退役军人就医行程">Set-up sponsored trips for veterans in need</li>
+                        <li data-en="Set-up sponsored trips for children in need" data-zh="资助困难儿童就医行程" data-ko="저소득층 아동 의료 후원 프로그램">Set-up sponsored trips for children in need</li>
+                        <li data-en="Set-up sponsored trips for seniors in need" data-zh="资助困难老人就医行程" data-ko="소외계층 어르신 의료 후원">Set-up sponsored trips for seniors in need</li>
+                        <li data-en="Set-up sponsored trips for veterans in need" data-zh="资助困难退役军人就医行程" data-ko="상이군인 무상 치료 후원">Set-up sponsored trips for veterans in need</li>
                     </ul>
                 </div>
 
@@ -817,9 +836,9 @@
                 
                 <!-- Left Column -->
                 <div class="lg:col-span-5">
-                    <span class="text-brand-gold font-extrabold uppercase tracking-widest text-3xl" data-en="WHEN SHALL WE BEGIN?" data-zh="何时开始行动？">WHEN SHALL WE BEGIN?</span>
-                    <h2 class="text-xl md:text-2xl font-serif font-bold mt-2 mb-6" data-en="Whenever you want to start priortizing your well-being" data-zh="随时开启您的健康优先保障之旅">Whenever you want to start priortizing your well-being</h2>
-                    <p class="text-slate-300 leading-relaxed mb-6" data-en="It is time to start investing into your health. Connect with our support team to coordinate your free consultation today." data-zh="是时候重新关注您的身体健康了。立即联系我们的后勤支持团队，预约免费初步咨询。">
+                    <span class="text-brand-gold font-extrabold uppercase tracking-widest text-3xl" data-en="WHEN SHALL WE BEGIN?" data-zh="何时开始行动？" data-ko="언제 시작하시겠습니까?">WHEN SHALL WE BEGIN?</span>
+                    <h2 class="text-xl md:text-2xl font-serif font-bold mt-2 mb-6" data-en="Whenever you want to start priortizing your well-being" data-zh="随时开启您的健康优先保障之旅" data-ko="당신의 건강을 최우선으로 생각하는 순간부터">Whenever you want to start priortizing your well-being</h2>
+                    <p class="text-slate-300 leading-relaxed mb-6" data-en="It is time to start investing into your health. Connect with our support team to coordinate your free consultation today." data-zh="是时候重新关注您的身体健康了。立即联系我们的后勤支持团队，预约免费初步咨询。" data-ko="당신의 건강에 투자할 때입니다. 지금 전문 케어 팀과 무료 상담을 진행해 보세요.">
                         It is time to start investing into your health. Connect with our support team to coordinate your free consultation today.
                     </p>
                     <div class="space-y-4">
@@ -830,36 +849,36 @@
                         
                         <div class="flex items-center space-x-3">
                             <span class="text-brand-teal"><i class="fa-solid fa-shield-halved text-sm"></i></span>
-                            <span class="text-slate-400 text-xs" data-en="We value your privacy and keep your inquiry completely confidential." data-zh="我们高度重视您的隐私，所有咨询信息均严格保密。">We value your privacy and keep your inquiry completely confidential.</span>
+                            <span class="text-slate-400 text-xs" data-en="We value your privacy and keep your inquiry completely confidential." data-zh="我们高度重视您的隐私，所有咨询信息均严格保密。" data-ko="모든 상담 문의는 엄격하게 비밀이 보장됩니다.">We value your privacy and keep your inquiry completely confidential.</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Right Column: Form -->
                 <div class="lg:col-span-7 bg-white text-slate-800 p-8 rounded-2xl shadow-2xl">
-                    <h3 class="font-bold text-xl text-brand-darkblue mb-6" data-en="Confidential Booking Inquiry" data-zh="保密咨询预约">Confidential Booking Inquiry</h3>
+                    <h3 class="font-bold text-xl text-brand-darkblue mb-6" data-en="Confidential Booking Inquiry" data-zh="保密咨询预约" data-ko="비밀 보장 상담 신청">Confidential Booking Inquiry</h3>
                     
                     <form action="https://formspree.io/f/mdaqegyr" method="POST" class="space-y-4">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs uppercase font-bold text-slate-500 tracking-wider mb-1" data-en="Full Name" data-zh="姓名">Full Name</label>
+                                <label class="block text-xs uppercase font-bold text-slate-500 tracking-wider mb-1" data-en="Full Name" data-zh="姓名" data-ko="성함">Full Name</label>
                                 <input type="text" name="name" placeholder="John Doe" required class="w-full bg-slate-100 border border-slate-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-brand-teal">
                             </div>
                             <div>
-                                <label class="block text-xs uppercase font-bold text-slate-500 tracking-wider mb-1" data-en="Email Address" data-zh="电子邮箱">Email Address</label>
+                                <label class="block text-xs uppercase font-bold text-slate-500 tracking-wider mb-1" data-en="Email Address" data-zh="电子邮箱" data-ko="이메일 주소">Email Address</label>
                                 <input type="email" name="email" placeholder="john@example.com" required class="w-full bg-slate-100 border border-slate-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-brand-teal">
                             </div>
                         </div>
                         <div>
-                            <label class="block text-xs uppercase font-bold text-slate-500 tracking-wider mb-1" data-en="Area of Interests" data-zh="意向关注方向">Area of Interests</label>
+                            <label class="block text-xs uppercase font-bold text-slate-500 tracking-wider mb-1" data-en="Area of Interests" data-zh="意向关注方向" data-ko="관심 치료 항목">Area of Interests</label>
                             <input type="text" name="interests" placeholder="e.g., Stem-cell Therapy, NK-cell Therapy, Medical Exams, Hospitality, etc" class="w-full bg-slate-100 border border-slate-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-brand-teal">
                         </div>
                         <div>
-                            <label class="block text-xs uppercase font-bold text-slate-500 tracking-wider mb-1" data-en="Brief Description of Your Needs" data-zh="需求简述">Brief Description of Your Needs</label>
+                            <label class="block text-xs uppercase font-bold text-slate-500 tracking-wider mb-1" data-en="Brief Description of Your Needs" data-zh="需求简述" data-ko="상담 요청 내용 요약">Brief Description of Your Needs</label>
                             <textarea name="message" rows="3" placeholder="Let us know how we can best help you connect..." class="w-full bg-slate-100 border border-slate-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-brand-teal"></textarea>
                         </div>
                         
-                        <button type="submit" data-en="Submit Secure Consultation Request" data-zh="提交保密咨询请求" class="w-full bg-brand-darkblue text-white hover:bg-brand-blue py-3 rounded-xl font-bold transition duration-300">
+                        <button type="submit" data-en="Submit Secure Consultation Request" data-zh="提交保密咨询请求" data-ko="상담 신청서 제출하기" class="w-full bg-brand-darkblue text-white hover:bg-brand-blue py-3 rounded-xl font-bold transition duration-300">
                             Submit Secure Consultation Request
                         </button>
                     </form>
@@ -873,13 +892,13 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center">
             <div class="mb-6 sm:mb-0">
                 <span class="block text-lg font-bold tracking-wider text-brand-cream">ELITE PRIORITY HEALTH</span>
-                <span class="block text-xs tracking-widest text-brand-gold -mt-1" data-en="GLOBAL MEDICAL LOGISTICS BRIDGE" data-zh="全球医疗后勤服务桥梁">GLOBAL MEDICAL LOGISTICS BRIDGE</span>
+                <span class="block text-xs tracking-widest text-brand-gold -mt-1" data-en="GLOBAL MEDICAL LOGISTICS BRIDGE" data-zh="全球医疗后勤服务桥梁" data-ko="글로벌 의료 물류 서비스 브릿지">GLOBAL MEDICAL LOGISTICS BRIDGE</span>
                 <p class="text-xs text-slate-500 mt-2">© 2026 Elite Priority Health Inc. All rights reserved.</p>
             </div>
             <div class="flex space-x-6">
-                <a href="#about" data-en="About Us" data-zh="关于我们" class="text-sm hover:text-white transition">About Us</a>
-                <a href="#services" data-en="Services" data-zh="服务内容" class="text-sm hover:text-white transition">Services</a>
-                <a href="#our-path" data-en="The Path" data-zh="服务流程" class="text-sm hover:text-white transition">The Path</a>
+                <a href="#about" data-en="About Us" data-zh="关于我们" data-ko="회사 소개" class="text-sm hover:text-white transition">About Us</a>
+                <a href="#services" data-en="Services" data-zh="服务内容" data-ko="제공 서비스" class="text-sm hover:text-white transition">Services</a>
+                <a href="#our-path" data-en="The Path" data-zh="服务流程" data-ko="진行 절차" class="text-sm hover:text-white transition">The Path</a>
             </div>
         </div>
     </footer>
@@ -896,32 +915,51 @@
         });
     }
 
-    // 2. Language Switcher Logic (DOM-based, Localized & Firewall-Proof)
+    // 2. Multi-Language Switcher Logic (EN / ZH / KO)
     function setLanguage(lang) {
-        const elements = document.querySelectorAll('[data-en][data-zh]');
+        const elements = document.querySelectorAll('[data-en]');
         elements.forEach(el => {
-            el.innerHTML = (lang === 'zh') ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+            if (lang === 'zh' && el.hasAttribute('data-zh')) {
+                el.innerHTML = el.getAttribute('data-zh');
+            } else if (lang === 'ko' && el.hasAttribute('data-ko')) {
+                el.innerHTML = el.getAttribute('data-ko');
+            } else {
+                el.innerHTML = el.getAttribute('data-en');
+            }
         });
 
-        document.documentElement.lang = (lang === 'zh') ? 'zh-CN' : 'en';
+        // HTML Lang Attribute
+        if (lang === 'zh') {
+            document.documentElement.lang = 'zh-CN';
+        } else if (lang === 'ko') {
+            document.documentElement.lang = 'ko';
+        } else {
+            document.documentElement.lang = 'en';
+        }
 
-        // Update button states
+        // Update Button States (Desktop)
         const desktopEn = document.getElementById('lang-en');
         const desktopZh = document.getElementById('lang-zh');
+        const desktopKo = document.getElementById('lang-ko');
+
+        // Update Button States (Mobile)
         const mobileEn = document.getElementById('mobile-lang-en');
         const mobileZh = document.getElementById('mobile-lang-zh');
+        const mobileKo = document.getElementById('mobile-lang-ko');
 
-        if (lang === 'zh') {
-            if (desktopZh) desktopZh.className = "text-brand-gold font-bold transition";
-            if (desktopEn) desktopEn.className = "text-slate-300 hover:text-white transition";
-            if (mobileZh) mobileZh.className = "text-brand-gold font-bold text-sm";
-            if (mobileEn) mobileEn.className = "text-slate-300 text-sm";
-        } else {
-            if (desktopEn) desktopEn.className = "text-brand-gold font-bold transition";
-            if (desktopZh) desktopZh.className = "text-slate-300 hover:text-white transition";
-            if (mobileEn) mobileEn.className = "text-brand-gold font-bold text-sm";
-            if (mobileZh) mobileZh.className = "text-slate-300 text-sm";
-        }
+        // Reset classes
+        const inactiveDesktopClass = "text-slate-300 hover:text-white transition";
+        const activeDesktopClass = "text-brand-gold font-bold transition";
+        const inactiveMobileClass = "text-slate-300 text-xs";
+        const activeMobileClass = "text-brand-gold font-bold text-xs";
+
+        if (desktopEn) desktopEn.className = (lang === 'en') ? activeDesktopClass : inactiveDesktopClass;
+        if (desktopZh) desktopZh.className = (lang === 'zh') ? activeDesktopClass : inactiveDesktopClass;
+        if (desktopKo) desktopKo.className = (lang === 'ko') ? activeDesktopClass : inactiveDesktopClass;
+
+        if (mobileEn) mobileEn.className = (lang === 'en') ? activeMobileClass : inactiveMobileClass;
+        if (mobileZh) mobileZh.className = (lang === 'zh') ? activeMobileClass : inactiveMobileClass;
+        if (mobileKo) mobileKo.className = (lang === 'ko') ? activeMobileClass : inactiveMobileClass;
 
         localStorage.setItem('preferred_lang', lang);
     }
@@ -929,9 +967,7 @@
     // Auto-load language preference on startup
     document.addEventListener('DOMContentLoaded', () => {
         const savedLang = localStorage.getItem('preferred_lang') || 'en';
-        if (savedLang === 'zh') {
-            setLanguage('zh');
-        }
+        setLanguage(savedLang);
     });
 
     // 3. Dynamic Read More / Read Less Logic
@@ -953,13 +989,21 @@
                     content.style.maxHeight = content.scrollHeight + "px";
                     if (fade) fade.classList.add('opacity-0');
                     if (images) images.classList.add('expanded');
-                    if (btnText) btnText.textContent = (currentLang === 'zh') ? '收起内容' : 'Read Less';
+                    
+                    if (currentLang === 'zh') btnText.textContent = '收起内容';
+                    else if (currentLang === 'ko') btnText.textContent = '접기';
+                    else btnText.textContent = 'Read Less';
+
                     if (btnIcon) btnIcon.style.transform = 'rotate(180deg)';
                 } else {
                     content.style.maxHeight = '450px';
                     if (fade) fade.classList.remove('opacity-0');
                     if (images) images.classList.remove('expanded');
-                    if (btnText) btnText.textContent = (currentLang === 'zh') ? '阅读完整故事' : 'Read Full Story';
+
+                    if (currentLang === 'zh') btnText.textContent = '阅读完整故事';
+                    else if (currentLang === 'ko') btnText.textContent = '전체 이야기 읽기';
+                    else btnText.textContent = 'Read Full Story';
+
                     if (btnIcon) btnIcon.style.transform = 'rotate(0deg)';
                     
                     const section = content.closest('section');
