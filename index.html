@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Priority Health | Global Medical Tourism Bridge</title>
-<!-- 👇 ADD THIS LINE TO REPLACE THE GLOBE ICON 👇 -->
+    <title data-en="Elite Priority Health | Global Medical Logistics Bridge" data-zh="Elite Priority Health | 全球医疗后勤桥梁">Elite Priority Health | Global Medical Logistics Bridge</title>
+    
+    <!-- Favicon -->
     <link rel="icon" type="logo" href="images/logo.png">
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <script>
         tailwind.config = {
             theme: {
@@ -24,11 +28,7 @@
                         }
                     },
                     fontFamily: {
-                        /* 
-                           A robust system font stack optimized for both Western & Chinese devices.
-                           - Apple: -apple-system, BlinkMacSystemFont, "PingFang SC" (Elegant Chinese)
-                           - Windows: "Segoe UI", "Microsoft YaHei" (Clean Chinese)
-                        */
+                        /* Native System Font Stack for Western & Chinese devices (No Google Fonts dependency) */
                         sans: [
                             'system-ui', 
                             '-apple-system', 
@@ -43,7 +43,6 @@
                             '"WenQuanYi Micro Hei"', 
                             'sans-serif'
                         ],
-                        /* Clean editorial serif fallback omitting Google Playfair */
                         serif: [
                             'Georgia', 
                             'Cambria', 
@@ -57,9 +56,8 @@
         }
     </script>
 
-<!-- Custom Styles for the Founder's Story "Read More" Effect -->
+    <!-- Custom Styles for Founder's Story Collapse/Expand Effect -->
     <style>
-        /* Define the collapsed state height (matches the left-side portrait) */
         #story-content {
             max-height: 25rem; 
             overflow: hidden;
@@ -67,12 +65,10 @@
             position: relative;
         }
 
-        /* State when the "Read Full Story" button is clicked */
         #story-content.expanded {
             max-height: 2000px; 
         }
 
-        /* Gradient fade overlay that blends into the bg-slate-50 background color */
         #story-fade {
             position: absolute;
             bottom: 0;
@@ -84,12 +80,10 @@
             transition: opacity 0.3s ease;
         }
 
-        /* Hide the fade effect completely when the text is expanded */
         #story-content.expanded #story-fade {
             opacity: 0;
         }
 
-        /* Collapsed state for the extra images container */
         #story-images {
             max-height: 0;
             opacity: 0;
@@ -97,11 +91,10 @@
             transition: max-height 0.6s ease-in-out, opacity 0.6s ease-in-out, margin-top 0.4s ease-in-out;
         }
 
-        /* Expanded state for the extra images container (increased height for vertical stack) */
         #story-images.expanded {
-            max-height: 1500px; /* Large enough to hold the taller vertical images stack */
+            max-height: 1500px; 
             opacity: 1;
-            margin-top: 1.5rem; /* Space out the stack from the main portrait when visible */
+            margin-top: 1.5rem;
         }
     </style>
 </head>
@@ -111,43 +104,58 @@
     <header class="sticky top-0 z-50 bg-brand-darkblue/95 backdrop-blur-md text-white shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <!-- Actual Logo Image -->
                 <img src="images/logo.png" alt="Elite Priority Health Logo" class="w-20 h-20 object-contain">
-                
                 <div>
                     <span class="block text-lg font-bold tracking-wider text-brand-cream">ELITE PRIORITY HEALTH</span>
-                <span class="block text-xs tracking-widest text-brand-gold -mt-1">GLOBAL MEDICAL LOGISTICS BRIDGE</span>
+                    <span class="block text-xs tracking-widest text-brand-gold -mt-1" data-en="GLOBAL MEDICAL LOGISTICS BRIDGE" data-zh="全球医疗后勤服务桥梁">GLOBAL MEDICAL LOGISTICS BRIDGE</span>
                 </div>
-        
             </div>
             
             <!-- Desktop Nav -->
             <nav class="hidden md:flex space-x-8 text-medium font-medium tracking-wide">
-                <a href="#about" class="hover:text-brand-gold transition duration-150">About Us</a>
-                <a href="#why-we-exist" class="hover:text-brand-gold transition duration-150">Why We Exist</a>
-                <a href="#services" class="hover:text-brand-gold transition duration-150">What We Offer</a>
-                <a href="#our-path" class="hover:text-brand-gold transition duration-150">How We Do It</a>
+                <a href="#about" data-en="About Us" data-zh="关于我们" class="hover:text-brand-gold transition duration-150">About Us</a>
+                <a href="#why-we-exist" data-en="Why We Exist" data-zh="为什么选择我们" class="hover:text-brand-gold transition duration-150">Why We Exist</a>
+                <a href="#services" data-en="What We Offer" data-zh="我们的服务" class="hover:text-brand-gold transition duration-150">What We Offer</a>
+                <a href="#our-path" data-en="How We Do It" data-zh="服务流程" class="hover:text-brand-gold transition duration-150">How We Do It</a>
             </nav>
 
-            <div class="hidden md:block">
-                <a href="#contact" class="bg-brand-gold text-brand-darkblue px-6 py-2.5 rounded-full font-bold text-medium tracking-wide hover:bg-white hover:text-brand-darkblue transition duration-300 shadow-lg">
+            <!-- Desktop Nav Actions (Language Switcher + CTA) -->
+            <div class="hidden md:flex items-center space-x-4">
+                <!-- Language Switcher -->
+                <div class="flex items-center space-x-2 border border-slate-600/80 rounded-full px-3 py-1 bg-slate-800/50 text-xs font-semibold backdrop-blur-sm">
+                    <button onclick="setLanguage('en')" id="lang-en" class="text-brand-gold font-bold transition">EN</button>
+                    <span class="text-slate-500">|</span>
+                    <button onclick="setLanguage('zh')" id="lang-zh" class="text-slate-300 hover:text-white transition">中文</button>
+                </div>
+
+                <!-- CTA Button -->
+                <a href="#contact" data-en="Begin Your Journey" data-zh="开启健康之旅" class="bg-brand-gold text-brand-darkblue px-6 py-2.5 rounded-full font-bold text-medium tracking-wide hover:bg-white hover:text-brand-darkblue transition duration-300 shadow-lg">
                     Begin Your Journey
                 </a>
             </div>
 
-            <!-- Mobile Menu Button -->
-            <button id="menu-btn" class="md:hidden text-white focus:outline-none">
-                <i class="fa-solid fa-bars text-2xl"></i>
-            </button>
+            <!-- Mobile Hamburger Button -->
+            <div class="md:hidden flex items-center">
+                <button id="menu-btn" class="text-slate-300 hover:text-white focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
         </div>
 
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-brand-darkblue px-4 pt-2 pb-6 space-y-3 border-t border-slate-700">
-            <a href="#about" class="block text-white hover:text-brand-gold py-2">About Us</a>
-            <a href="#why-we-exist" class="block text-white hover:text-brand-gold py-2">Why We Exist</a>
-            <a href="#services" class="block text-white hover:text-brand-gold py-2">What We Offer</a>
-            <a href="#our-path" class="block text-white hover:text-brand-gold py-2">The Process</a>
-            <a href="#contact" class="block text-center bg-brand-gold text-brand-darkblue py-2.5 rounded-full font-bold">Begin Your Journey</a>
+            <!-- Mobile Language Toggle -->
+            <div class="flex items-center justify-center space-x-4 py-2 border-b border-slate-700/60 mb-2">
+                <button onclick="setLanguage('en')" id="mobile-lang-en" class="text-brand-gold font-bold text-sm">English</button>
+                <span class="text-slate-500">|</span>
+                <button onclick="setLanguage('zh')" id="mobile-lang-zh" class="text-slate-300 text-sm">中文 (Mandarin)</button>
+            </div>
+
+            <a href="#about" data-en="About Us" data-zh="关于我们" class="block text-white hover:text-brand-gold py-2">About Us</a>
+            <a href="#why-we-exist" data-en="Why We Exist" data-zh="为什么选择我们" class="block text-white hover:text-brand-gold py-2">Why We Exist</a>
+            <a href="#services" data-en="What We Offer" data-zh="我们的服务" class="block text-white hover:text-brand-gold py-2">What We Offer</a>
+            <a href="#our-path" data-en="The Process" data-zh="服务流程" class="block text-white hover:text-brand-gold py-2">The Process</a>
+            <a href="#contact" data-en="Begin Your Journey" data-zh="开启健康之旅" class="block text-center bg-brand-gold text-brand-darkblue py-2.5 rounded-full font-bold">Begin Your Journey</a>
         </div>
     </header>
 
@@ -160,16 +168,19 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
                  <h1 class="text-2xl sm:text-3xl md:text-4xl tracking-tight text-brand-gold mt-4 leading-tight font-normal">
-  				  Connect to Premium Healthcare <b>Without the Wait</b>
-				</h1>
-                <p class="mt-6 text-lg text-slate-300 leading-relaxed">
+                    <span data-en="Connect to Premium Healthcare" data-zh="连接全球优质医疗资源">Connect to Premium Healthcare</span> 
+                    <b data-en="Without the Wait" data-zh="告别漫长等待">Without the Wait</b>
+                </h1>
+                <p class="mt-6 text-lg text-slate-300 leading-relaxed"
+                   data-en="We are here to bridge the gap of medical services that are not readily accessible or available in Canada by connecting our clients with our partnered world-class medical services abroad. Canada's #1 outbound medical tourism facilitator."
+                   data-zh="我们致力于通过连接海外合作的世界级优质医疗资源，填补加拿大本地难以获取或短缺的医疗服务缺口。加拿大首屈一指的出境跨境医疗服务协调机构。">
                    We are here to bridge the gap of medical services that are not readily accessible or available in Canada by connecting our clients with our partnered world-class medical services abroad. Canada's #1 outbound medical tourism facilitator.
                 </p>
                 <div class="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#our-path" class="bg-brand-gold text-brand-darkblue hover:bg-white px-8 py-3.5 rounded-full font-bold text-center transition duration-300 shadow-xl">
+                    <a href="#our-path" data-en="Explore Our Process" data-zh="了解服务流程" class="bg-brand-gold text-brand-darkblue hover:bg-white px-8 py-3.5 rounded-full font-bold text-center transition duration-300 shadow-xl">
                         Explore Our Process
                     </a>
-                    <a href="#contact" class="border border-slate-400 text-white hover:bg-white/10 px-8 py-3.5 rounded-full font-bold text-center transition duration-300">
+                    <a href="#contact" data-en="Book Initial Consultation" data-zh="预约首次咨询" class="border border-slate-400 text-white hover:bg-white/10 px-8 py-3.5 rounded-full font-bold text-center transition duration-300">
                         Book Initial Consultation
                     </a>
                 </div>
@@ -179,7 +190,9 @@
                 <div class="w-12 h-12 bg-brand-teal/20 rounded-full flex items-center justify-center text-brand-teal mb-6">
                     <i class="fa-solid fa-quote-left text-xl"></i>
                 </div>
-                <p class="text-xl italic text-slate-200 font-medium leading-relaxed">
+                <p class="text-xl italic text-slate-200 font-medium leading-relaxed"
+                   data-en="&quot;When the Canadian medical system failed to provide any long-term solutions for my severe chronic back pain issues, I had lost all hope... Then when a person I trust invited me to try stem-cell therapy abroad, I decided to take a leap of faith... After being treated, I can confidently say that I am free from the chronic pain that has haunted me for over a decade.&quot;"
+                   data-zh="“当加拿大的医疗体系无法为我的严重慢性背痛提供任何长期解决方案时，我几乎陷入绝望……后来，在一位信任的朋友建议下，我决定前往海外尝试干细胞治疗……接受治疗后，我可以充满自信地说，困扰我十多年的慢性疼痛终于消失了。”">
                     "When the Canadian medical system failed to provide any long-term solutions for my severe chronic back pain issues, I had lost all hope... Then when a person I trust invited me to try stem-cell therapy abroad, I decided to take a leap of faith... After being treated, I can confidently say that I am free from the chronic pain that has haunted me for over a decade."
                 </p>
                 <div class="mt-6 flex items-center space-x-4">
@@ -188,544 +201,448 @@
                     </div>
                     <div>
                         <h4 class="font-bold text-white text-sm">Kris Song</h4>
-                        <p class="text-xs text-brand-teal">Founder & CAF Veteran</p>
+                        <p class="text-xs text-brand-teal" data-en="Founder & CAF Veteran" data-zh="创始人 & 加拿大退役军官">Founder & CAF Veteran</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-<!-- CORE MISSION & VALUES -->
-<section id="about" class="py-12 bg-white border-b border-slate-100 scroll-mt-28">
-    
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <!-- Centered "ABOUT US" Header Block (Reduced margin-bottom to mb-6) -->
-        <div class="text-center max-w-3xl mx-auto mb-6">
-            <span class="text-brand-gold font-extrabold uppercase tracking-widest text-4xl">ABOUT US</span>
-        </div>	
-		<div class="bg-brand-cream rounded-2xl p-8 md:p-12 shadow-inner border border-brand-gold/60 grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <!-- Left Column: Mission (Top-Aligned) -->
-            <div class="lg:col-span-1 border-b lg:border-b-0 lg:border-r border-brand-gold/60 pb-6 lg:pb-0 lg:pr-8 flex flex-col justify-start">
+    <!-- CORE MISSION & VALUES -->
+    <section id="about" class="py-12 bg-white border-b border-slate-100 scroll-mt-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-6">
+                <span class="text-brand-gold font-extrabold uppercase tracking-widest text-4xl" data-en="ABOUT US" data-zh="关于我们">ABOUT US</span>
+            </div>	
+            <div class="bg-brand-cream rounded-2xl p-8 md:p-12 shadow-inner border border-brand-gold/60 grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Left Column: Mission -->
+                <div class="lg:col-span-1 border-b lg:border-b-0 lg:border-r border-brand-gold/60 pb-6 lg:pb-0 lg:pr-8 flex flex-col justify-start">
+                    <h2 class="text-3xl md:text-3xl font-serif font-extrabold text-brand-darkblue mt-2" data-en="Our Mission" data-zh="我们的使命">
+                        Our Mission
+                    </h2>
+                    <p class="text-slate-600 mt-4 leading-relaxed text-base md:text-xl"
+                       data-en="To provide a safe and proven bridge for the people in need of higher quality, readily available, and effective medical service around the world."
+                       data-zh="为有需要的人士搭建一座安全、成熟的桥梁，帮助他们获取全球范围内更高质量、快捷便捷且切实有效的医疗服务。">
+                        To provide a safe and proven bridge for the people in need of higher quality, readily available, and effective medical service around the world.
+                    </p>
+                </div>
+
+                <!-- Right Column: Values Header + 3 Cards -->
+                <div class="lg:col-span-2 flex flex-col justify-start pl-0 lg:pl-4">
+                    <div class="mb-6">
+                       <h2 class="text-3xl md:text-3xl font-serif font-extrabold text-brand-darkblue mt-2" data-en="Our Core Values" data-zh="核心价值观">
+                            Our Core Values
+                        </h2>
+                    </div>
+
+                    <!-- Values Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        
+                        <!-- Value 1 -->
+                        <div class="group h-44 [perspective:1000px]">
+                            <div class="relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                                <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white p-6 rounded-xl shadow-sm border border-slate-200/40 flex flex-col justify-center items-center text-center">
+                                    <h3 class="font-bold text-slate-600 text-lg leading-snug" data-en="Priority Customer Service" data-zh="尊享优先服务">Priority Customer Service</h3>
+                                </div>
+                                <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-white p-6 rounded-xl shadow-sm border border-slate-200/40 flex flex-col justify-center items-center text-center">
+                                    <p class="text-base text-slate-500" data-en="Customer-centric support that treats your health with the urgency it demands." data-zh="以客户为中心的全程支持，以您健康所需的紧迫感高度重视每项需求。">Customer-centric support that treats your health with the urgency it demands.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Value 2 -->
+                        <div class="group h-44 [perspective:1000px]">
+                            <div class="relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                                <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white p-6 rounded-xl shadow-sm border border-slate-200/40 flex flex-col justify-center items-center text-center">
+                                    <h3 class="font-bold text-slate-600 text-lg leading-snug" data-en="Tailor-Made Approach" data-zh="私人定制方案">Tailor-Made Approach</h3>
+                                </div>
+                                <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-white p-6 rounded-xl shadow-sm border border-slate-200/40 flex flex-col justify-center items-center text-center">
+                                    <p class="text-base text-slate-500" data-en="A deeply customized approach tailored around your unique needs and logistical comfort." data-zh="围绕您的独特需求与行程舒适度，量身打造深度定制化的后勤保障方案。">A deeply customized approach tailored around your unique needs and logistical comfort.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Value 3 -->
+                        <div class="group h-44 [perspective:1000px]">
+                            <div class="relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                                <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white p-6 rounded-xl shadow-sm border border-slate-200/40 flex flex-col justify-center items-center text-center">
+                                    <h3 class="font-bold text-slate-600 text-lg leading-snug" data-en="Informed Client-Decision Making" data-zh="透明明智决策">Informed Client-Decision Making</h3>
+                                </div>
+                                <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-white p-6 rounded-xl shadow-sm border border-slate-200/40 flex flex-col justify-center items-center text-center">
+                                    <p class="text-base text-slate-500" data-en="Complete transparency and dynamic analysis so you can make the most informed decisions." data-zh="保持全面透明与动态评估，帮助您在知情的前提下做出最明智的健康选择。">Complete transparency and dynamic analysis so you can make the most informed decisions.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOUNDER'S STORY -->
+    <section class="py-20 bg-slate-50 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
                 
-		<h2 class="text-3xl md:text-3xl font-serif font-extrabold text-brand-darkblue mt-2">
-                    Our Mission
-                </h2>
-                <p class="text-slate-600 mt-4 leading-relaxed text-base md:text-xl">
-                    To provide a safe and proven bridge for the people in need of higher quality, readily available, and effective medical service around the world.
+                <!-- Left Column: Portrait & Extra Images -->
+                <div class="lg:col-span-5 lg:sticky lg:top-10 relative z-10">
+                    <div class="aspect-square bg-brand-darkblue rounded-3xl overflow-hidden shadow-2xl relative border-4 border-white">
+                        <img src="images/kris.jpg" alt="Kris" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent z-10"></div>
+                        <div class="absolute bottom-6 left-6 z-20">
+                            <span class="bg-brand-gold text-brand-darkblue font-bold text-2xl px-4 py-1.5 rounded-lg font-serif">Kris Song, CD, MGM</span>
+                        </div>
+                    </div>
+
+                    <!-- Extra Images Stack -->
+                    <div id="story-images" class="flex flex-col gap-6">
+                        <div class="aspect-[16/9] bg-slate-200 rounded-3xl overflow-hidden shadow-xl border-4 border-white">
+                            <img src="images/kris3.jpg" alt="army" class="w-full h-full object-cover">
+                        </div>
+                        <div class="aspect-[16/9] bg-slate-200 rounded-3xl overflow-hidden shadow-xl border-4 border-white">
+                            <img src="images/hospital.jpg" alt="city" class="w-full h-full object-cover">
+                        </div>
+                        <div class="aspect-[16/9] bg-slate-200 rounded-3xl overflow-hidden shadow-xl border-4 border-white">
+                            <img src="images/hospital3.jpeg" alt="hospital" class="w-full h-full object-cover">
+                        </div>
+                        <div class="aspect-[10/10] bg-slate-200 rounded-3xl overflow-hidden shadow-xl border-4 border-white">
+                            <img src="images/city.jpeg" alt="city" class="w-full h-full object-cover">
+                        </div>
+                        <div class="aspect-[9/10] bg-slate-200 rounded-3xl overflow-hidden shadow-xl border-4 border-white">
+                            <img src="images/medical.jpeg" alt="medical" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Text Content -->
+                <div class="lg:col-span-7 relative z-0">
+                    <span class="text-brand-blue font-extrabold uppercase tracking-widest text-base" data-en="The Story Behind Our Purpose" data-zh="创办初心与背景">The Story Behind Our Purpose</span>
+                    <h2 class="text-3xl md:text-3xl font-serif font-bold text-brand-darkblue mt-2 mb-6" data-en="The Founder's Personal Journey" data-zh="创始人的亲历故事">
+                        The Founder's Personal Journey
+                    </h2>
+                    
+                    <div id="story-content" class="space-y-6 text-slate-600 text-lg leading-relaxed pr-2 max-h-[450px] overflow-hidden transition-all duration-700 ease-in-out relative">
+                        <p data-en="Our founder, Kris, dedicated over 20 years of his life serving Canada as a commissioned army officer in the Canadian Armed Forces, specializing in identifying problems, creating solutions, strategizing concept of operations, and executing operations. Throughout his military career, he was deployed to places like Afghanistan and Iraq, and had the privilege of leading many soldiers. Unfortunately, throughout his service, he suffered many critical injuries such as severe chronic back pain, hearing loss, torn ligament in his knee, and eventually, a diagnosis of MDS that ultimately forced him to medically retire from active service in 2024."
+                           data-zh="我们的创始人Kris曾作为加拿大武装部队的军官服役逾20年，专长于发现问题、制定解决方案、规划行动概念及执行任务。在他长达数十年的军旅生涯中，他曾被派驻阿富汗和伊拉克等地，并领导了许多优秀的士兵。然而，长期的服役使他遭受了多项严重伤病，包括严重的慢性背痛、听力受损、膝盖韧带撕裂，并最终确诊骨髓增生异常综合征（MDS），被迫于2024年因伤退役。">
+                            Our founder, Kris, dedicated over 20 years of his life serving Canada as a commissioned army officer in the Canadian Armed Forces, specializing in identifying problems, creating solutions, strategizing concept of operations, and executing operations. Throughout his military career, he was deployed to places like Afghanistan and Iraq, and had the privilege of leading many soldiers. Unfortunately, throughout his service, he suffered many critical injuries such as severe chronic back pain, hearing loss, torn ligament in his knee, and eventually, a diagnosis of MDS that ultimately forced him to medically retire from active service in 2024. 
+                        </p>
+                        <p data-en="Rather than staying idle and clinically depressed, Kris decided to obtain his master’s degree in Global Management, focusing on global enterprise operations, business strategies, intercultural studies, change management, and finance management. From there, he achieved the university's Founders' Award for leadership, commitment to sustainability, positive and proactive work in equity, diversity and inclusion, and personal growth; and the Chancellor's Award for achieving highest GPA in the program within the academic year."
+                           data-zh="退役后，Kris没有消极停滞，而是选择攻读全球管理硕士学位，深造全球企业运营、商业战略、跨文化研究、变革管理与财务管理。在此期间，他荣获大学颁发的“创始人奖”（旨在表彰领导力、可持续发展承诺及个人成长）以及“校监奖”（表彰学年内最高学术GPA）。">
+                            Rather than staying idle and clinically depressed, Kris decided to obtain his master’s degree in Global Management, focusing on global enterprise operations, business strategies, intercultural studies, change management, and finance management. From there, he achieved the university's Founders' Award for leadership, commitment to sustainability, positive and proactive work in equity, diversity and inclusion, and personal growth; and the Chancellor's Award for achieving highest GPA in the program within the academic year.
+                        </p>
+                        <p class="border-l-4 border-brand-teal pl-4 italic bg-white p-4 rounded-r-xl shadow-sm"
+                           data-en="However, his suffering from the injuries gradually increased over time. He tried steroid injections, radio-frequency ablations, physiotherapy, kinesiology, chiro-therapy, acupuncture, osteopath, basically anything that the Canadian medical system suggested. When every treatment failed to provide any long-term solutions to his injuries, he started to lose all hope."
+                           data-zh="然而，旧伤带来的折磨随着时间推移日益加重。他尝试过封闭针注射、射频消融、物理治疗、运动康复、脊椎正骨、针灸和骨伤疗法——几乎尝试了加拿大医疗体系推荐的所有方法。但当每种治疗都无法改善慢性疼痛时，他一度感到了绝望。">
+                            However, his suffering from the injuries gradually increased over time. He tried steroid injections, radio-frequency ablations, physiotherapy, kinesiology, chiro-therapy, acupuncture, osteopath, basically anything that the Canadian medical system suggested. When every treatment failed to provide any long-term solutions to his injuries, he started to lose all hope.
+                        </p>
+                        <p data-en="Over the years, Kris' in-laws have consistently suggested for him to try stem-cell therapy abroad. His in-laws were optimistic about these therapies because they have had numerous positive experiences from overseas stem-cell and NK-cell therapies to treat their immunity issues, tumors, and cancer cells. At first, Kris rejected the idea many times due to his skeptics on the quality of healthcare outside of Canada and the negative perceptions about stem-cell research by his Canadian physicians and healthcare providers. However, when he felt like he was out of options, in 2026, he decided to take a leap of faith and listen to his in-laws."
+                           data-zh="多年来，Kris的岳父母一直建议他尝试海外的干细胞疗法。他的家人对这些前沿治疗充满信心，因为他们曾多次亲身体验海外干细胞与NK细胞疗法在调理免疫系统、抑制肿瘤及癌细胞方面的显著疗效。起初，出于对加拿大境外医疗质量的顾虑以及本地医生对干细胞研究的保守态度，Kris多次拒绝了这个建议。然而，在感到别无选择后，他在2026年决定抱持试一试的心态，听取家人的建议。">
+                            Over the years, Kris' in-laws have consistently suggested for him to try stem-cell therapy abroad. His in-laws were optimistic about these therapies because they have had numerous positive experiences from overseas stem-cell and NK-cell therapies to treat their immunity issues, tumors, and cancer cells. At first, Kris rejected the idea many times due to his skeptics on the quality of healthcare outside of Canada and the negative perceptions about stem-cell research by his Canadian physicians and healthcare providers. However, when he felt like he was out of options, in 2026, he decided to take a leap of faith and listen to his in-laws.
+                        </p>
+                        <p data-en="Upon arriving to the Daqin Cancer Hospital in Guiyang, Guizhou Province of China, he was surprised by the sheer size and the quality of their &quot;small&quot; hospital. The hospital was bigger and more modern than any exisiting hospitals in Canada. At the entrance, he was greeted by the hospital's host and was given a VIP tour of the hospital where toured each of their medical departments followed by a presentation of the hospital's history, awards, and official certifications to conduct specialized therapies. Then, a nurse, with a binder of hospital's available diagnostics, asked Kris about his medical concerns and together they decided on what type of diagnositcs he needed. The next morning, he went through 2x MRI scans, 1x CT scan, full body ultrasound, bone density scan, bacterial breath tests, urine test, various blood tests, and a 4-point blood pressure test, all within 3 hours of the visit. While the results of the test were being reviewed, Kris went on an optional guided scenic tour of the Guizhou province where he discovered the beauty of China's natural landscape and ancient cities."
+                           data-zh="当抵达位于中国贵州省贵阳市的大秦肿瘤医院时，他被这家当地“中等规模”医院的宏大规格与现代化设施所震撼——其建筑规模与设备先进程度超越了他此前在加拿大见过的绝大多数医院。进入医院后，专属接待员为他提供了贵宾导览，带他参观了各个科室，并详细介绍了医院的发展历史、荣誉资质及特色疗法认证。随后，护士根据诊断需求协助他定制了个性化体检项目。次日早晨，他在短短3小时内便完成了2项MRI核磁共振、1项CT扫描、全身超声、骨密度检测、呼气试验、尿检、多项血液检查及四肢血压监测。在等待诊断报告期间，他还体验了贵州当地的自然风光与古镇文化。">
+                            Upon arriving to the Daqin Cancer Hospital in Guiyang, Guizhou Province of China, he was surprised by the sheer size and the quality of their "small" hospital. The hospital was bigger and more modern than any exisiting hospitals in Canada. At the entrance, he was greeted by the hospital's host and was given a VIP tour of the hospital where toured each of their medical departments followed by a presentation of the hospital's history, awards, and official certifications to conduct specialized therapies. Then, a nurse, with a binder of hospital's available diagnostics, asked Kris about his medical concerns and together they decided on what type of diagnositcs he needed. The next morning, he went through 2x MRI scans, 1x CT scan, full body ultrasound, bone density scan, bacterial breath tests, urine test, various blood tests, and a 4-point blood pressure test, all within 3 hours of the visit. While the results of the test were being reviewed, Kris went on an optional guided scenic tour of the Guizhou province where he discovered the beauty of China's natural landscape and ancient cities. 
+                        </p>
+                        <p class="border-l-4 border-brand-teal pl-4 italic bg-white p-4 rounded-r-xl shadow-sm"
+                           data-en="When he returned to the hospital, a physician went over all the test results in english and confirmed his existing known conditions and discovered new health concerns that could potentially become serious if left untreated. Of note, these findings would have never surfaced in Canadian medical screenings since he did not experience or display any symptoms. Luckily, these new concerns were in their early stages and he was told that they could be treated through existing medicine supplied by hospital. Given his health examination, the doctor suggested that he would be a good fit for stem-cell therapy."
+                           data-zh="返回医院后，主治医师用流利的英语与他逐一分析了检查结果，不仅确认了他已知的旧疾，还发现了若干早期隐性健康风险——这些隐患在加拿大因无明显症状而从未被筛查出来。幸运的是，由于发现及时，这些早期隐患均可通过医院提供的标准药剂予以干预。结合综合体检数据，医生确认他的身体状况非常适合接受干细胞治疗。">
+                            When he returned to the hospital, a physician went over all the test results in english and confirmed his existing known conditions and discovered new health concerns that could potentially become serious if left untreated. Of note, these findings would have never surfaced in Canadian medical screenings since he did not experience or display any symptoms. Luckily, these new concerns were in their early stages and he was told that they could be treated through existing medicine supplied by hospital. Given his health examination, the doctor suggested that he would be a good fit for stem-cell therapy. 
+                        </p>
+                        <p data-en="The following day he received two stem-cell injections, one through IV and one through a direct injection to his injured knee. He was told to take it easy for the next 6 months to allow the stem cells to repair his body. After few hours of showing no adverse effects of the treatments, he was discharged from the hospital. Other than the discomfort in his knee from the injection, he did not feel any different. He was still experiencing the same chronic back pain."
+                           data-zh="次日，他接受了两次干细胞注射：一次通过静脉输液，一次直接注射至受损的膝关节。医嘱建议他在接下来的6个月内保持适度休息，以便干细胞充分进行组织修复。在留观数小时且未出现任何不良反应后，他顺利出院。除了膝盖注射处的微酸感外，他起初并没有感觉到即刻的变化。">
+                            The following day he received two stem-cell injections, one through IV and one through a direct injection to his injured knee. He was told to take it easy for the next 6 months to allow the stem cells to repair his body. After few hours of showing no adverse effects of the treatments, he was discharged from the hospital. Other than the discomfort in his knee from the injection, he did not feel any different. He was still experiencing the same chronic back pain.
+                        </p>
+                        <p data-en="A week after returning to Canada, Kris woke up one morning and realized something was differnt. The chronic back pain disappeared - but rather than getting his hopes up, he kept going about his days. Then after a month, while still being pain-free, he noticed a significant increase in stability and strength in his injured knee. He described it like it was a miracle - it gave him a new hope for his life. This was when he made the decision to dedicate his next chapter of his life, helping others experience similar relief to their existing conditions. This was where Elite Priority Health began."
+                           data-zh="然而，在返回加拿大一周后的一个清晨，Kris醒来时突然意识到了一些不同：折磨他多年的慢性背痛消失了。一个月后，在背痛持续缓解的同时，他明显感到膝关节的稳定性与力量得到了大幅提升。对他而言，这犹如一场奇迹，重新燃起了对生活的希望。正因如此，他决心开启人生的新篇章，帮助更多深受健康困扰的人重获康复希望——Elite Priority Health 亦由此诞生。">
+                            A week after returning to Canada, Kris woke up one morning and realized something was differnt. The chronic back pain disappeared - but rather than getting his hopes up, he kept going about his days. Then after a month, while still being pain-free, he noticed a significant increase in stability and strength in his injured knee. He described it like it was a miracle - it gave him a new hope for his life. This was when he made the decision to dedicate his next chapter of his life, helping others experience similar relief to their existing conditions. This was where Elite Priority Health began.   
+                        </p>
+
+                        <div id="story-fade" class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent transition-opacity duration-300 pointer-events-none"></div>
+                    </div>
+
+                    <div class="mt-8 text-center lg:text-left">
+                        <button id="read-more-btn" class="inline-flex items-center gap-2 bg-brand-darkblue text-white font-bold px-8 py-3 rounded-full shadow-lg hover:bg-brand-blue transition-colors duration-300 text-sm uppercase tracking-wider">
+                            <span id="btn-text" data-en="Read Full Story" data-zh="阅读完整故事">Read Full Story</span>
+                            <i class="fa-solid fa-chevron-down transition-transform duration-300" id="btn-icon"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY WE EXIST -->
+    <section id="why-we-exist" class="py-20 bg-brand-darkblue text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-gold font-extrabold uppercase tracking-widest text-4xl" data-en="WHY WE EXIST" data-zh="为什么选择我们">WHY WE EXIST</span>
+                <h2 class="text-3xl md:text-xl font-serif font-bold mt-2" data-en="Wait is too long | Not enough resources | Always too late" data-zh="等待时间过长 | 资源严重匮乏 | 往往错失良机">Wait is too long | Not enough resources | Always too late</h2>
+                <p class="mt-4 text-slate-300"
+                   data-en="The systemic gridlock within Canadian domestic healthcare has reached unprecedented levels. Although the number of doctors and nurses is steadily growing, it is not close to meeting the actual demand. The data shows exactly why Canadians are suffering without family doctors, waiting up to 6 months for referrals, and desperately need an alternative path."
+                   data-zh="加拿大本土医疗体系正面临前所未有的系统性瓶颈。尽管医护人员数量有所增加，但仍远无法满足实际需求。行业数据客观反映了患者面临的严峻现实：缺乏家庭医生、专科转诊等待长达数月，迫切需要更高效的医疗后勤通道。">
+                    The systemic gridlock within Canadian domestic healthcare has reached unprecedented levels. Although the number of doctors and nurses is steadily growing, it is not close to meeting the actual demand. The data shows exactly why Canadians are suffering without family doctors, waiting up to 6 months for referrals, and desperately need an alternative path.
                 </p>
             </div>
 
-            <!-- Right Column: Values Header + 3 Cards (Top-Aligned) -->
-            <div class="lg:col-span-2 flex flex-col justify-start pl-0 lg:pl-4">
-                <!-- Section Header for Values -->
-                <div class="mb-6">
-                   <h2 class="text-3xl md:text-3xl font-serif font-extrabold text-brand-darkblue mt-2">
-                        Our Core Values
-                    </h2>
-                </div>
-
-                <!-- Values Grid -->
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                    
-                    <!-- Value 1 -->
-                    <div class="group h-44 [perspective:1000px]">
-                        <div class="relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                            <!-- Front Side -->
-                            <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white p-6 rounded-xl shadow-sm border border-slate-200/40 flex flex-col justify-center items-center text-center">
-                                <h3 class="font-bold text-slate-600 text-lg leading-snug">Priority Customer Service</h3>
-                            </div>
-                            <!-- Back Side -->
-                            <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-white p-6 rounded-xl shadow-sm border border-slate-200/40 flex flex-col justify-center items-center text-center">
-                                <p class="text-base text-slate-500">Customer-centric support that treats your health with the urgency it demands.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Value 2 -->
-                    <div class="group h-44 [perspective:1000px]">
-                        <div class="relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                            <!-- Front Side -->
-                            <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white p-6 rounded-xl shadow-sm border border-slate-200/40 flex flex-col justify-center items-center text-center">
-                                <h3 class="font-bold text-slate-600 text-lg leading-snug">Tailor-Made Approach</h3>
-                            </div>
-                            <!-- Back Side -->
-                            <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-white p-6 rounded-xl shadow-sm border border-slate-200/40 flex flex-col justify-center items-center text-center">
-                                <p class="text-base text-slate-500">A deeply customized approach tailored around your unique needs and logistical comfort.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Value 3 -->
-                    <div class="group h-44 [perspective:1000px]">
-                        <div class="relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                            <!-- Front Side -->
-                            <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-white p-6 rounded-xl shadow-sm border border-slate-200/40 flex flex-col justify-center items-center text-center">
-                                <h3 class="font-bold text-slate-600 text-lg leading-snug">Informed Client-Decision Making</h3>
-                            </div>
-                            <!-- Back Side -->
-                            <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-white p-6 rounded-xl shadow-sm border border-slate-200/40 flex flex-col justify-center items-center text-center">
-                                <p class="text-base text-slate-500">Complete transparency and dynamic analysis so you can make the most informed decisions.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- FOUNDER'S STORY -->
-<section class="py-20 bg-slate-50 relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            
-	<!-- Left Column: Portrait & Vertically Stacked Extra Images -->
-            <div class="lg:col-span-5 lg:sticky lg:top-10 relative z-10">
-                <!-- Portrait (Always visible) -->
-            		<div class="aspect-square bg-brand-darkblue rounded-3xl overflow-hidden shadow-2xl relative border-4 border-white">
-                    <!-- The Actual Portrait Image -->
-                    <img src="images/kris.jpg" alt="Kris" class="absolute inset-0 w-full h-full object-cover">
-                    
-                    <!-- Dark gradient overlay to make the name badge pop -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent z-10"></div>
-                    
-                    <!-- Name Badge -->
-                    <div class="absolute bottom-6 left-6 z-20">
-                        <span class="bg-brand-gold text-brand-darkblue font-bold text-2xl px-4 py-1.5 rounded-lg font-serif">Kris Song, CD, MGM</span>
-                    </div>
-                </div>
-
-              <!-- Extra Images Stack -->
-		<div id="story-images" class="flex flex-col gap-6">
-    		<!-- Image 1 -->
-    			<div class="aspect-[16/9] bg-slate-200 rounded-3xl overflow-hidden shadow-xl border-4 border-white">
-        		<img src="images/kris3.jpg" alt="army" class="w-full h-full object-cover">
-    			</div>
-    		<!-- Image 2 -->
-    			<div class="aspect-[16/9] bg-slate-200 rounded-3xl overflow-hidden shadow-xl border-4 border-white">
-        		<img src="images/hospital.jpg" alt="city" class="w-full h-full object-cover">
-			</div>
-		<!-- Image 3 -->
-    			<div class="aspect-[16/9] bg-slate-200 rounded-3xl overflow-hidden shadow-xl border-4 border-white">
-        		<img src="images/hospital3.jpeg" alt="hospital" class="w-full h-full object-cover">
-    			</div>
-    		<!-- Image 4 -->
-    			<div class="aspect-[10/10] bg-slate-200 rounded-3xl overflow-hidden shadow-xl border-4 border-white">
-        		<img src="images/city.jpeg" alt="city" class="w-full h-full object-cover">
-			</div>
-		<!-- Image 5 -->
-    			<div class="aspect-[9/10] bg-slate-200 rounded-3xl overflow-hidden shadow-xl border-4 border-white">
-        		<img src="images/medical.jpeg" alt="medical" class="w-full h-full object-cover">
-    			</div>
-		</div>
-       	 </div>
-
-            <!-- Right Column: Text Content -->
-            <div class="lg:col-span-7 relative z-0">
-                <span class="text-brand-blue font-extrabold uppercase tracking-widest text-base">The Story Behind Our Purpose</span>
-                <h2 class="text-3xl md:text-3xl font-serif font-bold text-brand-darkblue mt-2 mb-6">
-                    The Founder's Personal Journey
-                </h2>
+            <!-- 8-Card Responsive Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 isolate">
                 
-                <!-- This wrapper holds the cut-off logic -->
-               <div id="story-content" class="space-y-6 text-slate-600 text-lg leading-relaxed pr-2 max-h-[450px] overflow-hidden transition-all duration-700 ease-in-out relative">
-                    <p>
-                        Our founder, Kris, dedicated over 20 years of his life serving Canada as a commissioned army officer in the Canadian Armed Forces, specializing in identifying problems, creating solutions, strategizing concept of operations, and executing operations. Throughout his military career, he was deployed to places like Afghanistan and Iraq, and had the privilege of leading many soldiers. Unfortunately, throughout his service, he suffered many critical injuries such as severe chronic back pain, hearing loss, torn ligament in his knee, and eventually, a diagnosis of MDS that ultimately forced him to medically retire from active service in 2024. 
-                    </p>
-                    <p>
-                        Rather than staying idle and clinically depressed, Kris decided to obtain his master’s degree in Global Management, focusing on global enterprise operations, business strategies, intercultural studies, change management, and finance management. From there, he achieved the university's Founders' Award for leadership, commitment to sustainability, positive and proactive work in equity, diversity and inclusion, and personal growth; and the Chancellor's Award for achieving highest GPA in the program within the academic year.
-                    </p>
-                    <p class="border-l-4 border-brand-teal pl-4 italic bg-white p-4 rounded-r-xl shadow-sm">
-                        However, his suffering from the injuries gradually increased over time. He tried steroid injections, radio-frequency ablations, physiotherapy, kinesiology, chiro-therapy, acupuncture, osteopath, basically anything that the Canadian medical system suggested. When every treatment failed to provide any long-term solutions to his injuries, he started to lose all hope.
-                    </p>
-                    <p>
-                        Over the years, Kris' in-laws have consistently suggested for him to try stem-cell therapy abroad. His in-laws were optimistic about these therapies because they have had numerous positive experiences from overseas stem-cell and NK-cell therapies to treat their immunity issues, tumors, and cancer cells. At first, Kris rejected the idea many times due to his skeptics on the quality of healthcare outside of Canada and the negative perceptions about stem-cell research by his Canadian physicians and healthcare providers. However, when he felt like he was out of options, in 2026, he decided to take a leap of faith and listen to his in-laws.
-                    </p>
-                    <p> 
-                        Upon arriving to the Daqin Cancer Hospital in Guiyang, Guizhou Province of China, he was surprised by the sheer size and the quality of their "small" hospital. The hospital was bigger and more modern than any exisiting hospitals in Canada. At the entrance, he was greeted by the hospital's host and was given a VIP tour of the hospital where toured each of their medical departments followed by a presentation of the hospital's history, awards, and official certifications to conduct specialized therapies. Then, a nurse, with a binder of hospital's available diagnostics, asked Kris about his medical concerns and together they decided on what type of diagnositcs he needed. The next morning, he went through 2x MRI scans, 1x CT scan, full body ultrasound, bone density scan, bacterial breath tests, urine test, various blood tests, and a 4-point blood pressure test, all within 3 hours of the visit. While the results of the test were being reviewed, Kris went on an optional guided scenic tour of the Guizhou province where he discovered the beauty of China's natural landscape and ancient cities. 
-                    </p>
-                    <p class="border-l-4 border-brand-teal pl-4 italic bg-white p-4 rounded-r-xl shadow-sm">
-                        When he returned to the hospital, a physician went over all the test results in english and confirmed his existing known conditions and discovered new health concerns that could potentially become serious if left untreated. Of note, these findings would have never surfaced in Canadian medical screenings since he did not experience or display any symptoms. Luckily, these new concerns were in their early stages and he was told that they could be treated through existing medicine supplied by hospital. Given his health examination, the doctor suggested that he would be a good fit for stem-cell therapy. 
-                    </p>
-                    <p> 
-                        The following day he received two stem-cell injections, one through IV and one through a direct injection to his injured knee. He was told to take it easy for the next 6 months to allow the stem cells to repair his body. After few hours of showing no adverse effects of the treatments, he was discharged from the hospital. Other than the discomfort in his knee from the injection, he did not feel any different. He was still experiencing the same chronic back pain.
-                    </p>
-                    <p> 
-                        A week after returning to Canada, Kris woke up one morning and realized something was differnt. The chronic back pain disappeared - but rather than getting his hopes up, he kept going about his days. Then after a month, while still being pain-free, he noticed a significant increase in stability and strength in his injured knee. He described it like it was a miracle - it gave him a new hope for his life. This was when he made the decision to dedicate his next chapter of his life, helping others experience similar relief to their existing conditions. This was where Elite Priority Health began.   
-                    </p>
+                <!-- Card 1 -->
+                <div class="group h-72 [perspective:1000px] relative z-10 cursor-pointer" 
+                     onclick="openChartModal('images/chart1.png', 'Hospital Bed Capacity Graph', 'OECD. (October 15, 2025). Density of hospital beds in Canada from 1976 to 2023 [Graph]. In Statista. Retrieved July 04, 2026, from https://www.statista.com/statistics/831668/density-of-hospital-beds-canada/')">
+                    <div class="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                        <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
+                            <div>
+                                <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center text-red-400 mb-4 text-xl">
+                                    <i class="fa-solid fa-hospital"></i>
+                                </div>
+                                <h3 class="font-bold text-lg text-white" data-en="Overcrowded Hospitals" data-zh="医疗床位紧缺">Overcrowded Hospitals</h3>
+                                <p class="text-s text-slate-300 mt-2 leading-relaxed" data-en="Since 1976, Canadian hospital bed density has declined dramatically, leaving hospitals near constant threshold capacities." data-zh="自1976年以来，加拿大人均医院床位密度大幅下降，导致医疗机构长期处于超负荷运行状态。">Since 1976, Canadian hospital bed density has declined dramatically, leaving hospitals near constant threshold capacities.</p>
+                            </div>
+                            <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold" data-en="Click to view chart →" data-zh="点击查看数据图表 →">Click to view chart →</span>
+                        </div>
+                        <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
+                            <img src="images/chart1.png" alt="Hospital Bed Capacity Graph" class="w-full h-full object-contain p-2 bg-slate-900">
+                        </div>
+                    </div>
+                </div>
 
-                    <!-- THE FADE OVERLAY -->
-                    <div id="story-fade" class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent transition-opacity duration-300 pointer-events-none"></div>
-</div>
+                <!-- Card 2 -->
+                <div class="group h-72 [perspective:1000px] relative z-10 cursor-pointer" 
+                     onclick="openChartModal('images/chart2.png', 'Specialist Wait Times Graph', 'Fraser Institute. (December 11, 2024). Median number of weeks patients waited from referral by a general practitioner to medical treatment in Canada from 1993 to 2024, by province [Graph]. In Statista. Retrieved July 04, 2026, from https://www.statista.com/statistics/654494/weeks-waited-from-gp-referral-to-medical-treatment-in-canada-by-province/')">
+                    <div class="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                        <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
+                            <div>
+                                <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-400 mb-4 text-xl">
+                                    <i class="fa-solid fa-hourglass-half"></i>
+                                </div>
+                                <h3 class="font-bold text-lg text-white" data-en="Long Referral Waits" data-zh="专科转诊周期漫长">Long Referral Waits</h3>
+                                <p class="text-s text-slate-300 mt-2 leading-relaxed" data-en="The median waiting period from primary GP referral to specialty medical treatment continues to set historic records across provinces." data-zh="从全科医生转诊至专科医生接收治疗的中位等待时间屡创新高。">The median waiting period from primary GP referral to specialty medical treatment continues to set historic records across provinces.</p>
+                            </div>
+                            <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold" data-en="Click to view chart →" data-zh="点击查看数据图表 →">Click to view chart →</span>
+                        </div>
+                        <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
+                            <img src="images/chart2.png" alt="Specialist Wait Times Graph" class="w-full h-full object-contain p-2 bg-slate-900">
+                        </div>
+                    </div>
+                </div>
 
-<!-- READ MORE BUTTON -->
-<div class="mt-8 text-center lg:text-left">
-    <button id="read-more-btn" class="inline-flex items-center gap-2 bg-brand-darkblue text-white font-bold px-8 py-3 rounded-full shadow-lg hover:bg-brand-blue transition-colors duration-300 text-sm uppercase tracking-wider">
-        <span id="btn-text">Read Full Story</span>
-        <i class="fa-solid fa-chevron-down transition-transform duration-300" id="btn-icon"></i>
-    </button>
-</div>
+                <!-- Card 3 -->
+                <div class="group h-72 [perspective:1000px] relative z-10 cursor-pointer" 
+                     onclick="openChartModal('images/chart3.png', 'Doctor Shortage Graph', 'Government of Canada. (January 30, 2025). Number of projected job openings and new jobseekers among general practitioners and family physicians from 2024 to 2033 [Graph]. In Statista. Retrieved July 05, 2026, from https://www.statista.com/statistics/1572104/projected-physician-deficit-in-canada/')">
+                    <div class="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                        <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
+                            <div>
+                                <div class="w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center text-yellow-400 mb-4 text-xl">
+                                    <i class="fa-solid fa-user-doctor"></i>
+                                </div>
+                                <h3 class="font-bold text-lg text-white" data-en="Medical Staff Shortages" data-zh="专业医护人员匮乏">Medical Staff Shortages</h3>
+                                <p class="text-s text-slate-300 mt-2 leading-relaxed" data-en="Systemic shortages in front-line healthcare workers restrict overall capacity and lengthen clinical wait lists." data-zh="一线医护人员的结构性短缺严重制约了整体医疗承载能力，延长了排队周期。">Systemic shortages in front-line healthcare workers restrict overall capacity and lengthen clinical wait lists.</p>
+                            </div>
+                            <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold" data-en="Click to view chart →" data-zh="点击查看数据图表 →">Click to view chart →</span>
+                        </div>
+                        <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
+                            <img src="images/chart3.png" alt="Doctor Shortage Graph" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="group h-72 [perspective:1000px] relative z-10 cursor-pointer" 
+                     onclick="openChartModal('images/chart4.png', 'Staff Burnout Graph', 'CIHI. (October 19, 2023). Number of overtime hours in Canadian hospitals among non-physician inpatient unit staff from 2017/18 to 2021/22 (in millions) [Graph]. In Statista. Retrieved July 04, 2026, from https://www.statista.com/statistics/1381491/inpatient-staff-overtime-hours-in-hospitals-canada/')">
+                    <div class="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                        <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
+                            <div>
+                                <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center text-red-400 mb-4 text-xl">
+                                    <i class="fa-solid fa-heart-pulse"></i>
+                                </div>
+                                <h3 class="font-bold text-lg text-white" data-en="Overworked Medical Staff" data-zh="医护人员工作负荷过重">Overworked Medical Staff</h3>
+                                <p class="text-s text-slate-300 mt-2 leading-relaxed" data-en="Burnout levels have reached historic highs as existing personnel must pull double-duty to fill structural gaps." data-zh="现职人员需长时间加班填补人手空缺，职业倦怠程度创历史新高。">Burnout levels have reached historic highs as existing personnel must pull double-duty to fill structural gaps.</p>
+                            </div>
+                            <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold" data-en="Click to view chart →" data-zh="点击查看数据图表 →">Click to view chart →</span>
+                        </div>
+                        <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
+                            <img src="images/chart4.png" alt="Staff Burnout Graph" class="w-full h-full object-contain p-2 bg-slate-900">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="group h-72 [perspective:1000px] relative z-10 cursor-pointer" 
+                     onclick="openChartModal('images/chart5.png', 'ER Closures Graph', 'CIHI. (October 17, 2024). Number of harmful events in hospitals in Canada from 2014/15 to 2023/24, by category of harm [Graph]. In Statista. Retrieved July 04, 2026, from https://www.statista.com/statistics/1467752/patient-harm-events-in-hospitals-canada-by-category/')">
+                    <div class="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                        <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
+                            <div>
+                                <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 mb-4 text-xl">
+                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                </div>
+                                <h3 class="font-bold text-lg text-white" data-en="Rising Safety Incidents" data-zh="医疗安全隐患增加">Rising Safety Incidents</h3>
+                                <p class="text-s text-slate-300 mt-2 leading-relaxed" data-en="Understaffed, crowded facilities report a corresponding spike in hospital-acquired infections and diagnostic mistakes." data-zh="在人手不足与拥挤的环境下，院内感染与诊断滞后的风险相应上升。">Understaffed, crowded facilities report a corresponding spike in hospital-acquired infections and diagnostic mistakes.</p>
+                            </div>
+                            <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold" data-en="Click to view chart →" data-zh="点击查看数据图表 →">Click to view chart →</span>
+                        </div>
+                        <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
+                            <img src="images/chart5.png" alt="ER Closures Graph" class="w-full h-full object-contain p-2 bg-slate-900">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="group h-72 [perspective:1000px] relative z-10 cursor-pointer" 
+                     onclick="openChartModal('images/chart6.png', 'Imaging Waiting Times Graph', 'CADTH. (January 11, 2021). Number of medical imaging units per million population in Canada in 2019/2020, by device* [Graph]. In Statista. Retrieved July 05, 2026, from https://www.statista.com/statistics/821789/number-of-medical-imaging-units-per-million-population-in-canada-by-device/')">
+                    <div class="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                        <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
+                            <div>
+                                <div class="w-12 h-12 rounded-xl bg-brand-teal/10 flex items-center justify-center text-brand-teal mb-4 text-xl">
+                                    <i class="fa-solid fa-microscope"></i>
+                                </div>
+                                <h3 class="font-bold text-lg text-white" data-en="Lacking Diagnostic Equipment" data-zh="大型影像设备配置不足">Lacking Diagnostic Equipment</h3>
+                                <p class="text-s text-slate-300 mt-2 leading-relaxed" data-en="Insufficient domestic imaging systems (CT, MRI, PET scans) delays crucial detection for leading medical causes of death." data-zh="高级影像设备（CT、MRI、PET）数量有限，导致早期诊断被延误。">Insufficient domestic imaging systems (CT, MRI, PET scans) delays crucial detection for leading medical causes of death.</p>
+                            </div>
+                            <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold" data-en="Click to view chart →" data-zh="点击查看数据图表 →">Click to view chart →</span>
+                        </div>
+                        <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
+                            <img src="images/chart6.png" alt="Imaging Waiting Times Graph" class="w-full h-full object-contain p-2 bg-slate-900">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="group h-72 [perspective:1000px] relative z-10 cursor-pointer" 
+                     onclick="openChartModal('images/chart7.png', 'Cancer Treatment Delays Graph', 'StatCan. (January 13, 2026). Distribution of the leading causes of death in Canada in 2024 [Graph]. In Statista. Retrieved July 05, 2026, from https://www.statista.com/statistics/437880/proportion-of-deaths-in-canada-by-disease/')">
+                    <div class="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                        <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
+                            <div>
+                                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-4 text-xl">
+                                    <i class="fa-solid fa-dna"></i>
+                                </div>
+                                <h3 class="font-bold text-lg text-white" data-en="Missed Early Detection" data-zh="错失早期干预窗口">Missed Early Detection</h3>
+                                <p class="text-s text-slate-300 mt-2 leading-relaxed" data-en="Crucial diagnostic delay directly compromises survival rates for severe conditions requiring prompt intervention." data-zh="诊断延迟直接影响重症患者的早期干预效果与预后康复。">Crucial diagnostic delay directly compromises survival rates for severe conditions requiring prompt intervention.</p>
+                            </div>
+                            <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold" data-en="Click to view chart →" data-zh="点击查看数据图表 →">Click to view chart →</span>
+                        </div>
+                        <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
+                            <img src="images/chart7.png" alt="Cancer Treatment Delays Graph" class="w-full h-full object-contain p-2 bg-slate-900">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="group h-72 [perspective:1000px] relative z-10 cursor-pointer" 
+                     onclick="openChartModal('images/chart8.png', 'Doctor Shortage Graph', 'CIHI. (October 29, 2025). Family medicine physician density in Canada from 1978 to 2024 (per 100,000 population) [Graph]. In Statista. Retrieved July 05, 2026, from https://www.statista.com/statistics/496680/density-of-family-medicine-physician-in-canada-by-type/')">
+                    <div class="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                        <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
+                            <div>
+                                <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-4 text-xl">
+                                    <i class="fa-solid fa-user-doctor"></i>
+                                </div>
+                                <h3 class="font-bold text-lg text-white" data-en="Fewer Family Doctors" data-zh="家庭医生缺口扩大">Fewer Family Doctors</h3>
+                                <p class="text-s text-slate-300 mt-2 leading-relaxed" data-en="Family medicine practitioner densities continue to slide downward, creating massive backlogs in basic diagnostics." data-zh="全科家庭医生人均密度持续走低，导致基础医疗与初步诊断严重滞后。">Family medicine practitioner densities continue to slide downward, creating massive backlogs in basic diagnostics.</p>
+                            </div>
+                            <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold" data-en="Click to view chart →" data-zh="点击查看数据图表 →">Click to view chart →</span>
+                        </div>
+                        <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
+                            <img src="images/chart8.png" alt="Doctor Shortage Graph" class="w-full h-full object-contain p-2 bg-slate-900">
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
-    </div>
-</section>
 
-<!-- WHY WE EXIST (CHALLENGE / DATA SECTION) -->
-<section id="why-we-exist" class="py-20 bg-brand-darkblue text-white relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <span class="text-brand-gold font-extrabold uppercase tracking-widest text-4xl">WHY WE EXIST</span>
-            <h2 class="text-3xl md:text-xl font-serif font-bold mt-2">Wait is too long | Not enough resources | Always too late</h2>
-            <p class="mt-4 text-slate-300">
-                The systemic gridlock within Canadian domestic healthcare has reached unprecedented levels. Although the number of doctors and nurses is steadily growing, it is not close to meeting the actual demand. The data shows exactly why Canadians are suffering without family doctors, waiting up to 6 months for referrals, and desperately need an alternative path.
-            </p>
-        </div>
-
-        <!-- 8-Card Responsive Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 isolate">
-            
-            <!-- Card 1: Overcrowded Hospitals -->
-            <div class="group h-72 [perspective:1000px] relative z-10 cursor-pointer" 
-                 onclick="openChartModal('images/chart1.png', 'Hospital Bed Capacity Graph', 'OECD. (October 15, 2025). Density of hospital beds in Canada from 1976 to 2023 [Graph]. In Statista. Retrieved July 04, 2026, from https://www.statista.com/statistics/831668/density-of-hospital-beds-canada/')">
-                <div class="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                    <!-- Front Side -->
-                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
-                        <div>
-                            <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center text-red-400 mb-4 text-xl">
-                                <i class="fa-solid fa-hospital"></i>
-                            </div>
-                            <h3 class="font-bold text-lg text-white">Overcrowded Hospitals</h3>
-                            <p class="text-s text-slate-300 mt-2 leading-relaxed">Since 1976, Canadian hospital bed density has declined dramatically, leaving hospitals near constant threshold capacities.</p>
-                        </div>
-                        <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold">Click to view chart →</span>
-                    </div>
-                    <!-- Back Side -->
-                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
-                        <img src="images/chart1.png" alt="Hospital Bed Capacity Graph" class="w-full h-full object-contain p-2 bg-slate-900">
-                    </div>
+        <!-- Centered Full-Screen Chart Overlay -->
+        <div id="chart-modal" class="fixed inset-0 z-[9999] hidden items-center justify-center bg-brand-darkblue/95 backdrop-blur-md transition-all duration-300 opacity-0" onclick="closeChartModal()">
+            <button class="absolute top-6 right-6 text-white hover:text-brand-gold text-3xl focus:outline-none transition-colors duration-200" onclick="closeChartModal()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="max-w-[90vw] max-h-[90vh] flex flex-col items-center justify-center gap-4 relative" onclick="event.stopPropagation()">
+                <div class="p-2 bg-slate-900 rounded-2xl border border-slate-700/60 shadow-2xl flex items-center justify-center">
+                    <img id="modal-image" src="" alt="" class="max-w-full max-h-[70vh] object-contain rounded-lg">
                 </div>
-            </div>
-
-            <!-- Card 2: Long Referral Waits -->
-            <div class="group h-72 [perspective:1000px] relative z-10 cursor-pointer" 
-                 onclick="openChartModal('images/chart2.png', 'Specialist Wait Times Graph', 'Fraser Institute. (December 11, 2024). Median number of weeks patients waited from referral by a general practitioner to medical treatment in Canada from 1993 to 2024, by province [Graph]. In Statista. Retrieved July 04, 2026, from https://www.statista.com/statistics/654494/weeks-waited-from-gp-referral-to-medical-treatment-in-canada-by-province/')">
-                <div class="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                    <!-- Front Side -->
-                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
-                        <div>
-                            <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-400 mb-4 text-xl">
-                                <i class="fa-solid fa-hourglass-half"></i>
-                            </div>
-                            <h3 class="font-bold text-lg text-white">Long Referral Waits</h3>
-                            <p class="text-s text-slate-300 mt-2 leading-relaxed">The median waiting period from primary GP referral to specialty medical treatment continues to set historic records across provinces.</p>
-                        </div>
-                        <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold">Click to view chart →</span>
-                    </div>
-                    <!-- Back Side -->
-                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
-                        <img src="images/chart2.png" alt="Specialist Wait Times Graph" class="w-full h-full object-contain p-2 bg-slate-900">
-                    </div>
+                <div class="text-center px-4 max-w-2xl">
+                    <p id="modal-citation" class="text-xs md:text-sm text-slate-400 font-sans tracking-wide leading-relaxed italic"></p>
                 </div>
-            </div>
-
-            <!-- Card 3: Medical Staff Shortages -->
-            <div class="group h-72 [perspective:1000px] relative z-10 cursor-pointer" 
-                 onclick="openChartModal('images/chart3.png', 'Doctor Shortage Graph', 'Government of Canada. (January 30, 2025). Number of projected job openings and new jobseekers among general practitioners and family physicians from 2024 to 2033 [Graph]. In Statista. Retrieved July 05, 2026, from https://www.statista.com/statistics/1572104/projected-physician-deficit-in-canada/')">
-                <div class="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                    <!-- Front Side -->
-                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
-                        <div>
-                            <div class="w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center text-yellow-400 mb-4 text-xl">
-                                <i class="fa-solid fa-user-doctor"></i>
-                            </div>
-                            <h3 class="font-bold text-lg text-white">Medical Staff Shortages</h3>
-                            <p class="text-s text-slate-300 mt-2 leading-relaxed">Systemic shortages in front-line healthcare workers restrict overall capacity and lengthen clinical wait lists.</p>
-                        </div>
-                        <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold">Click to view chart →</span>
-                    </div>
-                    <!-- Back Side -->
-                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
-                        <img src="images/chart3.png" alt="Doctor Shortage Graph" class="w-full h-full object-cover">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 4: Overworked Medical Staff -->
-            <div class="group h-72 [perspective:1000px] relative z-10 cursor-pointer" 
-                 onclick="openChartModal('images/chart4.png', 'Staff Burnout Graph', 'CIHI. (October 19, 2023). Number of overtime hours in Canadian hospitals among non-physician inpatient unit staff from 2017/18 to 2021/22 (in millions) [Graph]. In Statista. Retrieved July 04, 2026, from https://www.statista.com/statistics/1381491/inpatient-staff-overtime-hours-in-hospitals-canada/')">
-                <div class="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                    <!-- Front Side -->
-                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
-                        <div>
-                            <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center text-red-400 mb-4 text-xl">
-                                <i class="fa-solid fa-heart-pulse"></i>
-                            </div>
-                            <h3 class="font-bold text-lg text-white">Overworked Medical Staff</h3>
-                            <p class="text-s text-slate-300 mt-2 leading-relaxed">Burnout levels have reached historic highs as existing personnel must pull double-duty to fill structural gaps.</p>
-                        </div>
-                        <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold">Click to view chart →</span>
-                    </div>
-                    <!-- Back Side -->
-                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
-                        <img src="images/chart4.png" alt="Staff Burnout Graph" class="w-full h-full object-contain p-2 bg-slate-900">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 5: Rising Safety Incidents -->
-            <div class="group h-72 [perspective:1000px] relative z-10 cursor-pointer" 
-                 onclick="openChartModal('images/chart5.png', 'ER Closures Graph', 'CIHI. (October 17, 2024). Number of harmful events in hospitals in Canada from 2014/15 to 2023/24, by category of harm [Graph]. In Statista. Retrieved July 04, 2026, from https://www.statista.com/statistics/1467752/patient-harm-events-in-hospitals-canada-by-category/')">
-                <div class="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                    <!-- Front Side -->
-                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
-                        <div>
-                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 mb-4 text-xl">
-                                <i class="fa-solid fa-triangle-exclamation"></i>
-                            </div>
-                            <h3 class="font-bold text-lg text-white">Rising Safety Incidents</h3>
-                            <p class="text-s text-slate-300 mt-2 leading-relaxed">Understaffed, crowded facilities report a corresponding spike in hospital-acquired infections and diagnostic mistakes.</p>
-                        </div>
-                        <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold">Click to view chart →</span>
-                    </div>
-                    <!-- Back Side -->
-                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
-                        <img src="images/chart5.png" alt="ER Closures Graph" class="w-full h-full object-contain p-2 bg-slate-900">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 6: Lacking Diagnostic Equipment -->
-            <div class="group h-72 [perspective:1000px] relative z-10 cursor-pointer" 
-                 onclick="openChartModal('images/chart6.png', 'Imaging Waiting Times Graph', 'CADTH. (January 11, 2021). Number of medical imaging units per million population in Canada in 2019/2020, by device* [Graph]. In Statista. Retrieved July 05, 2026, from https://www.statista.com/statistics/821789/number-of-medical-imaging-units-per-million-population-in-canada-by-device/')">
-                <div class="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                    <!-- Front Side -->
-                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
-                        <div>
-                            <div class="w-12 h-12 rounded-xl bg-brand-teal/10 flex items-center justify-center text-brand-teal mb-4 text-xl">
-                                <i class="fa-solid fa-microscope"></i>
-                            </div>
-                            <h3 class="font-bold text-lg text-white">Lacking Diagnostic Equipment</h3>
-                            <p class="text-s text-slate-300 mt-2 leading-relaxed">Insufficient domestic imaging systems (CT, MRI, PET scans) delays crucial detection for leading medical causes of death.</p>
-                        </div>
-                        <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold">Click to view chart →</span>
-                    </div>
-                    <!-- Back Side -->
-                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
-                        <img src="images/chart6.png" alt="Imaging Waiting Times Graph" class="w-full h-full object-contain p-2 bg-slate-900">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 7: Missed Early Detection -->
-            <div class="group h-72 [perspective:1000px] relative z-10 cursor-pointer" 
-                 onclick="openChartModal('images/chart7.png', 'Cancer Treatment Delays Graph', 'StatCan. (January 13, 2026). Distribution of the leading causes of death in Canada in 2024 [Graph]. In Statista. Retrieved July 05, 2026, from https://www.statista.com/statistics/437880/proportion-of-deaths-in-canada-by-disease/')">
-                <div class="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                    <!-- Front Side -->
-                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
-                        <div>
-                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-4 text-xl">
-                                <i class="fa-solid fa-dna"></i>
-                            </div>
-                            <h3 class="font-bold text-lg text-white">Missed Early Detection</h3>
-                            <p class="text-s text-slate-300 mt-2 leading-relaxed">Crucial diagnostic delay directly compromises survival rates for severe conditions requiring prompt intervention.</p>
-                        </div>
-                        <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold">Click to view chart →</span>
-                    </div>
-                    <!-- Back Side -->
-                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
-                        <img src="images/chart7.png" alt="Cancer Treatment Delays Graph" class="w-full h-full object-contain p-2 bg-slate-900">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 8: Fewer Family Doctors -->
-            <div class="group h-72 [perspective:1000px] relative z-10 cursor-pointer" 
-                 onclick="openChartModal('images/chart8.png', 'Doctor Shortage Graph', 'CIHI. (October 29, 2025). Family medicine physician density in Canada from 1978 to 2024 (per 100,000 population) [Graph]. In Statista. Retrieved July 05, 2026, from https://www.statista.com/statistics/496680/density-of-family-medicine-physician-in-canada-by-type/')">
-                <div class="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                    <!-- Front Side -->
-                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
-                        <div>
-                            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-4 text-xl">
-                                <i class="fa-solid fa-user-doctor"></i>
-                            </div>
-                            <h3 class="font-bold text-lg text-white">Fewer Family Doctors</h3>
-                            <p class="text-s text-slate-300 mt-2 leading-relaxed">Family medicine practitioner densities continue to slide downward, creating massive backlogs in basic diagnostics.</p>
-                        </div>
-                        <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold">Click to view chart →</span>
-                    </div>
-                    <!-- Back Side -->
-                    <div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-slate-800 rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl">
-                        <img src="images/chart8.png" alt="Doctor Shortage Graph" class="w-full h-full object-contain p-2 bg-slate-900">
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Centered Full-Screen Chart Overlay with Citation -->
-    <div id="chart-modal" class="fixed inset-0 z-[9999] hidden items-center justify-center bg-brand-darkblue/95 backdrop-blur-md transition-all duration-300 opacity-0" onclick="closeChartModal()">
-        <!-- Close Button -->
-        <button class="absolute top-6 right-6 text-white hover:text-brand-gold text-3xl focus:outline-none transition-colors duration-200" onclick="closeChartModal()">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-        <!-- Modal Card Content -->
-        <div class="max-w-[90vw] max-h-[90vh] flex flex-col items-center justify-center gap-4 relative" onclick="event.stopPropagation()">
-            <!-- Image Frame -->
-            <div class="p-2 bg-slate-900 rounded-2xl border border-slate-700/60 shadow-2xl flex items-center justify-center">
-                <img id="modal-image" src="" alt="" class="max-w-full max-h-[70vh] object-contain rounded-lg">
-            </div>
-            <!-- Dynamic Citation Box -->
-            <div class="text-center px-4 max-w-2xl">
-                <p id="modal-citation" class="text-xs md:text-sm text-slate-400 font-sans tracking-wide leading-relaxed italic"></p>
             </div>
         </div>
-    </div>
-</section>
-
-<!-- Updated Interactive Zoom & Citation Script -->
-<script>
-    function openChartModal(imgSrc, altText, citationText) {
-        const modal = document.getElementById('chart-modal');
-        const modalImg = document.getElementById('modal-image');
-        const modalCite = document.getElementById('modal-citation');
-        
-        modalImg.src = imgSrc;
-        modalImg.alt = altText;
-        modalCite.innerText = citationText || "Source: Healthcare Registry Database";
-        
-        // Open modal with smooth fade-in
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-        setTimeout(() => {
-            modal.classList.remove('opacity-0');
-            modal.classList.add('opacity-100');
-        }, 10);
-    }
-
-    function closeChartModal() {
-        const modal = document.getElementById('chart-modal');
-        
-        modal.classList.remove('opacity-100');
-        modal.classList.add('opacity-0');
-        setTimeout(() => {
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-        }, 300); // matches Tailwind's duration-300
-    }
-</script>
-
-<!-- Updated Interactive Zoom & Citation Script -->
-<script>
-    function openChartModal(imgSrc, altText, citationText) {
-        const modal = document.getElementById('chart-modal');
-        const modalImg = document.getElementById('modal-image');
-        const modalCite = document.getElementById('modal-citation');
-        
-        modalImg.src = imgSrc;
-        modalImg.alt = altText;
-        modalCite.innerText = citationText || "Source: Healthcare Registry Database";
-        
-        // Open modal with smooth fade-in
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-        setTimeout(() => {
-            modal.classList.remove('opacity-0');
-            modal.classList.add('opacity-100');
-        }, 10);
-    }
-
-    function closeChartModal() {
-        const modal = document.getElementById('chart-modal');
-        
-        modal.classList.remove('opacity-100');
-        modal.classList.add('opacity-0');
-        setTimeout(() => {
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-        }, 300); // matches Tailwind's duration-300
-    }
-</script>
+    </section>
 
     <!-- WHAT WE OFFER -->
     <section id="services" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-		<span class="text-brand-gold font-extrabold uppercase tracking-widest text-4xl">WHAT WE OFFER</span>
-                <h2 class="text-3xl md:text-xl font-serif font-bold text-brand-darkblue mt-2">A Dual Network of Medical Logistics</h2>
-                <p class="mt-4 text-slate-500">
+                <span class="text-brand-gold font-extrabold uppercase tracking-widest text-4xl" data-en="WHAT WE OFFER" data-zh="我们的服务内容">WHAT WE OFFER</span>
+                <h2 class="text-3xl md:text-xl font-serif font-bold text-brand-darkblue mt-2" data-en="A Dual Network of Medical Logistics" data-zh="医疗与后勤双轨服务保障网络">A Dual Network of Medical Logistics</h2>
+                <p class="mt-4 text-slate-500" data-en="By partnering with globally recognized, state-of-the-art hospitals, we blend world-class medical operations with stress-free travel management." data-zh="通过与国际认可的高水平医院合作，我们将优质医疗资源与贴心的全程出行后勤无缝结合。">
                     By partnering with globally recognized, state-of-the-art hospitals, we blend world-class medical operations with stress-free travel management.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <!-- Elite Hospital Partners (What they provide) -->
+                <!-- Partner Hospital Scope -->
                 <div class="bg-brand-cream rounded-2xl p-8 border border-slate-200/80 shadow-md">
                     <div class="flex items-center space-x-3 mb-6">
                         <div class="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue text-lg">
                             <i class="fa-solid fa-hospital-user"></i>
                         </div>
-                        <h3 class="text-2xl font-serif font-bold text-brand-darkblue">What Our Partners Provide</h3>
+                        <h3 class="text-2xl font-serif font-bold text-brand-darkblue" data-en="What Our Partners Provide" data-zh="合作医疗机构提供">What Our Partners Provide</h3>
                     </div>
                     <ul class="space-y-4">
                         <li class="flex items-start space-x-3">
                             <span class="text-brand-teal mt-1"><i class="fa-solid fa-check-double"></i></span>
-                            <span class="text-slate-700 font-medium"><strong>Premium Medical Services:</strong> Available all year long.</span>
+                            <span class="text-slate-700 font-medium" data-en="&lt;strong&gt;Premium Medical Services:&lt;/strong&gt; Available all year long." data-zh="&lt;strong&gt;优质医疗服务：&lt;/strong&gt;全年快捷预约，即时响应。"><strong>Premium Medical Services:</strong> Available all year long.</span>
                         </li>
                         <li class="flex items-start space-x-3">
                             <span class="text-brand-teal mt-1"><i class="fa-solid fa-check-double"></i></span>
-                            <span class="text-slate-700 font-medium"><strong>One-Stop Shop:</strong> All medical services completed in one location.</span>
+                            <span class="text-slate-700 font-medium" data-en="&lt;strong&gt;One-Stop Shop:&lt;/strong&gt; All medical services completed in one location." data-zh="&lt;strong&gt;一站式体验：&lt;/strong&gt;所有体检与诊断均在同一院区高效完成。"><strong>One-Stop Shop:</strong> All medical services completed in one location.</span>
                         </li>
                         <li class="flex items-start space-x-3">
                             <span class="text-brand-teal mt-1"><i class="fa-solid fa-check-double"></i></span>
-                            <span class="text-slate-700 font-medium"><strong>Complete Imaging Suite:</strong> High-resolution MRI, CT, PET, SPECT and laboratory assessments.</span>
+                            <span class="text-slate-700 font-medium" data-en="&lt;strong&gt;Complete Imaging Suite:&lt;/strong&gt; High-resolution MRI, CT, PET, SPECT and laboratory assessments." data-zh="&lt;strong&gt;尖端影像设备：&lt;/strong&gt;高分辨率MRI、CT、PET-CT及全套实验室精准检测。"><strong>Complete Imaging Suite:</strong> High-resolution MRI, CT, PET, SPECT and laboratory assessments.</span>
                         </li>
                         <li class="flex items-start space-x-3">
                             <span class="text-brand-teal mt-1"><i class="fa-solid fa-check-double"></i></span>
-                            <span class="text-slate-700 font-medium"><strong>Specialty Care Focus:</strong> Standard surgical intervention, Traditional Chinese Medicine, and Stem Cell/NK Cell Therapies.</span>
+                            <span class="text-slate-700 font-medium" data-en="&lt;strong&gt;Specialty Care Focus:&lt;/strong&gt; Standard surgical intervention, Traditional Chinese Medicine, and Stem Cell/NK Cell Therapies." data-zh="&lt;strong&gt;特色诊疗项目：&lt;/strong&gt;包含标准外科、中医药调理、干细胞及NK细胞免疫疗法。"><strong>Specialty Care Focus:</strong> Standard surgical intervention, Traditional Chinese Medicine, and Stem Cell/NK Cell Therapies.</span>
                         </li>
                         <li class="flex items-start space-x-3">
                             <span class="text-brand-teal mt-1"><i class="fa-solid fa-check-double"></i></span>
-                            <span class="text-slate-700 font-medium"><strong>World Class Patient Comforts:</strong> Private VIP suites, Translated Documents, Meals.</span>
+                            <span class="text-slate-700 font-medium" data-en="&lt;strong&gt;World Class Patient Comforts:&lt;/strong&gt; Private VIP suites, Translated Documents, Meals." data-zh="&lt;strong&gt;尊享就医环境：&lt;/strong&gt;VIP独立病房、专业医学翻译及个性化膳食配置。"><strong>World Class Patient Comforts:</strong> Private VIP suites, Translated Documents, Meals.</span>
                         </li>
                     </ul>
                 </div>
 
-                <!-- Elite Priority Health (What we provide) -->
+                <!-- Elite Priority Health Logistics Scope -->
                 <div class="bg-brand-darkblue rounded-2xl p-8 text-white shadow-lg relative overflow-hidden">
-                    <!-- Faint design element -->
                     <div class="absolute top-0 right-0 w-32 h-32 bg-brand-gold/10 rounded-full -mr-16 -mt-16"></div>
                     
                     <div class="flex items-center space-x-3 mb-6">
                         <div class="w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold text-lg">
                             <i class="fa-solid fa-shield-halved"></i>
                         </div>
-                        <h3 class="text-2xl font-serif font-bold text-white">What We Provide</h3>
+                        <h3 class="text-2xl font-serif font-bold text-white" data-en="What We Provide" data-zh="Elite Priority Health 提供的后勤支持">What We Provide</h3>
                     </div>
                     <ul class="space-y-4">
                         <li class="flex items-start space-x-3">
                             <span class="text-brand-gold mt-1"><i class="fa-solid fa-compass"></i></span>
-                            <span class="text-slate-300"><strong>Initial Consult & Planning:</strong> Transparent option mapping matching your budget parameters.</span>
+                            <span class="text-slate-300" data-en="&lt;strong&gt;Initial Consult &amp; Planning:&lt;/strong&gt; Transparent option mapping matching your budget parameters." data-zh="&lt;strong&gt;前期咨询规划：&lt;/strong&gt;结合您的预算与需求，提供透明化的方案规划。"><strong>Initial Consult & Planning:</strong> Transparent option mapping matching your budget parameters.</span>
                         </li>
                         <li class="flex items-start space-x-3">
                             <span class="text-brand-gold mt-1"><i class="fa-solid fa-compass"></i></span>
-                            <span class="text-slate-300"><strong>A-to-Z Travel Logistics:</strong> Complete management of travel visas, flights, lodging, and nutritional dining.</span>
+                            <span class="text-slate-300" data-en="&lt;strong&gt;A-to-Z Travel Logistics:&lt;/strong&gt; Complete management of travel visas, flights, lodging, and nutritional dining." data-zh="&lt;strong&gt;全程出行后勤：&lt;/strong&gt;协助安排签证办理、机票预订、高品质住宿与餐饮。"><strong>A-to-Z Travel Logistics:</strong> Complete management of travel visas, flights, lodging, and nutritional dining.</span>
                         </li>
                         <li class="flex items-start space-x-3">
                             <span class="text-brand-gold mt-1"><i class="fa-solid fa-compass"></i></span>
-                            <span class="text-slate-300"><strong>Around the Clock Support:</strong> Continuous support before, during, and after your trip
+                            <span class="text-slate-300" data-en="&lt;strong&gt;Around the Clock Support:&lt;/strong&gt; Continuous support before, during, and after your trip." data-zh="&lt;strong&gt;全天候陪伴支持：&lt;/strong&gt;行程前、行程中及归国后的全流程贴心后勤陪伴。"><strong>Around the Clock Support:</strong> Continuous support before, during, and after your trip.</span>
                         </li>
                         <li class="flex items-start space-x-3">
                             <span class="text-brand-gold mt-1"><i class="fa-solid fa-compass"></i></span>
-                            <span class="text-slate-300"><strong>Currency Exchange Service:</strong> Secure foreign currency exchange service.</span>
+                            <span class="text-slate-300" data-en="&lt;strong&gt;Currency Exchange Service:&lt;/strong&gt; Secure foreign currency exchange service." data-zh="&lt;strong&gt;外汇服务支持：&lt;/strong&gt;便捷安全的外汇兑换与支付后勤协助。"><strong>Currency Exchange Service:</strong> Secure foreign currency exchange service.</span>
                         </li>
                         <li class="flex items-start space-x-3">
                             <span class="text-brand-gold mt-1"><i class="fa-solid fa-compass"></i></span>
-                            <span class="text-slate-300"><strong>Culture & Leisure:</strong> Inter-cultural training pre-departure and optional guided scenic excursions.</span>
+                            <span class="text-slate-300" data-en="&lt;strong&gt;Culture &amp; Leisure:&lt;/strong&gt; Inter-cultural training pre-departure and optional guided scenic excursions." data-zh="&lt;strong&gt;文化与休闲出行：&lt;/strong&gt;出发前文化适应指导，并可提供当地风景名胜导览体验。"><strong>Culture & Leisure:</strong> Inter-cultural training pre-departure and optional guided scenic excursions.</span>
                         </li>
                     </ul>
                 </div>
@@ -733,266 +650,243 @@
         </div>
     </section>
 
-<!-- THE PATH (6-STAGE WORKFLOW) -->
-<section id="our-path" class="py-20 bg-brand-cream border-b border-slate-100 scroll-mt-28">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <!-- Centered Header -->
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <span class="text-brand-gold font-extrabold uppercase tracking-widest text-4xl">HOW WE DO IT</span>
-            <h2 class="text-3xl md:text-xl font-serif font-bold mt-2">6 simple steps designed for you to move at your own pace</h2>
-        </div>
-
-        <!-- 6-Stage Row Layout (Added justify-items-center) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 justify-items-center">
-            
-            <!-- Stage 1 -->
-            <div class="flex flex-col items-center text-center max-w-[200px]">
-                <!-- Icon: Deep Pink / Magenta Check -->
-                <div class="text-pink-600 text-5xl mb-6">
-                    <i class="fa-solid fa-check"></i>
-                </div>
-                <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif">Stage 1</h3>
-                <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
-                    <li>Consultation</li>
-                    <li>Options Analysis</li>
-                    <li>Budget Analysis</li>
-                </ul>
+    <!-- THE PATH (6-STAGE WORKFLOW) -->
+    <section id="our-path" class="py-20 bg-brand-cream border-b border-slate-100 scroll-mt-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-gold font-extrabold uppercase tracking-widest text-4xl" data-en="HOW WE DO IT" data-zh="服务流程">HOW WE DO IT</span>
+                <h2 class="text-3xl md:text-xl font-serif font-bold mt-2" data-en="6 simple steps designed for you to move at your own pace" data-zh="清晰透明的 6 步定制流程，让您安心掌控节奏">6 simple steps designed for you to move at your own pace</h2>
             </div>
 
-            <!-- Stage 2 -->
-            <div class="flex flex-col items-center text-center max-w-[200px]">
-                <!-- Icon: Orange Plane -->
-                <div class="text-orange-500 text-5xl mb-6">
-                    <i class="fa-solid fa-plane"></i>
-                </div>
-                <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif">Stage 2</h3>
-                <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
-                    <li>Travel Coordination</li>
-                    <li>Travel Preparation</li>
-                    <li>Travel Confirmation</li>
-                </ul>
-            </div>
-
-            <!-- Stage 3 -->
-            <div class="flex flex-col items-center text-center max-w-[200px]">
-                <!-- Icon: Indigo/Purple Map Pin -->
-                <div class="text-indigo-600 text-5xl mb-6">
-                    <i class="fa-solid fa-location-dot"></i>
-                </div>
-                <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif">Stage 3</h3>
-                <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
-                    <li>Travel to Location</li>
-                    <li>Link-up with Local Host</li>
-                    <li>Hospital Tour</li>
-                </ul>
-            </div>
-
-            <!-- Stage 4 -->
-            <div class="flex flex-col items-center text-center max-w-[200px]">
-                <!-- Icon: Emerald Green Stethoscope -->
-                <div class="text-emerald-500 text-5xl mb-6">
-                    <i class="fa-solid fa-stethoscope"></i>
-                </div>
-                <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif">Stage 4</h3>
-                <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
-                    <li>Triage</li>
-                    <li>Opted Tests & Scans</li>
-                    <li>Optional Guided Scenic Tour</li>
-                </ul>
-            </div>
-
-            <!-- Stage 5 -->
-            <div class="flex flex-col items-center text-center max-w-[200px]">
-                <!-- Icon: Violet Medical/Drip/Syringe -->
-                <div class="text-violet-600 text-5xl mb-6">
-                    <i class="fa-solid fa-syringe"></i>
-                </div>
-                <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif">Stage 5</h3>
-                <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
-                    <li>Results Debrief with Physician</li>
-                    <li>Opted Treatments</li>
-                </ul>
-            </div>
-
-            <!-- Stage 6 -->
-            <div class="flex flex-col items-center text-center max-w-[200px]">
-                <!-- Icon: Deep Pink / Magenta House -->
-                <div class="text-pink-600 text-5xl mb-6">
-                    <i class="fa-solid fa-house"></i>
-                </div>
-                <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif">Stage 6</h3>
-                <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
-                    <li>Return Home</li>
-                    <li>Trip Debrief</li>
-                    <li>Finalize Payment</li>
-                </ul>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- STRATEGIC GOALS / FUTURE VISION -->
-<section class="py-20 bg-brand-white border-b border-slate-100 scroll-mt-28">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <!-- Centered Header -->
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <span class="text-brand-gold font-extrabold uppercase tracking-widest text-4xl">OUR COMPANY ROADMAP</span>
-            <h2 class="text-3xl md:text-2xl font-serif font-bold mt-2">Four Phased Milestones</h2>
-            <p class="mt-4 text-slate-500">
-                Elite Priority Health's underlying goal will always be to provide a positive experience for clients to improve their quality of life. The company's long-term trajectory is to be able to provide this service for free to those in need.
-            </p>
-        </div>
-
-        <!-- 4-Phase Row Layout (Centered & Balanced) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
-            
-            <!-- Phase 1 -->
-            <div class="flex flex-col items-center text-center max-w-[240px]">
-                <!-- Icon: Deep Pink / Magenta Gears -->
-                <div class="text-pink-600 text-5xl mb-6">
-                    <i class="fa-solid fa-gears"></i>
-                </div>
-                <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif">Phase 1</h3>
-                <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
-                    <li>Build Partnerships</li>
-                    <li>Secure Logistic Bridge</li>
-                    <li>Build Digital Infrastructure</li>
-                </ul>
-            </div>
-
-            <!-- Phase 2 -->
-            <div class="flex flex-col items-center text-center max-w-[240px]">
-                <!-- Icon: Orange Rocket -->
-                <div class="text-orange-500 text-5xl mb-6">
-                    <i class="fa-solid fa-rocket"></i>
-                </div>
-                <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif">Phase 2</h3>
-                <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
-                    <li>Soft Online Launch</li>
-                    <li>Adjust & Improve</li>
-                    <li>First Office Launch</li>
-                </ul>
-            </div>
-
-            <!-- Phase 3 -->
-            <div class="flex flex-col items-center text-center max-w-[240px]">
-                <!-- Icon: Dark Blue/Indigo People Trend (Users + Line Chart) -->
-                <div class="text-indigo-700 text-5xl mb-6">
-                    <i class="fa-solid fa-chart-line"></i>
-                </div>
-                <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif">Phase 3</h3>
-                <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
-                    <li>Expand Partnerships</li>
-                    <li>Expand Client Reach</li>
-                    <li>Expand Offices</li>
-                </ul>
-            </div>
-
-            <!-- Phase 4 -->
-            <div class="flex flex-col items-center text-center max-w-[240px]">
-                <!-- Icon: Emerald Green Seedling/Hand (Holding Leaf/Plant) -->
-                <div class="text-emerald-500 text-5xl mb-6">
-                    <i class="fa-solid fa-seedling"></i>
-                </div>
-                <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif">Phase 4</h3>
-                <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
-                    <li>Set-up sponsored trips for children in need</li>
-                    <li>Set-up sponsored trips for seniors in need</li>
-                    <li>Set-up sponsored trips for veterans in need</li>
-                </ul>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-   <!-- CONTACT FORM & FINAL CTA -->
-<section id="contact" class="py-20 bg-slate-900 text-white relative scroll-mt-28 isolate">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <!-- Left Column:CTA Text -->
-            <div class="lg:col-span-5">
-                <span class="text-brand-gold font-extrabold uppercase tracking-widest text-3xl">WHEN SHALL WE BEGIN?</span>
-                <h2 class="text-xl md:text-2xl font-serif font-bold mt-2 mb-6">Whenever you want to start priortizing your well-being</h2>
-                <p class="text-slate-300 leading-relaxed mb-6">
-                    It is time to start investing into your health. Connect with our support team to coordinate your free consultation today.
-                </p>
-                <div class="space-y-4">
-                    <div class="flex items-center space-x-3">
-                        <span class="text-brand-teal"><i class="fa-solid fa-envelope"></i></span>
-                        <span class="text-slate-300">support@elitepriorityhealth.ca</span>
-                    </div>
-                    
-                    <!-- NEW Streamlined Confidentiality Badge (Replaced HIPAA Badge) -->
-                    <div class="flex items-center space-x-3">
-                        <span class="text-brand-teal"><i class="fa-solid fa-shield-halved text-sm"></i></span>
-                        <span class="text-slate-400 text-xs">We value your privacy and keep your inquiry completely confidential.</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Column: Form (Now Functional via Formspree) -->
-            <div class="lg:col-span-7 bg-white text-slate-800 p-8 rounded-2xl shadow-2xl">
-                <h3 class="font-bold text-xl text-brand-darkblue mb-6">Confidential Booking Inquiry</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 justify-items-center">
                 
-                <!-- 👇 UPDATED FORM TAG & INPUTS 👇 -->
-                <form action="https://formspree.io/f/mdaqegyr" method="POST" class="space-y-4">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs uppercase font-bold text-slate-500 tracking-wider mb-1">Full Name</label>
-                            <!-- Added name="name" -->
-                            <input type="text" name="name" placeholder="John Doe" required class="w-full bg-slate-100 border border-slate-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-brand-teal">
-                        </div>
-                        <div>
-                            <label class="block text-xs uppercase font-bold text-slate-500 tracking-wider mb-1">Email Address</label>
-                            <!-- Added name="email" -->
-                            <input type="email" name="email" placeholder="john@example.com" required class="w-full bg-slate-100 border border-slate-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-brand-teal">
-                        </div>
+                <!-- Stage 1 -->
+                <div class="flex flex-col items-center text-center max-w-[200px]">
+                    <div class="text-pink-600 text-5xl mb-6">
+                        <i class="fa-solid fa-check"></i>
                     </div>
-                    <div>
-                        <label class="block text-xs uppercase font-bold text-slate-500 tracking-wider mb-1">Area of Interests</label>
-                        <!-- Added name="interests" -->
-                        <input type="text" name="interests" placeholder="e.g., Stem-cell Therapy, NK-cell Therapy, Medical Exams, Hospitality, etc" class="w-full bg-slate-100 border border-slate-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-brand-teal">
+                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Stage 1" data-zh="第一阶段">Stage 1</h3>
+                    <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
+                        <li data-en="Consultation" data-zh="初步咨询">Consultation</li>
+                        <li data-en="Options Analysis" data-zh="方案评估">Options Analysis</li>
+                        <li data-en="Budget Analysis" data-zh="预算规划">Budget Analysis</li>
+                    </ul>
+                </div>
+
+                <!-- Stage 2 -->
+                <div class="flex flex-col items-center text-center max-w-[200px]">
+                    <div class="text-orange-500 text-5xl mb-6">
+                        <i class="fa-solid fa-plane"></i>
                     </div>
-                    <div>
-                        <label class="block text-xs uppercase font-bold text-slate-500 tracking-wider mb-1">Brief Description of Your Needs</label>
-                        <!-- Added name="message" -->
-                        <textarea name="message" rows="3" placeholder="Let us know how we can best help you connect..." class="w-full bg-slate-100 border border-slate-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-brand-teal"></textarea>
+                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Stage 2" data-zh="第二阶段">Stage 2</h3>
+                    <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
+                        <li data-en="Travel Coordination" data-zh="行程协调">Travel Coordination</li>
+                        <li data-en="Travel Preparation" data-zh="出行准备">Travel Preparation</li>
+                        <li data-en="Travel Confirmation" data-zh="行程确认">Travel Confirmation</li>
+                    </ul>
+                </div>
+
+                <!-- Stage 3 -->
+                <div class="flex flex-col items-center text-center max-w-[200px]">
+                    <div class="text-indigo-600 text-5xl mb-6">
+                        <i class="fa-solid fa-location-dot"></i>
                     </div>
-                    
-                    <!-- Submit button is standard type="submit" and triggers the form action -->
-                    <button type="submit" class="w-full bg-brand-darkblue text-white hover:bg-brand-blue py-3 rounded-xl font-bold transition duration-300">
-                        Submit Secure Consultation Request
-                    </button>
-                </form>
+                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Stage 3" data-zh="第三阶段">Stage 3</h3>
+                    <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
+                        <li data-en="Travel to Location" data-zh="顺利抵达">Travel to Location</li>
+                        <li data-en="Link-up with Local Host" data-zh="接待对接">Link-up with Local Host</li>
+                        <li data-en="Hospital Tour" data-zh="医院参观">Hospital Tour</li>
+                    </ul>
+                </div>
+
+                <!-- Stage 4 -->
+                <div class="flex flex-col items-center text-center max-w-[200px]">
+                    <div class="text-emerald-500 text-5xl mb-6">
+                        <i class="fa-solid fa-stethoscope"></i>
+                    </div>
+                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Stage 4" data-zh="第四阶段">Stage 4</h3>
+                    <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
+                        <li data-en="Triage" data-zh="分诊问诊">Triage</li>
+                        <li data-en="Opted Tests &amp; Scans" data-zh="精准体检">Opted Tests & Scans</li>
+                        <li data-en="Optional Guided Scenic Tour" data-zh="观光体验 (可选)">Optional Guided Scenic Tour</li>
+                    </ul>
+                </div>
+
+                <!-- Stage 5 -->
+                <div class="flex flex-col items-center text-center max-w-[200px]">
+                    <div class="text-violet-600 text-5xl mb-6">
+                        <i class="fa-solid fa-syringe"></i>
+                    </div>
+                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Stage 5" data-zh="第五阶段">Stage 5</h3>
+                    <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
+                        <li data-en="Results Debrief with Physician" data-zh="医生解读书">Results Debrief with Physician</li>
+                        <li data-en="Opted Treatments" data-zh="实施方案">Opted Treatments</li>
+                    </ul>
+                </div>
+
+                <!-- Stage 6 -->
+                <div class="flex flex-col items-center text-center max-w-[200px]">
+                    <div class="text-pink-600 text-5xl mb-6">
+                        <i class="fa-solid fa-house"></i>
+                    </div>
+                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Stage 6" data-zh="第六阶段">Stage 6</h3>
+                    <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
+                        <li data-en="Return Home" data-zh="启程归国">Return Home</li>
+                        <li data-en="Trip Debrief" data-zh="行程复盘">Trip Debrief</li>
+                        <li data-en="Finalize Payment" data-zh="费用结算">Finalize Payment</li>
+                    </ul>
+                </div>
+
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <!-- STRATEGIC GOALS / FUTURE VISION -->
+    <section class="py-20 bg-brand-white border-b border-slate-100 scroll-mt-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-gold font-extrabold uppercase tracking-widest text-4xl" data-en="OUR COMPANY ROADMAP" data-zh="企业发展路线图">OUR COMPANY ROADMAP</span>
+                <h2 class="text-3xl md:text-2xl font-serif font-bold mt-2" data-en="Four Phased Milestones" data-zh="四大发展阶段目标">Four Phased Milestones</h2>
+                <p class="mt-4 text-slate-500" data-en="Elite Priority Health's underlying goal will always be to provide a positive experience for clients to improve their quality of life. The company's long-term trajectory is to be able to provide this service for free to those in need." data-zh="Elite Priority Health 的根本目标始终是为客户营造优质的体验，提升生命质量。企业的远景是以公益形式帮助更多有需要的困难群体。">
+                    Elite Priority Health's underlying goal will always be to provide a positive experience for clients to improve their quality of life. The company's long-term trajectory is to be able to provide this service for free to those in need.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
+                
+                <!-- Phase 1 -->
+                <div class="flex flex-col items-center text-center max-w-[240px]">
+                    <div class="text-pink-600 text-5xl mb-6">
+                        <i class="fa-solid fa-gears"></i>
+                    </div>
+                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Phase 1" data-zh="第一阶段">Phase 1</h3>
+                    <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
+                        <li data-en="Build Partnerships" data-zh="建立医疗合作">Build Partnerships</li>
+                        <li data-en="Secure Logistic Bridge" data-zh="搭建后勤桥梁">Secure Logistic Bridge</li>
+                        <li data-en="Build Digital Infrastructure" data-zh="建设数字化平台">Build Digital Infrastructure</li>
+                    </ul>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="flex flex-col items-center text-center max-w-[240px]">
+                    <div class="text-orange-500 text-5xl mb-6">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Phase 2" data-zh="第二阶段">Phase 2</h3>
+                    <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
+                        <li data-en="Soft Online Launch" data-zh="试运行上线">Soft Online Launch</li>
+                        <li data-en="Adjust &amp; Improve" data-zh="优化服务细节">Adjust & Improve</li>
+                        <li data-en="First Office Launch" data-zh="设立首个线下办公室">First Office Launch</li>
+                    </ul>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="flex flex-col items-center text-center max-w-[240px]">
+                    <div class="text-indigo-700 text-5xl mb-6">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Phase 3" data-zh="第三阶段">Phase 3</h3>
+                    <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
+                        <li data-en="Expand Partnerships" data-zh="拓展网络机构">Expand Partnerships</li>
+                        <li data-en="Expand Client Reach" data-zh="提升服务覆盖">Expand Client Reach</li>
+                        <li data-en="Expand Offices" data-zh="设立更多分支机构">Expand Offices</li>
+                    </ul>
+                </div>
+
+                <!-- Phase 4 -->
+                <div class="flex flex-col items-center text-center max-w-[240px]">
+                    <div class="text-emerald-500 text-5xl mb-6">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Phase 4" data-zh="第四阶段">Phase 4</h3>
+                    <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
+                        <li data-en="Set-up sponsored trips for children in need" data-zh="资助困难儿童就医行程">Set-up sponsored trips for children in need</li>
+                        <li data-en="Set-up sponsored trips for seniors in need" data-zh="资助困难老人就医行程">Set-up sponsored trips for seniors in need</li>
+                        <li data-en="Set-up sponsored trips for veterans in need" data-zh="资助困难退役军人就医行程">Set-up sponsored trips for veterans in need</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM & FINAL CTA -->
+    <section id="contact" class="py-20 bg-slate-900 text-white relative scroll-mt-28 isolate">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column -->
+                <div class="lg:col-span-5">
+                    <span class="text-brand-gold font-extrabold uppercase tracking-widest text-3xl" data-en="WHEN SHALL WE BEGIN?" data-zh="何时开始行动？">WHEN SHALL WE BEGIN?</span>
+                    <h2 class="text-xl md:text-2xl font-serif font-bold mt-2 mb-6" data-en="Whenever you want to start priortizing your well-being" data-zh="随时开启您的健康优先保障之旅">Whenever you want to start priortizing your well-being</h2>
+                    <p class="text-slate-300 leading-relaxed mb-6" data-en="It is time to start investing into your health. Connect with our support team to coordinate your free consultation today." data-zh="是时候重新关注您的身体健康了。立即联系我们的后勤支持团队，预约免费初步咨询。">
+                        It is time to start investing into your health. Connect with our support team to coordinate your free consultation today.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <span class="text-brand-teal"><i class="fa-solid fa-envelope"></i></span>
+                            <span class="text-slate-300">support@elitepriorityhealth.ca</span>
+                        </div>
+                        
+                        <div class="flex items-center space-x-3">
+                            <span class="text-brand-teal"><i class="fa-solid fa-shield-halved text-sm"></i></span>
+                            <span class="text-slate-400 text-xs" data-en="We value your privacy and keep your inquiry completely confidential." data-zh="我们高度重视您的隐私，所有咨询信息均严格保密。">We value your privacy and keep your inquiry completely confidential.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Form -->
+                <div class="lg:col-span-7 bg-white text-slate-800 p-8 rounded-2xl shadow-2xl">
+                    <h3 class="font-bold text-xl text-brand-darkblue mb-6" data-en="Confidential Booking Inquiry" data-zh="保密咨询预约">Confidential Booking Inquiry</h3>
+                    
+                    <form action="https://formspree.io/f/mdaqegyr" method="POST" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs uppercase font-bold text-slate-500 tracking-wider mb-1" data-en="Full Name" data-zh="姓名">Full Name</label>
+                                <input type="text" name="name" placeholder="John Doe" required class="w-full bg-slate-100 border border-slate-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-brand-teal">
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase font-bold text-slate-500 tracking-wider mb-1" data-en="Email Address" data-zh="电子邮箱">Email Address</label>
+                                <input type="email" name="email" placeholder="john@example.com" required class="w-full bg-slate-100 border border-slate-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-brand-teal">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase font-bold text-slate-500 tracking-wider mb-1" data-en="Area of Interests" data-zh="意向关注方向">Area of Interests</label>
+                            <input type="text" name="interests" placeholder="e.g., Stem-cell Therapy, NK-cell Therapy, Medical Exams, Hospitality, etc" class="w-full bg-slate-100 border border-slate-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-brand-teal">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase font-bold text-slate-500 tracking-wider mb-1" data-en="Brief Description of Your Needs" data-zh="需求简述">Brief Description of Your Needs</label>
+                            <textarea name="message" rows="3" placeholder="Let us know how we can best help you connect..." class="w-full bg-slate-100 border border-slate-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-brand-teal"></textarea>
+                        </div>
+                        
+                        <button type="submit" data-en="Submit Secure Consultation Request" data-zh="提交保密咨询请求" class="w-full bg-brand-darkblue text-white hover:bg-brand-blue py-3 rounded-xl font-bold transition duration-300">
+                            Submit Secure Consultation Request
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- FOOTER -->
     <footer class="bg-brand-darkblue text-slate-400 py-12 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center">
             <div class="mb-6 sm:mb-0">
                 <span class="block text-lg font-bold tracking-wider text-brand-cream">ELITE PRIORITY HEALTH</span>
-                <span class="block text-xs tracking-widest text-brand-gold -mt-1">GLOBAL MEDICAL LOGISTICS BRIDGE</span>
+                <span class="block text-xs tracking-widest text-brand-gold -mt-1" data-en="GLOBAL MEDICAL LOGISTICS BRIDGE" data-zh="全球医疗后勤服务桥梁">GLOBAL MEDICAL LOGISTICS BRIDGE</span>
                 <p class="text-xs text-slate-500 mt-2">© 2026 Elite Priority Health Inc. All rights reserved.</p>
             </div>
             <div class="flex space-x-6">
-                <a href="#about" class="text-sm hover:text-white transition">About Us</a>
-                <a href="#services" class="text-sm hover:text-white transition">Services</a>
-                <a href="#our-path" class="text-sm hover:text-white transition">The Path</a>
+                <a href="#about" data-en="About Us" data-zh="关于我们" class="text-sm hover:text-white transition">About Us</a>
+                <a href="#services" data-en="Services" data-zh="服务内容" class="text-sm hover:text-white transition">Services</a>
+                <a href="#our-path" data-en="The Path" data-zh="服务流程" class="text-sm hover:text-white transition">The Path</a>
             </div>
         </div>
     </footer>
 
-<!-- Responsive Navigation & Read More JS Script -->
-	<script>
-    // 1. Mobile Menu Logic (KEPT intact)
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+    // 1. Mobile Menu Logic
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
 
@@ -1002,7 +896,45 @@
         });
     }
 
-    // 2. Dynamic Read More / Read Less Logic (UPDATED & IMPROVED)
+    // 2. Language Switcher Logic (DOM-based, Localized & Firewall-Proof)
+    function setLanguage(lang) {
+        const elements = document.querySelectorAll('[data-en][data-zh]');
+        elements.forEach(el => {
+            el.innerHTML = (lang === 'zh') ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+        });
+
+        document.documentElement.lang = (lang === 'zh') ? 'zh-CN' : 'en';
+
+        // Update button states
+        const desktopEn = document.getElementById('lang-en');
+        const desktopZh = document.getElementById('lang-zh');
+        const mobileEn = document.getElementById('mobile-lang-en');
+        const mobileZh = document.getElementById('mobile-lang-zh');
+
+        if (lang === 'zh') {
+            if (desktopZh) desktopZh.className = "text-brand-gold font-bold transition";
+            if (desktopEn) desktopEn.className = "text-slate-300 hover:text-white transition";
+            if (mobileZh) mobileZh.className = "text-brand-gold font-bold text-sm";
+            if (mobileEn) mobileEn.className = "text-slate-300 text-sm";
+        } else {
+            if (desktopEn) desktopEn.className = "text-brand-gold font-bold transition";
+            if (desktopZh) desktopZh.className = "text-slate-300 hover:text-white transition";
+            if (mobileEn) mobileEn.className = "text-brand-gold font-bold text-sm";
+            if (mobileZh) mobileZh.className = "text-slate-300 text-sm";
+        }
+
+        localStorage.setItem('preferred_lang', lang);
+    }
+
+    // Auto-load language preference on startup
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedLang = localStorage.getItem('preferred_lang') || 'en';
+        if (savedLang === 'zh') {
+            setLanguage('zh');
+        }
+    });
+
+    // 3. Dynamic Read More / Read Less Logic
     document.addEventListener('DOMContentLoaded', function() {
         const content = document.getElementById('story-content');
         const images = document.getElementById('story-images'); 
@@ -1014,41 +946,26 @@
             const btnIcon = document.getElementById('btn-icon');
 
             button.addEventListener('click', function() {
-                // Check if the content is currently collapsed
                 const isCollapsed = content.style.maxHeight === '' || content.style.maxHeight === '450px';
+                const currentLang = localStorage.getItem('preferred_lang') || 'en';
 
                 if (isCollapsed) {
-                    // 1. Expand text container to its absolute dynamic height
                     content.style.maxHeight = content.scrollHeight + "px";
-                    
-                    // 2. Hide the gradient fade overlay
                     if (fade) fade.classList.add('opacity-0');
-                    
-                    // 3. Show the extra images (by toggling your existing class)
                     if (images) images.classList.add('expanded');
-                    
-                    // 4. Update UI labels and flip icon
-                    if (btnText) btnText.textContent = 'Read Less';
+                    if (btnText) btnText.textContent = (currentLang === 'zh') ? '收起内容' : 'Read Less';
                     if (btnIcon) btnIcon.style.transform = 'rotate(180deg)';
                 } else {
-                    // 1. Collapse text container back to start height
                     content.style.maxHeight = '450px';
-                    
-                    // 2. Bring back the gradient fade overlay
                     if (fade) fade.classList.remove('opacity-0');
-                    
-                    // 3. Hide the extra images
                     if (images) images.classList.remove('expanded');
-                    
-                    // 4. Reset UI labels and icon
-                    if (btnText) btnText.textContent = 'Read Full Story';
+                    if (btnText) btnText.textContent = (currentLang === 'zh') ? '阅读完整故事' : 'Read Full Story';
                     if (btnIcon) btnIcon.style.transform = 'rotate(0deg)';
                     
-                    // 5. Smoothly scroll back to the top of the founder section
                     const section = content.closest('section');
                     if (section) {
                         window.scrollTo({
-                            top: section.offsetTop - 80, // Subtracted 80px to account for your sticky header!
+                            top: section.offsetTop - 80,
                             behavior: 'smooth'
                         });
                     }
@@ -1056,6 +973,34 @@
             });
         }
     });
-	</script>
+
+    // 4. Modal Zoom Logic for Data Charts
+    function openChartModal(imgSrc, altText, citationText) {
+        const modal = document.getElementById('chart-modal');
+        const modalImg = document.getElementById('modal-image');
+        const modalCite = document.getElementById('modal-citation');
+        
+        modalImg.src = imgSrc;
+        modalImg.alt = altText;
+        modalCite.innerText = citationText || "Source: Healthcare Registry Database";
+        
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+            modal.classList.add('opacity-100');
+        }, 10);
+    }
+
+    function closeChartModal() {
+        const modal = document.getElementById('chart-modal');
+        modal.classList.remove('opacity-100');
+        modal.classList.add('opacity-0');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }, 300);
+    }
+    </script>
 </body>
 </html>
