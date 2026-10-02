@@ -7,30 +7,176 @@
 
 <!-- Meta Description for AI & Search Discoverability -->
     <meta name="description" content="Elite Priority Health connects clients in Canada with world-class medical services abroad. Specializing in stem-cell therapy, comprehensive medical exams, and seamless travel logistics.">
+    <link rel="canonical" href="https://elitepriorityhealth.com/">
+
+    <!-- Social / link preview tags (used by messaging apps, LinkedIn and AI tools) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Elite Priority Health">
+    <meta property="og:url" content="https://elitepriorityhealth.com/">
+    <meta property="og:title" content="Elite Priority Health | Global Medical Logistics Bridge">
+    <meta property="og:description" content="Elite Priority Health connects clients in Canada with world-class medical services abroad. Specializing in stem-cell therapy, comprehensive medical exams, and seamless travel logistics.">
+    <meta property="og:image" content="https://elitepriorityhealth.com/images/logo.png">
+    <meta property="og:locale" content="en_CA">
+    <meta property="og:locale:alternate" content="zh_CN">
+    <meta property="og:locale:alternate" content="ko_KR">
     
     <!-- FAVICONS & STYLES -->
     <link rel="icon" type="logo" href="images/logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- JSON-LD Structured Data for AI Discoverability (Fixes Audit Findings) -->
+    <!-- JSON-LD Structured Data: Organization, Founder and Website (for search engines & AI assistants) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Medical Tourism Facilitator",
-      "name": "Elite Priority Health",
-      "alternateName": "Priority Health Tourism",
-      "url": "https://elitepriorityhealth.com/",
-      "logo": "https://elitepriorityhealth.com/images/logo.png",
-      "email": "support@elitepriorityhealth.ca",
-      "telephone": "+phone",
-      "description": "Canada's outbound medical tourism facilitator bridging the gap to world-class medical services abroad, including stem-cell therapy and comprehensive health diagnostics.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "CA"
-      },
-      "sameAs": [
-        "https://www.linkedin.com/elitepriorityhealth"      ]
+      "@graph": [
+        {
+          "@type": [
+            "Organization",
+            "TravelAgency"
+          ],
+          "@id": "https://elitepriorityhealth.com/#organization",
+          "name": "Elite Priority Health",
+          "alternateName": [
+            "EPH",
+            "Priority Health Tourism"
+          ],
+          "url": "https://elitepriorityhealth.com/",
+          "logo": "https://elitepriorityhealth.com/images/logo.png",
+          "image": "https://elitepriorityhealth.com/images/logo.png",
+          "email": "support@elitepriorityhealth.ca",
+          "description": "Canadian outbound medical tourism facilitator that connects people in Canada with partnered world-class hospitals abroad for stem-cell therapy, NK-cell therapy, comprehensive health exams, advanced imaging and specialty care, and manages all travel logistics and support.",
+          "slogan": "Connect to Premium Healthcare Without the Wait",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "CA"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "Canada"
+          },
+          "availableLanguage": [
+            "English",
+            "Chinese",
+            "Korean"
+          ],
+          "founder": {
+            "@id": "https://elitepriorityhealth.com/#founder"
+          },
+          "knowsAbout": [
+            "Medical tourism for Canadians",
+            "Stem-cell therapy abroad",
+            "NK-cell (natural killer cell) therapy",
+            "Cancer care and diagnostics abroad",
+            "Comprehensive health exams",
+            "MRI, CT, PET and SPECT imaging",
+            "Traditional Chinese Medicine",
+            "Medical travel logistics",
+            "Canadian healthcare wait times"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "support@elitepriorityhealth.ca",
+            "areaServed": "CA",
+            "availableLanguage": [
+              "English",
+              "Chinese",
+              "Korean"
+            ]
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Medical travel services for Canadians",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Stem-cell therapy abroad coordination",
+                  "description": "Coordination of stem-cell therapy at partner hospitals abroad, including diagnostics, physician review of eligibility, travel logistics and aftercare support.",
+                  "provider": {
+                    "@id": "https://elitepriorityhealth.com/#organization"
+                  },
+                  "areaServed": {
+                    "@type": "Country",
+                    "name": "Canada"
+                  }
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "NK-cell therapy abroad coordination",
+                  "description": "Coordination of NK-cell (natural killer cell) therapy at partner hospitals abroad, including diagnostics, physician review, travel logistics and aftercare support.",
+                  "provider": {
+                    "@id": "https://elitepriorityhealth.com/#organization"
+                  },
+                  "areaServed": {
+                    "@type": "Country",
+                    "name": "Canada"
+                  }
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Comprehensive health exams abroad",
+                  "description": "Full-body health exams at partner hospitals, which can include MRI, CT, PET and SPECT imaging, ultrasound, bone density scans and laboratory tests, often completed in a single visit.",
+                  "provider": {
+                    "@id": "https://elitepriorityhealth.com/#organization"
+                  },
+                  "areaServed": {
+                    "@type": "Country",
+                    "name": "Canada"
+                  }
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Medical travel logistics",
+                  "description": "A-to-Z travel management including visas, flights, lodging, nutritional dining, local host, currency exchange, intercultural training and around-the-clock support.",
+                  "provider": {
+                    "@id": "https://elitepriorityhealth.com/#organization"
+                  },
+                  "areaServed": {
+                    "@type": "Country",
+                    "name": "Canada"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://elitepriorityhealth.com/#founder",
+          "name": "Kris Song",
+          "jobTitle": "Founder",
+          "worksFor": {
+            "@id": "https://elitepriorityhealth.com/#organization"
+          },
+          "description": "Canadian Armed Forces veteran who served more than 20 years as a commissioned army officer, including deployments to Afghanistan and Iraq, and holds a master's degree in Global Management. He founded Elite Priority Health after receiving stem-cell therapy abroad."
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://elitepriorityhealth.com/#website",
+          "url": "https://elitepriorityhealth.com/",
+          "name": "Elite Priority Health",
+          "publisher": {
+            "@id": "https://elitepriorityhealth.com/#organization"
+          },
+          "inLanguage": [
+            "en",
+            "zh-CN",
+            "ko"
+          ]
+        }
+      ]
     }
     </script>
 
