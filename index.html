@@ -166,7 +166,7 @@
           "name": "How do I get started?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Book a free initial consultation through the contact form below or email us at support@elitepriorityhealth.ca. We will review your health goals, map out your options, and prepare a budget analysis tailored to you."
+            "text": "Book a free initial consultation through the contact form above or email us at support@elitepriorityhealth.ca. We will review your health goals, map out your options, and prepare a budget analysis tailored to you."
           }
         }
       ]
@@ -229,6 +229,15 @@
 
     <!-- Custom Styles for Founder's Story Collapse/Expand Effect -->
     <style>
+        /* Background videos: show still poster for visitors who prefer reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            .bg-video { display: none; }
+        }
+
+        /* Soft text shadows so text stays readable over the lighter video overlays */
+        .video-text-light { text-shadow: 0 1px 3px rgba(15, 41, 66, 0.85), 0 0 12px rgba(15, 41, 66, 0.6); }
+        .video-text-dark  { text-shadow: 0 0 6px rgba(247, 245, 238, 0.95), 0 0 14px rgba(247, 245, 238, 0.85); }
+
         #story-content {
             max-height: 25rem; 
             overflow: hidden;
@@ -335,7 +344,14 @@
     </header>
 
     <!-- HERO SECTION -->
-    <section class="relative bg-gradient-to-r from-brand-darkblue to-slate-900 text-white py-24 md:py-32 overflow-hidden">
+    <section class="relative isolate bg-gradient-to-r from-brand-darkblue to-slate-900 text-white py-24 md:py-32 overflow-hidden">
+        <!-- Background video (decorative) + readability overlay -->
+        <div class="bg-video-wrap absolute inset-0 -z-10 overflow-hidden bg-cover bg-center" style="background-image: url('images/video1-poster.jpg');" aria-hidden="true">
+            <video class="bg-video absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline preload="metadata" poster="images/video1-poster.jpg">
+                <source src="images/video1.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-darkblue/90 via-brand-darkblue/75 to-slate-900/85"></div>
+        </div>
         <div class="absolute inset-0 opacity-10">
             <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-brand-teal filter blur-3xl"></div>
             <div class="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-brand-gold filter blur-3xl"></div>
@@ -561,8 +577,15 @@
     </section>
 
     <!-- WHY WE EXIST -->
-    <section id="why-we-exist" class="py-20 bg-brand-darkblue text-white relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="why-we-exist" class="py-20 bg-brand-darkblue text-white relative overflow-hidden">
+        <!-- Background video (decorative) + readability overlay -->
+        <div class="bg-video-wrap absolute inset-0 z-0 overflow-hidden bg-cover bg-center" style="background-image: url('images/video3-poster.jpg');" aria-hidden="true">
+            <video class="bg-video absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline preload="metadata" poster="images/video3-poster.jpg">
+                <source src="images/video3.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-brand-darkblue/55"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 video-text-light">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-brand-gold font-extrabold uppercase tracking-widest text-4xl" data-en="WHY WE EXIST" data-zh="为什么选择我们" data-ko="WHY WE EXIST">WHY WE EXIST</span>
                 <h2 class="text-3xl md:text-xl font-serif font-bold mt-2" data-en="Wait is too long | Not enough resources | Always too late" data-zh="等待时间过长 | 资源严重匮乏 | 往往错失良机" data-ko="긴 대기 시간 | 의료 자원 부족 | 늦어지는 치료 시기">Wait is too long | Not enough resources | Always too late</h2>
@@ -838,8 +861,15 @@
     </section>
 
     <!-- THE PATH (6-STAGE WORKFLOW) -->
-    <section id="our-path" class="py-20 bg-brand-cream border-b border-slate-100 scroll-mt-28">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="our-path" class="py-20 bg-brand-cream border-b border-slate-100 scroll-mt-28 relative isolate overflow-hidden">
+        <!-- Background video (decorative) + readability overlay -->
+        <div class="bg-video-wrap absolute inset-0 -z-10 overflow-hidden bg-cover bg-center" style="background-image: url('images/video2-poster.jpg');" aria-hidden="true">
+            <video class="bg-video absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline preload="metadata" poster="images/video2-poster.jpg">
+                <source src="images/video2.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-brand-cream/50"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 video-text-dark">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-brand-gold font-extrabold uppercase tracking-widest text-4xl" data-en="HOW WE DO IT" data-zh="服务流程" data-ko="HOW WE DO IT">HOW WE DO IT</span>
                 <h2 class="text-3xl md:text-xl font-serif font-bold mt-2" data-en="6 simple steps designed for you to move at your own pace" data-zh="清晰透明的 6 步定制流程，让您安心掌控节奏" data-ko="고객 맞춤형 체계적인 6단계 케어 프로세스">6 simple steps designed for you to move at your own pace</h2>
@@ -853,7 +883,7 @@
                         <i class="fa-solid fa-check"></i>
                     </div>
                     <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Stage 1" data-zh="第一阶段" data-ko="1단계">Stage 1</h3>
-                    <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
+                    <ul class="text-slate-700 font-medium space-y-1.5 text-base leading-snug">
                         <li data-en="Consultation" data-zh="初步咨询" data-ko="초기 맞춤 상담">Consultation</li>
                         <li data-en="Options Analysis" data-zh="方案评估" data-ko="대안 및 옵션 분석">Options Analysis</li>
                         <li data-en="Budget Analysis" data-zh="预算规划" data-ko="예산 산정 및 확정">Budget Analysis</li>
@@ -866,7 +896,7 @@
                         <i class="fa-solid fa-plane"></i>
                     </div>
                     <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Stage 2" data-zh="第二阶段" data-ko="2단계">Stage 2</h3>
-                    <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
+                    <ul class="text-slate-700 font-medium space-y-1.5 text-base leading-snug">
                         <li data-en="Travel Coordination" data-zh="行程协调" data-ko="여행 일정 조율">Travel Coordination</li>
                         <li data-en="Travel Preparation" data-zh="出行准备" data-ko="비자 및 서류 준비">Travel Preparation</li>
                         <li data-en="Travel Confirmation" data-zh="行程确认" data-ko="최종 출국 일정 확정">Travel Confirmation</li>
@@ -879,7 +909,7 @@
                         <i class="fa-solid fa-location-dot"></i>
                     </div>
                     <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Stage 3" data-zh="第三阶段" data-ko="3단계">Stage 3</h3>
-                    <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
+                    <ul class="text-slate-700 font-medium space-y-1.5 text-base leading-snug">
                         <li data-en="Travel to Location" data-zh="顺利抵达" data-ko="현지 안전 도착">Travel to Location</li>
                         <li data-en="Link-up with Local Host" data-zh="接待对接" data-ko="현지 전담 가이드 미팅">Link-up with Local Host</li>
                         <li data-en="Hospital Tour" data-zh="医院参观" data-ko="병원 오리엔테이션">Hospital Tour</li>
@@ -892,7 +922,7 @@
                         <i class="fa-solid fa-stethoscope"></i>
                     </div>
                     <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Stage 4" data-zh="第四阶段" data-ko="4단계">Stage 4</h3>
-                    <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
+                    <ul class="text-slate-700 font-medium space-y-1.5 text-base leading-snug">
                         <li data-en="Triage" data-zh="分诊问诊" data-ko="예비 진찰 및 예진">Triage</li>
                         <li data-en="Opted Tests &amp; Scans" data-zh="精准体检" data-ko="정밀 검사 및 정밀 스캔">Opted Tests & Scans</li>
                         <li data-en="Optional Guided Scenic Tour" data-zh="观光体验 (可选)" data-ko="선택형 현지 휴양 투어">Optional Guided Scenic Tour</li>
@@ -905,7 +935,7 @@
                         <i class="fa-solid fa-syringe"></i>
                     </div>
                     <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Stage 5" data-zh="第五阶段" data-ko="5단계">Stage 5</h3>
-                    <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
+                    <ul class="text-slate-700 font-medium space-y-1.5 text-base leading-snug">
                         <li data-en="Results Debrief with Physician" data-zh="医生解解读" data-ko="의료진 결과 상담">Results Debrief with Physician</li>
                         <li data-en="Opted Treatments" data-zh="实施方案" data-ko="맞춤 치료 시술 진행">Opted Treatments</li>
                     </ul>
@@ -917,7 +947,7 @@
                         <i class="fa-solid fa-house"></i>
                     </div>
                     <h3 class="font-bold text-brand-darkblue text-2xl mb-2 font-serif" data-en="Stage 6" data-zh="第六阶段" data-ko="6단계">Stage 6</h3>
-                    <ul class="text-slate-600 space-y-1.5 text-base leading-snug">
+                    <ul class="text-slate-700 font-medium space-y-1.5 text-base leading-snug">
                         <li data-en="Return Home" data-zh="启程归国" data-ko="귀국 케어">Return Home</li>
                         <li data-en="Trip Debrief" data-zh="行程复盘" data-ko="사후 모니터링">Trip Debrief</li>
                         <li data-en="Finalize Payment" data-zh="费用结算" data-ko="최종 정산 마무리">Finalize Payment</li>
@@ -998,7 +1028,14 @@
     </section>
 
     <!-- CONTACT FORM & FINAL CTA -->
-    <section id="contact" class="py-20 bg-slate-900 text-white relative scroll-mt-28 isolate">
+    <section id="contact" class="py-20 bg-slate-900 text-white relative scroll-mt-28 isolate overflow-hidden">
+        <!-- Background video (decorative) + readability overlay -->
+        <div class="bg-video-wrap absolute inset-0 -z-10 overflow-hidden bg-cover bg-center" style="background-image: url('images/video4-poster.jpg');" aria-hidden="true">
+            <video class="bg-video absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline preload="metadata" poster="images/video4-poster.jpg">
+                <source src="images/video4.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-slate-900/80"></div>
+        </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
@@ -1191,7 +1228,7 @@
                                 <h4 class="font-bold text-lg text-brand-darkblue" data-en="How do I get started?" data-zh="我该如何开始？" data-ko="어떻게 시작하나요?">How do I get started?</h4>
                                 <i class="fa-solid fa-chevron-down text-brand-teal transition-transform duration-300 group-open:rotate-180"></i>
                             </summary>
-                            <p class="text-slate-600 px-6 pb-6 leading-relaxed" data-en="Book a free initial consultation through the contact form below or email us at support@elitepriorityhealth.ca. We will review your health goals, map out your options, and prepare a budget analysis tailored to you." data-zh="您可以通过下方联系表单或发送电子邮件至 support@elitepriorityhealth.ca 预约免费首次咨询。我们将了解您的健康目标，梳理可选方案，并为您量身制定预算分析。" data-ko="아래 문의 양식을 작성하시거나 support@elitepriorityhealth.ca로 이메일을 보내 무료 초기 상담을 예약하세요. 고객님의 건강 목표를 검토하고, 가능한 옵션을 정리하여 맞춤형 예산 분석을 준비해 드립니다.">Book a free initial consultation through the contact form below or email us at support@elitepriorityhealth.ca. We will review your health goals, map out your options, and prepare a budget analysis tailored to you.</p>
+                            <p class="text-slate-600 px-6 pb-6 leading-relaxed" data-en="Book a free initial consultation through the contact form above or email us at support@elitepriorityhealth.ca. We will review your health goals, map out your options, and prepare a budget analysis tailored to you." data-zh="您可以通过上方联系表单或发送电子邮件至 support@elitepriorityhealth.ca 预约免费首次咨询。我们将了解您的健康目标，梳理可选方案，并为您量身制定预算分析。" data-ko="위 문의 양식을 작성하시거나 support@elitepriorityhealth.ca로 이메일을 보내 무료 초기 상담을 예약하세요. 고객님의 건강 목표를 검토하고, 가능한 옵션을 정리하여 맞춤형 예산 분석을 준비해 드립니다.">Book a free initial consultation through the contact form above or email us at support@elitepriorityhealth.ca. We will review your health goals, map out your options, and prepare a budget analysis tailored to you.</p>
                         </details>
                     </div>
                 </div>
