@@ -1,0 +1,57 @@
+# robots.txt for elitepriorityhealth.com
+# All search engines and AI assistants are welcome to read this site.
+
+User-agent: *
+Allow: /
+
+# --- AI search & assistant crawlers (explicitly allowed) ---
+# OpenAI / ChatGPT
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic / Claude
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google Gemini / AI Overviews
+User-agent: Google-Extended
+Allow: /
+
+# Apple Intelligence / Siri
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Microsoft Bing / Copilot
+User-agent: Bingbot
+Allow: /
+
+# Chinese & Korean search engines (for zh / ko audiences)
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Yeti
+Allow: /
+
+Sitemap: https://elitepriorityhealth.com/sitemap.xml
